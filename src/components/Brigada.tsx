@@ -24,7 +24,7 @@ export default function Brigada() {
               />
               <div className="relative w-full h-full rounded-full overflow-hidden ring-2 ring-[#0A0806]/25 shadow-[0_26px_60px_rgba(10,8,6,0.45)]">
                 <VideoFondo
-                  className="w-full h-full object-cover scale-[1.35]"
+                  className="w-full h-full object-cover"
                   src="/video/moneda.mp4"
                   poster="/video/moneda-poster.jpg"
                 />

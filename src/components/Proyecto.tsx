@@ -132,7 +132,7 @@ export default function Proyecto() {
                 style={{ transform: `translateY(${offset}px)` }}
               >
                 <VideoFondo
-                  className="w-full h-full object-cover scale-[1.35]"
+                  className="w-full h-full object-cover"
                   src="/video/moneda.mp4"
                   poster="/video/moneda-poster.jpg"
                 />

@@ -12,11 +12,16 @@ export default function Metas() {
         aria-hidden="true"
       />
       {/* Moneda girando de fondo, muy tenue */}
-      <VideoFondo
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.22] pointer-events-none"
-        src="/video/moneda.mp4"
-        poster="/video/moneda-poster.jpg"
-      />
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] max-w-[150vw] aspect-square opacity-[0.18]"
+        aria-hidden="true"
+      >
+        <VideoFondo
+          className="w-full h-full object-contain"
+          src="/video/moneda.mp4"
+          poster="/video/moneda-poster.jpg"
+        />
+      </div>
       <div
         className="absolute inset-0 bg-gradient-to-b from-[#0A0806] via-[#0A0806]/70 to-[#0A0806] pointer-events-none"
         aria-hidden="true"
