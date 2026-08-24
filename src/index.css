@@ -1,0 +1,280 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Suisse Intl', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-scale {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+.animate-fade-up    { animation: fade-up    0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-down  { animation: fade-down  0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-left  { animation: fade-left  0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-right { animation: fade-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-scale { animation: fade-scale 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.animate-bar-grow {
+  animation: bar-grow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------------
+   Extensiones del sitio (fuera del hero "Apogee").
+   El hero de arriba queda intacto: sólo animación CSS + animationDelay.
+   Lo de abajo son utilidades de la paleta; las apariciones al hacer
+   scroll las maneja Framer Motion en Reveal.tsx.
+   ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0806;
+}
+
+/* Seguro: las entradas laterales de Framer arrancan 28px fuera de sitio y en
+   pantallas angostas podrían asomar una barra horizontal mientras animan. */
+body {
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: #F7931A;
+  color: #0A0707;
+}
+
+/* Scrollbar oscuro y discreto */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0A0806; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(247,147,26,0.55); }
+
+
+/* Marquee infinito */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 42s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 70s linear infinite reverse;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Órbita / flotación de elementos decorativos */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-22px) rotate(3deg); }
+}
+.animate-float { animation: float-y 9s ease-in-out infinite; }
+.animate-float-slow { animation: float-y 14s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 40s linear infinite; }
+
+/* Pulso naranja Bitcoin */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.06); }
+}
+.animate-pulse-glow { animation: pulse-glow 5s ease-in-out infinite; }
+
+/* Trazo Lightning que se dibuja */
+@keyframes draw-line {
+  from { stroke-dashoffset: var(--dash, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+.animate-draw {
+  stroke-dasharray: var(--dash, 1000);
+  animation: draw-line 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Barrido de brillo sobre tarjetas */
+@keyframes sheen {
+  from { transform: translateX(-120%) skewX(-18deg); }
+  to   { transform: translateX(320%)  skewX(-18deg); }
+}
+.group:hover .animate-sheen { animation: sheen 1.1s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Cuenta regresiva / dígitos tabulares */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------------
+   Paleta Brigada: naranja Bitcoin + dorado sobre negro y blanco
+   ------------------------------------------------------------------ */
+
+:root {
+  --negro: #0A0806;
+  --negro-profundo: #050403;
+  --naranja: #F7931A;
+  --naranja-hondo: #C96F08;
+  --oro: #E8B45A;
+  --oro-claro: #FFD98E;
+  --blanco: #FFFFFF;
+}
+
+/* Texto con degradado naranja -> dorado */
+.texto-oro {
+  background: linear-gradient(100deg, var(--naranja) 0%, var(--oro-claro) 48%, var(--oro) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Filo dorado de 1px alrededor de una tarjeta */
+.borde-oro {
+  position: relative;
+}
+.borde-oro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(247,147,26,0.55), rgba(232,180,90,0.18) 45%, rgba(255,255,255,0.06));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+/* Resplandor naranja que late detrás de un elemento */
+.halo-naranja::after {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247,147,26,0.42) 0%, rgba(247,147,26,0) 68%);
+  filter: blur(28px);
+  z-index: -1;
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* Barras del chart: naranja abajo -> dorado arriba */
+.barra-oro {
+  background: linear-gradient(to top, var(--naranja-hondo), var(--naranja) 45%, var(--oro-claro)) !important;
+}
+
+/* Cinta diagonal tipo señalética de brigada */
+.cinta-brigada {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(10, 8, 6, 0.92) 0px,
+    rgba(10, 8, 6, 0.92) 14px,
+    rgba(247, 147, 26, 0.95) 14px,
+    rgba(247, 147, 26, 0.95) 28px
+  );
+}
+
+/* ------------------------------------------------------------------
+   Mapa de adopción (Leaflet)
+   ------------------------------------------------------------------ */
+
+.pin-comercio,
+.pin-ruta {
+  display: block;
+  border-radius: 50%;
+}
+
+.pin-comercio {
+  width: 18px;
+  height: 18px;
+  background: var(--naranja);
+  border: 2px solid #0A0806;
+  box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.28), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.pin-ruta {
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  border: 2px solid rgba(232, 180, 90, 0.75);
+}
+
+/* Leaflet trae su propio look claro; lo alineamos con la paleta */
+.leaflet-container {
+  background: #11100F;
+  font-family: inherit;
+}
+/* El basemap oscuro de CARTO queda casi negro sobre nuestro fondo:
+   le subimos brillo y le damos un tinte cálido para que las calles se lean. */
+.leaflet-tile {
+  filter: brightness(1.55) contrast(1.12) sepia(0.22) hue-rotate(-8deg) saturate(1.25);
+}
+.leaflet-tooltip {
+  background: rgba(10, 8, 6, 0.94);
+  border: 1px solid rgba(232, 180, 90, 0.28);
+  color: #F5EFE7;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 450;
+  padding: 7px 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.leaflet-tooltip::before { display: none; }
+.leaflet-control-zoom a {
+  background: rgba(10, 8, 6, 0.9);
+  color: #F5EFE7;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.leaflet-control-zoom a:hover {
+  background: rgba(247, 147, 26, 0.85);
+  color: #0A0806;
+}
