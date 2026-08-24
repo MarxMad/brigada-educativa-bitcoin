@@ -20,9 +20,9 @@ function App() {
       <ProveedorMotion>
         <Hero />
         <Marquee />
-        <Zacatlan />
         <Proyecto />
         <Brigada />
+        <Zacatlan />
         <Ruta />
         <Mapa />
         <Metas />

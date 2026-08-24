@@ -12,7 +12,6 @@ export const en: Diccionario = {
     fin: 'September 20, 2026',
     inicioISO: '2026-08-24',
     duracion: '4 weeks',
-    presupuesto: '$1,000 USD',
   },
 
   nav: {
@@ -38,8 +37,14 @@ export const en: Diccionario = {
     ctaPrimario: 'See the plan',
     ctaSecundario: 'Become a sponsor',
     arrancaEn: 'Starts in',
+    hoyArranca: 'Starts today',
     enMarcha: 'Under way',
     terminada: 'Brigade complete',
+    hoyToca: 'Today',
+    primerDia: 'Day one',
+    siguienteEnPlan: 'Up next',
+    verTemario: 'See the agenda',
+    horaSede: '09:00 · Zacatlán',
     semanaCorta: 'Week',
     tarjetaLabel: 'People to train',
     tarjetaUnidad: ' people',
@@ -133,8 +138,14 @@ export const en: Diccionario = {
     eyebrow: 'Operating plan',
     tituloDestacado: 'Four weeks',
     tituloB: ', street by street',
-    resultado: 'Outcome',
+    resultado: 'Week outcome',
     semanaLabel: 'Week',
+    semanasNav: 'Plan weeks',
+    diasNav: 'Days of the week',
+    temario: 'Day agenda',
+    de: 'of',
+    anterior: 'Previous',
+    siguiente: 'Next',
     semanas: [
       {
         id: 's1',
@@ -329,6 +340,9 @@ export const en: Diccionario = {
     titulo: 'What stays behind on day 28',
     bajada:
       'Every number is recorded on a public adoption map. The process is open, measurable and auditable by the community.',
+    elige: 'Pick a goal',
+    tableroLabel: 'Goals board',
+    deLaMasAlta: 'relative to the highest goal',
     items: [
       { valor: 21, label: 'Shops running on Lightning', nota: 'Goal at the close of week 4' },
       { valor: 50, label: 'Women with their own wallet', nota: 'Consciousness Brunch · Unlock Summit' },
@@ -343,13 +357,6 @@ export const en: Diccionario = {
       { rol: 'Facilitators', detalle: 'Workshops, technical support and brigades.', cantidad: '3' },
       { rol: 'Volunteer assistants', detalle: 'Support with logistics and registration.', cantidad: '3' },
     ],
-    recursosTitulo: 'What it takes',
-    recursos: [
-      'Base cabin equipped with WiFi and a projector.',
-      'Printed material: signage, infographics and manuals.',
-      '“Bitcoin accepted here” signage and registration on the public adoption map.',
-    ],
-    presupuestoLabel: 'Execution\nbudget',
   },
 
   prensa: {
@@ -364,9 +371,14 @@ export const en: Diccionario = {
     ],
     enMedios: 'In the media',
     medio: 'Crypto India Magazine',
-    nota: 'Published on August 15, 2026 in Crypto India Magazine.',
+    articulo: 'The Women-Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
+    nota: 'Narrative Vol. 1 · Issue 2. A feature on UNLOCK Universe and Zacatlán de las Manzanas.',
     cita:
-      'An interview on emerging Bitcoin circular economies and the role of Zacatlán de las Manzanas as a case study.',
+      'How a women-led project set out to build Mexico’s first Bitcoin Pueblo Mágico.',
+    revistaUrl: 'https://cryptoindiamagazine.aflip.in/narrative-v1-i2.html',
+    revistaCta: 'Read the magazine',
+    pdfCta: 'Download PDF',
+    pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Institutional backing',
     respaldos: [
       { nombre: 'Government of the State of Puebla', estado: 'Confirmed' },
@@ -378,10 +390,10 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-12 sm:h-14' },
-      { nombre: 'Unlock Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12' },
-      { nombre: 'Unlock Agency', img: '/img/logo-unlock-agency.png', alto: 'h-10 sm:h-12' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-48 lg:h-36 max-w-[92%]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-24 sm:h-40 lg:h-28 max-w-[94%]' },
+      { nombre: 'Unlock Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-full' },
+      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam.jpg', alto: 'h-28 sm:h-40 lg:h-32 max-w-[90%]' },
     ],
   },
 
@@ -389,7 +401,7 @@ export const en: Diccionario = {
     eyebrow: 'Every satoshi counts',
     titulo: 'Fund a whole brigade',
     bajada:
-      'The project’s execution budget is $1,000 USD: the cabin equipped, the printed material, and the facilitators’ stipends across the four weeks.',
+      'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
     escanea: 'Scan to donate over Lightning',
     copiar: 'Copy address',
     copiado: 'Copied',

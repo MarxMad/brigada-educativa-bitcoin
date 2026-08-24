@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import { useT, BotonIdioma } from '@/i18n';
 import { useCuentaRegresiva } from '@/components/useCuentaRegresiva';
@@ -41,82 +41,144 @@ function Animate({ children, delay = 0, className = '', direction = 'up' }: Anim
 }
 
 /**
- * Estado en vivo de la brigada. Antes del arranque muestra la cuenta regresiva;
- * durante las cuatro semanas, en qué semana va y qué toca. Sin datos inventados:
- * todo sale de las fechas reales y del plan operativo del deck.
+ * Estado en vivo de la brigada. En las últimas horas muestra el reloj y lo que
+ * toca hoy; durante las cuatro semanas, el bloque del día. Sin datos inventados:
+ * fechas reales y temario del plan operativo.
  */
 function TarjetaBrigada() {
   const t = useT();
-  const { estado, semanaActual, dias, horas, minutos } = useCuentaRegresiva();
+  const { estado, semanaActual, dias, horas, minutos, segundos, mismaFechaInicio, actividad } =
+    useCuentaRegresiva();
 
   const semanas = t.ruta.semanas;
   const semanaFoco = estado === 'antes' ? semanas[0] : semanas[semanaActual - 1];
-  const completadas = estado === 'antes' ? 0 : estado === 'terminada' ? 4 : semanaActual;
+  const bloque =
+    actividad != null ? semanas[actividad.semana - 1].bloques[actividad.bloqueIdx] : null;
+  const etiquetaEstado =
+    estado === 'terminada'
+      ? t.hero.terminada
+      : estado === 'enCurso'
+        ? t.hero.enMarcha
+        : mismaFechaInicio
+          ? t.hero.hoyArranca
+          : t.hero.arrancaEn;
+  const etiquetaBloque = actividad?.esHoy
+    ? t.hero.hoyToca
+    : estado === 'antes'
+      ? t.hero.primerDia
+      : t.hero.siguienteEnPlan;
 
-  const reloj = [
-    { valor: dias, label: t.contacto.unidades.dias },
-    { valor: horas, label: t.contacto.unidades.horas },
-    { valor: minutos, label: t.contacto.unidades.minutos },
-  ];
+  const reloj =
+    estado === 'antes' && dias === 0
+      ? [
+          { valor: horas, label: t.contacto.unidades.horas },
+          { valor: minutos, label: t.contacto.unidades.minutos },
+          { valor: segundos, label: t.contacto.unidades.segundos },
+        ]
+      : [
+          { valor: dias, label: t.contacto.unidades.dias },
+          { valor: horas, label: t.contacto.unidades.horas },
+          { valor: minutos, label: t.contacto.unidades.minutos },
+        ];
 
   return (
-    <Animate delay={900} direction="scale" className="w-full max-w-[405px] mx-auto lg:mx-0">
-      <div className="borde-oro w-full rounded-[24px] sm:rounded-[33px] bg-[rgba(10,8,6,0.62)] backdrop-blur-[24px] p-5 sm:p-8">
-        <p className="flex items-center gap-2.5 mb-5 sm:mb-6">
-          <span className="relative flex w-[7px] h-[7px]">
-            <span className="absolute inline-flex w-full h-full rounded-full bg-[#F7931A] opacity-70 animate-ping" />
-            <span className="relative inline-flex w-[7px] h-[7px] rounded-full bg-[#F7931A]" />
+    <Animate delay={900} direction="scale" className="w-full max-w-[420px] mx-auto lg:mx-0">
+      <div className="borde-oro w-full rounded-[24px] sm:rounded-[33px] bg-[rgba(10,8,6,0.62)] backdrop-blur-[24px] p-5 sm:p-7">
+        <p className="flex items-center justify-between gap-3 mb-5">
+          <span className="flex items-center gap-2.5">
+            <span className="relative flex w-[7px] h-[7px]">
+              <span className="absolute inline-flex w-full h-full rounded-full bg-[#F7931A] opacity-70 animate-ping" />
+              <span className="relative inline-flex w-[7px] h-[7px] rounded-full bg-[#F7931A]" />
+            </span>
+            <span className="text-white/70 text-[12px] sm:text-[13px] font-[450] leading-none uppercase tracking-[0.16em]">
+              {etiquetaEstado}
+            </span>
           </span>
-          <span className="text-white/70 text-[12px] sm:text-[13px] font-[450] leading-none uppercase tracking-[0.16em]">
-            {estado === 'antes' ? t.hero.arrancaEn : estado === 'enCurso' ? t.hero.enMarcha : t.hero.terminada}
-          </span>
+          {estado === 'antes' && (
+            <span className="text-white/40 text-[11px] font-[450] leading-none">{t.hero.horaSede}</span>
+          )}
         </p>
 
         {estado === 'antes' ? (
-          <div className="flex items-end gap-4 sm:gap-6 mb-6 sm:mb-7">
-            {reloj.map((u) => (
-              <div key={u.label} className="flex flex-col">
-                <span className="texto-oro text-[40px] sm:text-[54px] font-normal leading-[0.85] tnum">
-                  {String(u.valor).padStart(2, '0')}
-                </span>
-                <span className="mt-2 text-white/45 text-[11px] sm:text-[12px] font-[450] leading-none">
-                  {u.label}
-                </span>
+          <div className="flex items-end mb-5">
+            {reloj.map((u, i) => (
+              <div key={u.label} className="flex items-end">
+                {i > 0 && (
+                  <span className="texto-oro text-[28px] sm:text-[36px] font-normal leading-[0.85] px-2 sm:px-2.5 pb-[2px] opacity-35">
+                    :
+                  </span>
+                )}
+                <div className="flex flex-col">
+                  <span className="texto-oro text-[36px] sm:text-[48px] font-normal leading-[0.85] tnum">
+                    {String(u.valor).padStart(2, '0')}
+                  </span>
+                  <span className="mt-2 text-white/45 text-[11px] font-[450] leading-none">{u.label}</span>
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="mb-6 sm:mb-7">
-            <span className="texto-oro text-[40px] sm:text-[54px] font-normal leading-[0.85] tnum">
+          <p className="mb-5">
+            <span className="texto-oro text-[36px] sm:text-[48px] font-normal leading-[0.85] tnum">
               {t.hero.semanaCorta} {semanaActual}
             </span>
-            <span className="text-white/25 text-[24px] sm:text-[30px] font-[450] leading-none"> / 4</span>
+            <span className="text-white/25 text-[22px] sm:text-[28px] font-[450] leading-none"> / 4</span>
           </p>
         )}
 
-        {/* Las cuatro semanas del plan: se llenan conforme avanza */}
-        <div className="flex gap-[5px] mb-4" role="img" aria-label={`${completadas} / 4`}>
-          {semanas.map((s, i) => (
-            <span
-              key={s.id}
-              className={`h-[5px] flex-1 rounded-full transition-colors duration-500 ${
-                i < completadas ? 'bg-gradient-to-r from-[#F7931A] to-[#E8B45A]' : 'bg-white/[0.12]'
-              }`}
-            />
-          ))}
-        </div>
+        {bloque && (
+          <div className="rounded-[16px] bg-white/[0.05] border border-white/[0.07] p-4 sm:p-[18px] mb-5">
+            <p className="text-[#F7931A] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
+              {etiquetaBloque}
+              <span className="text-white/35"> · {bloque.dias}</span>
+            </p>
+            <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.25] mb-3">
+              {bloque.titulo}
+            </p>
+            <ul className="flex flex-col gap-2 mb-4">
+              {bloque.puntos.slice(0, 2).map((punto) => (
+                <li key={punto} className="flex gap-2.5">
+                  <span className="w-[4px] h-[4px] mt-[7px] shrink-0 rounded-full bg-[#F7931A]" />
+                  <span className="text-white/60 text-[13px] font-[450] leading-[1.4]">{punto}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#ruta"
+              className="inline-flex items-center gap-1.5 text-[#E8B45A] text-[13px] font-[450] leading-none hover:text-[#FFD98E] transition-colors"
+            >
+              {t.hero.verTemario}
+              <ArrowRight className="w-[13px] h-[13px]" />
+            </a>
+          </div>
+        )}
 
-        <div className="pt-4 border-t border-white/[0.08]">
-          <p className="text-[#E8B45A]/80 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
-            {t.ruta.semanaLabel} {semanaFoco.numero} · {semanaFoco.fechas}
-          </p>
-          <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.25] mb-3">
-            {semanaFoco.nombre}
-          </p>
-          <p className="text-white/55 text-[13px] sm:text-[13.5px] font-[450] leading-[1.45]">
-            {semanaFoco.meta}
-          </p>
+        {estado === 'terminada' && (
+          <p className="text-white/60 text-[14px] font-[450] leading-[1.4] mb-5">{semanaFoco.meta}</p>
+        )}
+
+        <div className="flex gap-[5px] mb-3" role="img" aria-label={`${t.ruta.semanaLabel} ${semanaFoco.numero} ${t.ruta.de} 04`}>
+          {semanas.map((s, i) => {
+            const actual = estado === 'antes' ? 0 : estado === 'terminada' ? 4 : semanaActual - 1;
+            const hecha = estado === 'terminada' || (estado === 'enCurso' && i < actual);
+            const enFoco = (estado === 'antes' && i === 0) || (estado === 'enCurso' && i === actual);
+            return (
+              <span
+                key={s.id}
+                className={`h-[5px] flex-1 rounded-full transition-colors duration-500 ${
+                  hecha
+                    ? 'bg-gradient-to-r from-[#F7931A] to-[#E8B45A]'
+                    : enFoco
+                      ? 'bg-[#F7931A]/55 animate-pulse'
+                      : 'bg-white/[0.12]'
+                }`}
+              />
+            );
+          })}
         </div>
+        <p className="text-white/40 text-[12px] font-[450] leading-[1.35]">
+          {t.ruta.semanaLabel} {semanaFoco.numero} · {semanaFoco.fechas}
+        </p>
       </div>
     </Animate>
   );

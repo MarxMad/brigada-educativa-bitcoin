@@ -26,7 +26,7 @@ export default function Zacatlan() {
   };
 
   return (
-    <section id="zacatlan" className="relative bg-[#0A0806] border-t border-white/[0.06]">
+    <section id="zacatlan" className="relative bg-[#0A0806]">
       <div className="w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-20 sm:py-28">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 sm:mb-12">
           <div className="max-w-[680px]">

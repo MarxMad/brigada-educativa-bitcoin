@@ -18,13 +18,13 @@ export default function Aliados() {
             <Tarjeta
               key={aliado.nombre}
               delay={i * 90}
-              className="h-full rounded-[20px] sm:rounded-[24px] bg-white/[0.97] border border-white/[0.06] p-6 sm:p-8 flex items-center justify-center min-h-[130px] sm:min-h-[160px]"
+              className="h-full rounded-[20px] sm:rounded-[24px] bg-white/[0.97] border border-white/[0.06] p-4 sm:p-5 lg:p-6 flex items-center justify-center min-h-[160px] sm:min-h-[240px] lg:min-h-[200px]"
             >
               <img
                 src={aliado.img}
                 alt={aliado.nombre}
                 loading="lazy"
-                className={`${aliado.alto} w-auto max-w-full object-contain`}
+                className={`${aliado.alto} w-auto object-contain`}
               />
             </Tarjeta>
           ))}

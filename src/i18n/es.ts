@@ -10,7 +10,6 @@ export const es = {
     fin: '20 de septiembre de 2026',
     inicioISO: '2026-08-24',
     duracion: '4 semanas',
-    presupuesto: '$1,000 USD',
   },
 
   nav: {
@@ -36,8 +35,14 @@ export const es = {
     ctaPrimario: 'Ver la ruta',
     ctaSecundario: 'Suma tu marca',
     arrancaEn: 'Arranca en',
+    hoyArranca: 'Hoy arranca',
     enMarcha: 'En marcha',
     terminada: 'Brigada concluida',
+    hoyToca: 'Hoy toca',
+    primerDia: 'El primer día',
+    siguienteEnPlan: 'Siguiente en el plan',
+    verTemario: 'Ver el temario',
+    horaSede: '09:00 h · Zacatlán',
     semanaCorta: 'Semana',
     tarjetaLabel: 'Personas por capacitar',
     tarjetaUnidad: ' personas',
@@ -131,8 +136,14 @@ export const es = {
     eyebrow: 'Plan operativo',
     tituloDestacado: 'Cuatro semanas',
     tituloB: ', calle por calle',
-    resultado: 'Resultado',
+    resultado: 'Resultado de la semana',
     semanaLabel: 'Semana',
+    semanasNav: 'Semanas del plan',
+    diasNav: 'Días de la semana',
+    temario: 'Temario del día',
+    de: 'de',
+    anterior: 'Anterior',
+    siguiente: 'Siguiente',
     semanas: [
       {
         id: 's1',
@@ -327,6 +338,9 @@ export const es = {
     titulo: 'Lo que dejamos instalado al día 28',
     bajada:
       'Cada número se registra en un mapa público de adopción. El proceso es abierto, medible y auditable por la comunidad.',
+    elige: 'Elige una meta',
+    tableroLabel: 'Tablero de metas',
+    deLaMasAlta: 'respecto a la meta más alta',
     items: [
       { valor: 21, label: 'Comercios operando con Lightning', nota: 'Meta al cierre de la semana 4' },
       { valor: 50, label: 'Mujeres con wallet propia', nota: 'Brunch de Conciencia · Unlock Summit' },
@@ -341,13 +355,6 @@ export const es = {
       { rol: 'Facilitadores', detalle: 'Talleres, soporte técnico y brigadas.', cantidad: '3' },
       { rol: 'Asistentes voluntarios', detalle: 'Apoyo en logística y registro.', cantidad: '3' },
     ],
-    recursosTitulo: 'Recursos necesarios',
-    recursos: [
-      'Cabaña base equipada con WiFi y proyector.',
-      'Material impreso: señalética, infografías y manuales.',
-      'Señalética «Aceptamos Bitcoin» y registro en mapa público de adopción.',
-    ],
-    presupuestoLabel: 'Presupuesto de\nejecución',
   },
 
   prensa: {
@@ -362,9 +369,14 @@ export const es = {
     ],
     enMedios: 'En medios',
     medio: 'Crypto India Magazine',
-    nota: 'Nota publicada el 15 de agosto de 2026 en Crypto India Magazine.',
+    articulo: 'The Women-Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
+    nota: 'Narrative Vol. 1 · Issue 2. Nota sobre UNLOCK Universe y Zacatlán de las Manzanas.',
     cita:
-      'Entrevista sobre las economías circulares Bitcoin emergentes y el papel de Zacatlán de las Manzanas como caso de estudio.',
+      'Cómo un proyecto liderado por mujeres busca construir el primer Pueblo Mágico Bitcoin de México.',
+    revistaUrl: 'https://cryptoindiamagazine.aflip.in/narrative-v1-i2.html',
+    revistaCta: 'Leer la revista',
+    pdfCta: 'Descargar PDF',
+    pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Respaldo institucional',
     respaldos: [
       { nombre: 'Gobierno del Estado de Puebla', estado: 'Confirmado' },
@@ -376,10 +388,10 @@ export const es = {
   aliados: {
     titulo: 'Aliados del proyecto',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-12 sm:h-14' },
-      { nombre: 'Unlock Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12' },
-      { nombre: 'Unlock Agency', img: '/img/logo-unlock-agency.png', alto: 'h-10 sm:h-12' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-48 lg:h-36 max-w-[92%]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-24 sm:h-40 lg:h-28 max-w-[94%]' },
+      { nombre: 'Unlock Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-full' },
+      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam.jpg', alto: 'h-28 sm:h-40 lg:h-32 max-w-[90%]' },
     ],
   },
 
@@ -387,7 +399,7 @@ export const es = {
     eyebrow: 'Cada satoshi cuenta',
     titulo: 'Financia una brigada completa',
     bajada:
-      'El presupuesto de ejecución del proyecto es de $1,000 USD: la Cabaña equipada, el material impreso y los estipendios de los facilitadores durante las cuatro semanas.',
+      'Tu donación cubre la Cabaña, el material impreso y el trabajo de los facilitadores durante las cuatro semanas.',
     escanea: 'Escanea para donar por Lightning',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',

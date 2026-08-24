@@ -1,12 +1,14 @@
+import { ArrowUpRight, Download } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
+
+const PDF_REVISTA = '/docs/cim-x-unlock-2026.pdf';
 
 export default function Prensa() {
   const t = useT();
 
   return (
     <section id="prensa" className="relative bg-[#0A0806] overflow-hidden border-t border-white/[0.06]">
-      {/* Red Bitcoin flotando de fondo: el proyecto conectado al mundo */}
       <img
         src="/img/btc-network.png"
         alt=""
@@ -53,27 +55,61 @@ export default function Prensa() {
             </ul>
           </div>
 
-          {/* Respaldos */}
-          <Reveal dir="right" delay={120} className="w-full lg:w-[420px] shrink-0">
+          <Reveal dir="right" delay={120} className="w-full lg:w-[480px] shrink-0">
             <div className="lg:sticky lg:top-8 flex flex-col gap-4">
-              <article className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-2 h-2 rounded-full bg-[#F7931A] animate-pulse" />
-                  <span className="text-[#F7931A] text-[11px] font-[450] leading-none uppercase tracking-[0.16em]">
-                    {t.prensa.enMedios}
-                  </span>
+              <article className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] overflow-hidden">
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="w-2 h-2 rounded-full bg-[#F7931A] animate-pulse" />
+                    <span className="text-[#F7931A] text-[11px] font-[450] leading-none uppercase tracking-[0.16em]">
+                      {t.prensa.enMedios}
+                    </span>
+                  </div>
+
+                  <p className="text-white text-[24px] sm:text-[30px] font-[450] leading-[1.1] mb-3">
+                    {t.prensa.medio}
+                  </p>
+                  <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.3] mb-3">
+                    {t.prensa.articulo}
+                  </p>
+                  <p className="text-white/55 text-[14px] font-[450] leading-[1.4] mb-5">
+                    {t.prensa.nota}
+                  </p>
+                  <p className="text-white/75 text-[15px] sm:text-[16px] font-[450] leading-[1.5] pl-5 border-l-2 border-[#F7931A]/50 mb-6">
+                    {t.prensa.cita}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={t.prensa.revistaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 h-[44px] px-4 rounded-[11px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[13px] sm:text-[14px] font-[450] leading-none hover:brightness-110 transition-[filter]"
+                    >
+                      {t.prensa.revistaCta}
+                      <ArrowUpRight className="w-[14px] h-[14px]" />
+                    </a>
+                    <a
+                      href={PDF_REVISTA}
+                      download="CIM-X-UNLOCK-2026.pdf"
+                      className="inline-flex items-center gap-1.5 h-[44px] px-4 rounded-[11px] border border-white/20 text-white text-[13px] sm:text-[14px] font-[450] leading-none hover:bg-white/[0.05] transition-colors"
+                    >
+                      <Download className="w-[14px] h-[14px]" />
+                      {t.prensa.pdfCta}
+                    </a>
+                  </div>
                 </div>
 
-                <p className="text-white text-[24px] sm:text-[30px] font-[450] leading-[1.1] mb-3">
-                  {t.prensa.medio}
-                </p>
-                <p className="text-white/55 text-[14px] font-[450] leading-[1.4] mb-7">
-                  {t.prensa.nota}
-                </p>
-
-                <p className="text-white/75 text-[15px] sm:text-[16px] font-[450] leading-[1.5] pl-5 border-l-2 border-[#F7931A]/50">
-{t.prensa.cita}
-                </p>
+                <div className="hidden sm:block border-t border-white/[0.06] bg-[#11100F]">
+                  <p className="px-6 pt-4 pb-2 text-white/35 text-[11px] font-[450] leading-none uppercase tracking-[0.14em]">
+                    {t.prensa.pdfLabel}
+                  </p>
+                  <iframe
+                    title={t.prensa.pdfLabel}
+                    src={`${PDF_REVISTA}#toolbar=0&navpanes=0`}
+                    className="w-full h-[420px] lg:h-[520px] border-0 bg-[#11100F]"
+                  />
+                </div>
               </article>
 
               <article className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] p-6 sm:p-8">
