@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal, { Tarjeta } from '@/components/Reveal';
+import { MapPin } from 'lucide-react';
 import { useT } from '@/i18n';
 
 /** Desplaza la moneda 3D con el scroll, sin librerías. */
@@ -181,48 +182,63 @@ export default function Proyecto() {
 
           <Reveal delay={80}>
             <h3 className="text-white text-[28px] sm:text-[40px] md:text-[48px] font-normal leading-[1] mb-10 sm:mb-14 max-w-[760px]">
-Siete principios que sostienen la brigada
+{t.proyectoSec.valoresTitulo}
             </h3>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {t.proyectoSec.valores.map((valor, i) => (
               <Tarjeta
                 key={valor.titulo}
                 delay={i * 70}
-                className="group relative h-full overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] p-6 sm:p-7 transition-colors duration-300 hover:border-[#F7931A]/35"
+                levanta={4}
+                className="group relative flex items-start gap-5 sm:gap-7 rounded-[28px] sm:rounded-[40px] bg-[rgba(17,16,15,0.4)] backdrop-blur-[20px] border border-white/[0.07] p-6 sm:p-8 transition-colors duration-300 hover:border-[#F7931A]/35"
               >
+                {/* Medallón redondo con el número */}
+                <span className="relative shrink-0 w-[54px] h-[54px] sm:w-[68px] sm:h-[68px]">
                   <span
-                    className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent animate-sheen"
+                    className="absolute inset-0 rounded-full bg-gradient-to-br from-[#F7931A]/45 to-[#E8B45A]/10 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
                     aria-hidden="true"
                   />
-                  <span className="block text-[12px] font-[450] leading-none text-white/30 mb-5 tnum">
-                    {String(i + 1).padStart(2, '0')}
+                  <span className="absolute inset-[1.5px] rounded-full bg-[#0F0C09] flex items-center justify-center">
+                    <span className="texto-oro text-[18px] sm:text-[22px] font-[450] leading-none tnum">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
                   </span>
-                  <h4 className="text-white text-[19px] sm:text-[21px] font-[450] leading-[1.15] mb-3">
+                </span>
+
+                <span className="min-w-0 pt-1">
+                  <span className="block text-white text-[19px] sm:text-[22px] font-[450] leading-[1.15] mb-2.5">
                     {valor.titulo}
-                  </h4>
-                  <p className="text-white/65 text-[14px] sm:text-[15px] font-[450] leading-[1.45]">
+                  </span>
+                  <span className="block text-white/60 text-[14px] sm:text-[15.5px] font-[450] leading-[1.5]">
                     {valor.texto}
-                  </p>
+                  </span>
+                </span>
               </Tarjeta>
             ))}
 
-            <Reveal delay={t.proyectoSec.valores.length * 70} dir="scale">
-              <article className="relative h-full overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[#F7931A] p-6 sm:p-7 flex flex-col justify-between min-h-[190px]">
-                <p className="text-[#0A0707]/70 text-[12px] font-[450] leading-none uppercase tracking-[0.14em]">
+            {/* Octava celda: la sede, para cerrar la retícula de 2 columnas */}
+            <Tarjeta
+              delay={t.proyectoSec.valores.length * 70}
+              levanta={4}
+              className="relative flex items-start gap-5 sm:gap-7 rounded-[28px] sm:rounded-[40px] bg-gradient-to-br from-[#F7931A] to-[#E8B45A] p-6 sm:p-8 overflow-hidden"
+            >
+              <span className="relative shrink-0 w-[54px] h-[54px] sm:w-[68px] sm:h-[68px] rounded-full bg-[#0A0806]/15 border border-[#0A0806]/20 flex items-center justify-center">
+                <MapPin className="w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] text-[#0A0806]" />
+              </span>
+              <span className="min-w-0 pt-1">
+                <span className="block text-[#0A0806]/60 text-[11px] font-[450] leading-none uppercase tracking-[0.16em] mb-2.5">
                   {t.proyectoSec.sedeLabel}
-                </p>
-                <div>
-                  <h4 className="text-[#0A0707] text-[22px] sm:text-[26px] font-[450] leading-[1.05] mb-2">
-                    {t.proyectoSec.sedeNombre}
-                  </h4>
-                  <p className="text-[#0A0707]/70 text-[14px] font-[450] leading-[1.4]">
-{t.proyectoSec.sedeTexto}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
+                </span>
+                <span className="block text-[#0A0806] text-[19px] sm:text-[22px] font-[450] leading-[1.15] mb-2">
+                  {t.proyectoSec.sedeNombre}
+                </span>
+                <span className="block text-[#0A0806]/70 text-[14px] sm:text-[15px] font-[450] leading-[1.45]">
+                  {t.proyectoSec.sedeTexto}
+                </span>
+              </span>
+            </Tarjeta>
           </div>
         </div>
       </div>

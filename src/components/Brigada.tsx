@@ -1,5 +1,5 @@
 import { DoorOpen, MessagesSquare, Wallet, Store } from 'lucide-react';
-import VideoFondo from '@/components/VideoFondo';
+import NodoLightning from '@/components/NodoLightning';
 import Reveal, { Tarjeta } from '@/components/Reveal';
 import { useT } from '@/i18n';
 
@@ -15,20 +15,18 @@ export default function Brigada() {
 
       <div className="relative w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-20 sm:py-28 md:py-32">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
-          {/* Moneda Bitcoin girando en 3D */}
+          {/* Red Lightning: cada visita de la brigada conecta un nodo más */}
           <Reveal dir="left" className="shrink-0 mx-auto lg:mx-0">
-            <div className="relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px]">
+            <div className="relative w-[260px] h-[260px] sm:w-[330px] sm:h-[330px]">
               <div
-                className="absolute inset-[6%] rounded-full bg-[#0A0806]/40 blur-[38px] translate-y-6"
+                className="absolute inset-[14%] rounded-full border border-[#0A0806]/15"
                 aria-hidden="true"
               />
-              <div className="relative w-full h-full rounded-full overflow-hidden ring-2 ring-[#0A0806]/25 shadow-[0_26px_60px_rgba(10,8,6,0.45)]">
-                <VideoFondo
-                  className="w-full h-full object-cover"
-                  src="/video/moneda.mp4"
-                  poster="/video/moneda-poster.jpg"
-                />
-              </div>
+              <div
+                className="absolute inset-[3%] rounded-full border border-[#0A0806]/10"
+                aria-hidden="true"
+              />
+              <NodoLightning className="relative w-full h-full" />
             </div>
           </Reveal>
 
@@ -46,39 +44,55 @@ export default function Brigada() {
             </Reveal>
             <Reveal delay={140}>
               <p className="text-[#0A0806]/75 text-[16px] sm:text-[19px] font-[450] leading-[1.5] max-w-[620px]">
-{t.brigada.bajada}
+                {t.brigada.bajada}
               </p>
             </Reveal>
           </div>
         </div>
 
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {t.brigada.pasos.map((paso, i) => {
-            const Icono = ICONOS[i];
-            return (
-              <Tarjeta
-                key={paso.titulo}
-                delay={i * 80}
-                levanta={8}
-                className="h-full rounded-[20px] sm:rounded-[24px] bg-[#0A0806] p-6 sm:p-7"
-              >
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="w-[42px] h-[42px] rounded-[12px] bg-[#F7931A]/15 border border-[#F7931A]/30 flex items-center justify-center">
-                      <Icono className="w-[18px] h-[18px] text-[#F7931A]" />
+        <div className="relative mt-16 sm:mt-20">
+          {/* Línea que une los cuatro pasos: es una secuencia, no cuatro cosas sueltas */}
+          <span
+            className="hidden lg:block absolute top-[54px] left-[12%] right-[12%] h-px bg-[#0A0806]/20"
+            aria-hidden="true"
+          />
+
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {t.brigada.pasos.map((paso, i) => {
+              const Icono = ICONOS[i];
+              return (
+                <Tarjeta
+                  key={paso.titulo}
+                  delay={i * 90}
+                  levanta={8}
+                  className="group flex flex-col items-center text-center"
+                >
+                  {/* Medallón redondo */}
+                  <span className="relative w-[76px] h-[76px] sm:w-[88px] sm:h-[88px] shrink-0 mb-6">
+                    <span
+                      className="absolute inset-0 rounded-full bg-[#F7931A] ring-8 ring-[#F7931A]"
+                      aria-hidden="true"
+                    />
+                    <span className="absolute inset-0 rounded-full bg-[#0A0806] flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
+                      <Icono className="w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] text-[#F7931A]" />
                     </span>
-                    <span className="text-[#E8B45A]/45 text-[13px] font-[450] leading-none tnum">
-                      {String(i + 1).padStart(2, '0')}
+                    <span className="absolute -top-1 -right-1 w-[26px] h-[26px] rounded-full bg-[#0A0806] border-[3px] border-[#F7931A] flex items-center justify-center">
+                      <span className="text-[#E8B45A] text-[11px] font-[450] leading-none tnum">
+                        {i + 1}
+                      </span>
                     </span>
-                  </div>
-                  <h3 className="text-white text-[18px] sm:text-[20px] font-[450] leading-[1.15] mb-3">
+                  </span>
+
+                  <h3 className="text-[#0A0806] text-[19px] sm:text-[21px] font-[450] leading-[1.15] mb-3 max-w-[220px]">
                     {paso.titulo}
                   </h3>
-                  <p className="text-white/60 text-[14px] sm:text-[15px] font-[450] leading-[1.45]">
+                  <p className="text-[#0A0806]/70 text-[14px] sm:text-[15px] font-[450] leading-[1.5] max-w-[260px]">
                     {paso.texto}
                   </p>
-              </Tarjeta>
-            );
-          })}
+                </Tarjeta>
+              );
+            })}
+          </div>
         </div>
       </div>
 
