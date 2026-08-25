@@ -228,7 +228,8 @@ body {
    ------------------------------------------------------------------ */
 
 .pin-comercio,
-.pin-ruta {
+.pin-ruta,
+.pin-btcmap {
   display: block;
   border-radius: 50%;
 }
@@ -239,6 +240,14 @@ body {
   background: var(--naranja);
   border: 2px solid #0A0806;
   box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.28), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.pin-btcmap {
+  width: 14px;
+  height: 14px;
+  background: #F7931A;
+  border: 2px solid #F5EFE7;
+  box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.22);
 }
 
 .pin-ruta {
@@ -277,4 +286,48 @@ body {
 .leaflet-control-zoom a:hover {
   background: rgba(247, 147, 26, 0.85);
   color: #0A0806;
+}
+
+.leaflet-popup.popup-btc-wrap .leaflet-popup-content-wrapper {
+  background: rgba(10, 8, 6, 0.96);
+  border: 1px solid rgba(232, 180, 90, 0.28);
+  border-radius: 12px;
+  color: #F5EFE7;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+.leaflet-popup.popup-btc-wrap .leaflet-popup-tip {
+  background: rgba(10, 8, 6, 0.96);
+  border: 1px solid rgba(232, 180, 90, 0.28);
+}
+.leaflet-popup.popup-btc-wrap .leaflet-popup-content {
+  margin: 12px 14px;
+}
+.popup-btc-kicker {
+  margin: 0 0 6px;
+  color: #F7931A;
+  font-size: 10px;
+  font-weight: 450;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.popup-btc-nombre {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 1.25;
+}
+.popup-btc-dir {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.popup-btc-link {
+  color: #E8B45A;
+  font-size: 12.5px;
+  font-weight: 450;
+  text-decoration: none;
+}
+.popup-btc-link:hover {
+  text-decoration: underline;
 }

@@ -3,7 +3,7 @@ import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 
-const INICIO = new Date('2026-08-24T09:00:00-06:00').getTime();
+import { INICIO_BRIGADA } from '@/components/useCuentaRegresiva';
 
 function useCountdown(target: number) {
   const [now, setNow] = useState(() => Date.now());
@@ -25,7 +25,7 @@ function useCountdown(target: number) {
 
 export default function Contacto() {
   const t = useT();
-  const { dias, horas, minutos, segundos, empezo } = useCountdown(INICIO);
+  const { dias, horas, minutos, segundos, empezo } = useCountdown(INICIO_BRIGADA);
 
   const unidades = [
     { valor: dias, label: t.contacto.unidades.dias },

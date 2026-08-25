@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, Target } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, Calendar, ChevronLeft, ChevronRight, ExternalLink, Target } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
+import { CALENDARIO_LUMA, CALENDARIO_LUMA_EMBED, RUTA_UNIVERSITARIA } from '@/config/enlaces';
 
 export default function Ruta() {
   const t = useT();
@@ -20,6 +21,20 @@ export default function Ruta() {
     setSemanaIdx(i);
     setDiaIdx(0);
   };
+
+  useEffect(() => {
+    const aplicarHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      const idx = ['s1', 's2', 's3', 's4'].indexOf(hash.replace('ruta-', ''));
+      if (idx >= 0) {
+        setSemanaIdx(idx);
+        setDiaIdx(0);
+      }
+    };
+    aplicarHash();
+    window.addEventListener('hashchange', aplicarHash);
+    return () => window.removeEventListener('hashchange', aplicarHash);
+  }, []);
 
   const irAnterior = () => {
     if (diaActual > 0) {
@@ -67,6 +82,11 @@ export default function Ruta() {
                 {t.ruta.tituloB}
               </h2>
             </Reveal>
+            <Reveal delay={110}>
+              <p className="mt-5 text-white/65 text-[15px] sm:text-[17px] font-[450] leading-[1.45] max-w-[640px]">
+                {t.ruta.bajada}
+              </p>
+            </Reveal>
           </div>
 
           <Reveal delay={140} dir="right">
@@ -92,19 +112,26 @@ export default function Ruta() {
                   key={s.id}
                   type="button"
                   role="tab"
-                  id={`semana-tab-${s.id}`}
+                  id={`ruta-${s.id}`}
                   aria-selected={isActive}
                   aria-controls="semana-panel"
                   onClick={() => irASemana(i)}
-                  className={`text-left rounded-[16px] sm:rounded-[18px] px-4 py-4 sm:px-5 sm:py-5 border transition-colors duration-300 ${
+                  className={`relative scroll-mt-8 text-left rounded-[16px] sm:rounded-[18px] px-4 py-4 sm:px-5 sm:py-5 border transition-colors duration-300 ${
                     isActive
                       ? 'bg-white/[0.08] border-[#F7931A]/50'
-                      : 'bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.055] hover:border-white/[0.12]'
+                      : s.destacada
+                        ? 'bg-[#F7931A]/[0.07] border-[#F7931A]/35 hover:border-[#F7931A]/50'
+                        : 'bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.055] hover:border-white/[0.12]'
                   }`}
                 >
+                  {s.destacada && (
+                    <span className="inline-flex items-center h-[20px] px-2 mb-2 rounded-[6px] bg-[#F7931A] text-[#0A0806] text-[10px] font-[450] leading-none uppercase tracking-[0.12em]">
+                      {t.ruta.destacada}
+                    </span>
+                  )}
                   <span
                     className={`block text-[11px] font-[450] leading-none uppercase tracking-[0.16em] mb-2 ${
-                      isActive ? 'text-[#F7931A]' : 'text-white/40'
+                      isActive || s.destacada ? 'text-[#F7931A]' : 'text-white/40'
                     }`}
                   >
                     {t.ruta.semanaLabel} {s.numero}
@@ -129,12 +156,17 @@ export default function Ruta() {
           <div
             id="semana-panel"
             role="tabpanel"
-            aria-labelledby={`semana-tab-${semana.id}`}
+            aria-labelledby={`ruta-${semana.id}`}
             className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] p-5 sm:p-8 md:p-10"
           >
             <div className="mb-7 sm:mb-8">
-              <p className="text-[#F7931A] text-[12px] font-[450] leading-none uppercase tracking-[0.16em] mb-3">
+              <p className="flex flex-wrap items-center gap-2 text-[#F7931A] text-[12px] font-[450] leading-none uppercase tracking-[0.16em] mb-3">
                 {t.ruta.semanaLabel} {semana.numero} {t.ruta.de} {String(SEMANAS.length).padStart(2, '0')}
+                {semana.destacada && (
+                  <span className="inline-flex items-center h-[20px] px-2 rounded-[6px] bg-[#F7931A] text-[#0A0806] text-[10px] font-[450] leading-none tracking-[0.12em]">
+                    {t.ruta.destacada}
+                  </span>
+                )}
               </p>
               <h3 className="text-white text-[22px] sm:text-[30px] font-[450] leading-[1.1] mb-3">
                 {semana.nombre}
@@ -142,6 +174,41 @@ export default function Ruta() {
               <p className="text-white/65 text-[15px] sm:text-[16px] font-[450] leading-[1.5] max-w-[720px]">
                 {semana.resumen}
               </p>
+              {semana.id === 's1' && (
+                <div className="mt-5">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <a
+                      href={RUTA_UNIVERSITARIA}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 h-[40px] px-4 rounded-[11px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[13px] font-[450] leading-none"
+                    >
+                      {t.ruta.verRutaUniversitaria}
+                      <ExternalLink className="w-[12px] h-[12px]" />
+                    </a>
+                    <a
+                      href={CALENDARIO_LUMA}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 h-[40px] px-4 rounded-[11px] border border-white/15 text-white text-[13px] font-[450] leading-none hover:border-[#F7931A]/50"
+                    >
+                      <Calendar className="w-[13px] h-[13px]" />
+                      {t.ruta.verCalendario}
+                    </a>
+                  </div>
+                  <p className="text-white/40 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-3">
+                    {t.ruta.calendarioTitulo}
+                  </p>
+                  <div className="rounded-[16px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
+                    <iframe
+                      src={CALENDARIO_LUMA_EMBED}
+                      title={t.ruta.calendarioTitulo}
+                      className="w-full h-[420px] sm:h-[450px]"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">

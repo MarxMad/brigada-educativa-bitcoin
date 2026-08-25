@@ -42,6 +42,7 @@ export function ProveedorIdioma({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = diccionarios[idioma].htmlLang;
+    document.title = diccionarios[idioma].proyecto.nombre;
     try {
       window.localStorage.setItem(CLAVE_GUARDADA, idioma);
     } catch {

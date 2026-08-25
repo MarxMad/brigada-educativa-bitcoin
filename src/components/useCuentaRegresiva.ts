@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 /** Arranque de la brigada, hora del centro de México. */
-export const INICIO_BRIGADA = new Date('2026-08-24T09:00:00-06:00').getTime();
-export const FIN_BRIGADA = new Date('2026-09-20T20:00:00-06:00').getTime();
+export const INICIO_BRIGADA = new Date('2026-09-07T09:00:00-06:00').getTime();
+export const FIN_BRIGADA = new Date('2026-10-02T20:00:00-06:00').getTime();
 
 export type Estado = 'antes' | 'enCurso' | 'terminada';
 
@@ -24,9 +24,9 @@ const WEEKDAY: Record<string, number> = {
  * Calendario del deck, no inventado.
  */
 const BLOQUE_POR_DIA: Array<Array<number | null>> = [
+  [3, 0, 0, 0, 1, 2, 2],
   [null, 0, 1, 1, 1, 2, null],
   [null, 0, 0, 1, 2, 3, null],
-  [3, 0, 0, 0, 1, 2, 2],
   [null, 0, 0, 0, 0, 1, null],
 ];
 

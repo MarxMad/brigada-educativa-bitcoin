@@ -5,12 +5,12 @@ export const en: Diccionario = {
   htmlLang: 'en',
 
   proyecto: {
-    nombre: 'Bitcoin Education Brigade',
+    nombre: 'Bitcoin Circular Economy Zacatlán',
     sede: 'Zacatlán de las Manzanas',
     estado: 'Sierra Norte de Puebla, Mexico',
-    inicio: 'August 24, 2026',
-    fin: 'September 20, 2026',
-    inicioISO: '2026-08-24',
+    inicio: 'September 7, 2026',
+    fin: 'October 2, 2026',
+    inicioISO: '2026-09-07',
     duracion: '4 weeks',
   },
 
@@ -26,30 +26,33 @@ export const en: Diccionario = {
     abrirMenu: 'Open menu',
     secciones: 'Sections',
     cambiarIdioma: 'Ver en español',
+    marca: 'Bitcoin Circular Economy',
+    marcaEdicion: 'Zacatlán',
   },
 
   hero: {
-    tituloA: 'Bitcoin education for Mexico’s',
-    tituloDestacado: 'first Pueblo Mágico',
+    tituloA: 'Bitcoin Circular Economy',
+    tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'A four-week brigade to switch on the Bitcoin circular economy in Zacatlán de las Manzanas',
+      'A circular-economy project in Zacatlán de las Manzanas. The Bitcoin Education Brigade is the activation phase: it starts on September 7 with the University Route and Unlock Summit 2026.',
     ctaPrimario: 'See the plan',
     ctaSecundario: 'Become a sponsor',
     arrancaEn: 'Starts in',
     hoyArranca: 'Starts today',
     enMarcha: 'Under way',
-    terminada: 'Brigade complete',
+    terminada: 'Activation phase complete',
     hoyToca: 'Today',
     primerDia: 'Day one',
     siguienteEnPlan: 'Up next',
     verTemario: 'See the agenda',
+    desliza: 'Swipe to preview each week',
     horaSede: '09:00 · Zacatlán',
     semanaCorta: 'Week',
     tarjetaLabel: 'People to train',
     tarjetaUnidad: ' people',
     tarjetaBadge: '4 weeks',
-    tarjetaFechas: 'Aug 24 – Sep 20, 2026',
+    tarjetaFechas: 'Sep 7 – Oct 2, 2026',
     ejes: ['W1', 'W2', 'W3', 'W4', 'Close'],
   },
 
@@ -59,8 +62,7 @@ export const en: Diccionario = {
     'Lightning Network',
     'La Cabaña de Satoshi',
     'Circular Economy',
-    'Sierra Norte de Puebla',
-    'Financial Sovereignty',
+    'University Route',
     'Unlock Summit 2026',
   ],
 
@@ -71,13 +73,19 @@ export const en: Diccionario = {
       'A Pueblo Mágico in the Sierra Norte de Puebla: the Floral Clock, Calle del Arco, the market, the apple orchards and the waterfall.',
     reproducir: 'Play video',
     pausar: 'Pause video',
+    ctaSitio: 'Official municipal website',
+    datos: [
+      { titulo: 'Pueblo Mágico', texto: 'Seat of the Sierra Norte de Puebla, with the floral clock, the arch and the apple orchards.' },
+      { titulo: 'Great Apple Fair', texto: 'The festival that puts Zacatlán on Mexico’s tourism map every year.' },
+      { titulo: 'Town hall', texto: 'Palacio Municipal s/n, Centro. The Ayuntamiento posts tourism, notices and procedures on its site.' },
+    ],
   },
 
   proyectoSec: {
     eyebrow: 'The project',
     tituloA: 'A',
     tituloDestacado: 'circular economy',
-    tituloB: 'that starts with education',
+    tituloB: 'in Zacatlán de las Manzanas',
     tabsLabel: 'Mission, objective and vision',
     tabs: { mision: 'Mission', objetivo: 'Objective', vision: 'Vision' },
     mision:
@@ -136,8 +144,8 @@ export const en: Diccionario = {
 
   ruta: {
     eyebrow: 'Operating plan',
-    tituloDestacado: 'Four weeks',
-    tituloB: ', street by street',
+    tituloDestacado: 'Universities and Unlock',
+    tituloB: ', then the streets',
     resultado: 'Week outcome',
     semanaLabel: 'Week',
     semanasNav: 'Plan weeks',
@@ -146,14 +154,70 @@ export const en: Diccionario = {
     de: 'of',
     anterior: 'Previous',
     siguiente: 'Next',
+    destacada: 'Featured',
+    verRutaUniversitaria: 'University Route signup',
+    verCalendario: 'Open calendar',
+    calendarioTitulo: 'Week 1 calendar',
+    bajada:
+      'The Bitcoin Education Brigade is the activation phase of Bitcoin Circular Economy Zacatlán. Week 1 is the University Route and Unlock Summit 2026.',
     semanas: [
       {
         id: 's1',
         numero: '01',
-        nombre: 'Setting up base and first contact',
-        fechas: 'August 24 – 28',
+        destacada: true,
+        nombre: 'Universities and Unlock Summit 2026',
+        fechas: 'September 7 – 13',
         resumen:
-          'La Cabaña de Satoshi becomes the educational heart of the Bitcoin Circular Economy, following the model of Bitcoin Beach in El Salvador and Bitcoin Jungle in Costa Rica.',
+          'Activation starts on campus and meets the 4th edition of Unlock Summit: university route, welcome dinner, talks, workshops and the Consciousness Brunch.',
+        bloques: [
+          {
+            dias: 'Monday to Wednesday',
+            titulo: 'University route',
+            puntos: [
+              'The history of money, up to Bitcoin.',
+              'Bitcoin as protection for your savings: 21 million units, nobody controls it.',
+              'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
+              'Hands-on: download a wallet and back up your keys.',
+            ],
+          },
+          {
+            dias: 'Thursday',
+            titulo: 'Welcome dinner — Unlock Summit 2026',
+            puntos: [
+              'Screening of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
+              'Progress from the Bitcoin Education Brigade.',
+              'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
+            ],
+          },
+          {
+            dias: 'Friday and Saturday',
+            titulo: 'Day 1 and 2 — Unlock Summit 2026',
+            puntos: [
+              'A stand with “Bitcoin Coach” books.',
+              'Presentation of the Bitcoin Circular Economy project.',
+              'Talks and workshops on Bitcoin.',
+              'Wallet downloads and key backups.',
+            ],
+          },
+          {
+            dias: 'Sunday',
+            titulo: 'Day 3 — Consciousness Brunch',
+            puntos: [
+              'A stand with “Bitcoin Coach” books.',
+              'Book presentation, and how Bitcoin is part of the awakening of consciousness.',
+            ],
+          },
+        ],
+        meta: '40 students with a wallet for their savings, and 50 women with a wallet for theirs.',
+      },
+      {
+        id: 's2',
+        numero: '02',
+        destacada: false,
+        nombre: 'Artisans and merchants',
+        fechas: 'September 14 – 18',
+        resumen:
+          'La Cabaña de Satoshi becomes the educational heart of the Bitcoin Circular Economy, following Bitcoin Beach in El Salvador and Bitcoin Jungle in Costa Rica. The merchant brigade starts on Tuesday the 15th.',
         bloques: [
           {
             dias: 'Monday',
@@ -188,10 +252,11 @@ export const en: Diccionario = {
         meta: '15 merchants and artisans informed, each with a wallet on their own phone. Community expectation created.',
       },
       {
-        id: 's2',
-        numero: '02',
+        id: 's3',
+        numero: '03',
+        destacada: false,
         nombre: 'Families, businesses and tourism',
-        fechas: 'August 31 – September 4',
+        fechas: 'September 21 – 25',
         resumen:
           'The brigade takes to the streets: house by house, business by business and hotel by hotel, so Zacatlán is ready to welcome Bitcoin tourism.',
         bloques: [
@@ -209,7 +274,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to businesses',
             puntos: [
               'Visit 10 local business owners.',
-              'One-to-one explanation of Bitcoin and what it means for the business.',
+              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
               'Invitation to the Second Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -218,7 +283,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to hotels and tourism services',
             puntos: [
               'Visit 10 local hotels and tourism operators.',
-              'One-to-one explanation of Bitcoin and its benefits.',
+              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
               'Invitation to the Second Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -226,8 +291,9 @@ export const en: Diccionario = {
             dias: 'Friday',
             titulo: 'Second assembly at La Cabaña de Satoshi',
             puntos: [
-              'Talk: “Starting simple” and “Why Bitcoin?”.',
-              'Presentation of the book “Bitcoin Coach”.',
+              'Talk: “Starting simple — understanding how money works” and “Why Bitcoin?”.',
+              'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
+              'How to attract the millions of Bitcoiners worldwide. The competitive edge: first Bitcoin-friendly Pueblo Mágico.',
               'Live demo: paying for a purchase over Lightning.',
               'Wallet downloads and key backups.',
             ],
@@ -236,58 +302,11 @@ export const en: Diccionario = {
         meta: '10 families with their own wallet, and 21 hotels, restaurants and tourism operators ready to serve Bitcoin travelers.',
       },
       {
-        id: 's3',
-        numero: '03',
-        nombre: 'Universities and Unlock Summit 2026',
-        fechas: 'September 7 – 13',
-        resumen:
-          'The university route meets the 4th edition of Unlock Summit: three days of talks, workshops and an Investor House stand with the “Bitcoin Coach” books.',
-        bloques: [
-          {
-            dias: 'Monday to Wednesday',
-            titulo: 'University route',
-            puntos: [
-              'The history of money, up to Bitcoin.',
-              'Bitcoin as protection for your savings: 21 million units, nobody controls it.',
-              'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
-              'Hands-on: download a wallet and back up your keys.',
-            ],
-          },
-          {
-            dias: 'Thursday',
-            titulo: 'Welcome dinner — Unlock Summit 2026',
-            puntos: [
-              'Screening of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
-              'Progress report from the Bitcoin Education Brigade.',
-              'Presentation of the book “Bitcoin Coach”.',
-            ],
-          },
-          {
-            dias: 'Friday and Saturday',
-            titulo: 'Day 1 and 2 — Unlock Summit 2026',
-            puntos: [
-              'Investor House stand with “Bitcoin Coach” books.',
-              'Presentation of the Bitcoin Circular Economy project.',
-              'Talks and workshops on Bitcoin.',
-              'Wallet downloads and key backups.',
-            ],
-          },
-          {
-            dias: 'Sunday',
-            titulo: 'Day 3 — Consciousness Brunch',
-            puntos: [
-              'Investor House stand with “Bitcoin Coach” books.',
-              'Book presentation, and how Bitcoin is part of the awakening of consciousness.',
-            ],
-          },
-        ],
-        meta: '40 students with a wallet for their savings, and 50 women with a wallet for theirs.',
-      },
-      {
         id: 's4',
         numero: '04',
+        destacada: false,
         nombre: 'Consolidation and measurement',
-        fechas: 'September 14 – 20',
+        fechas: 'September 28 – October 2',
         resumen:
           'Follow-up with the pioneers, signage installed, a public adoption map, and a closing assembly that leaves the model documented and repeatable.',
         bloques: [
@@ -307,7 +326,7 @@ export const en: Diccionario = {
               'Presentation of the results achieved.',
               'Identifying local leaders to carry the project forward.',
               'Establishing a permanent Bitcoiner in Residence.',
-              'A celebration for the completion of the first Bitcoin Education Brigade.',
+              'A celebration for the completion of the first Bitcoin Education Brigade in Zacatlán de las Manzanas.',
             ],
           },
         ],
@@ -317,22 +336,55 @@ export const en: Diccionario = {
   },
 
   mapa: {
-    eyebrow: 'Adoption map',
+    eyebrow: 'Regional map',
     titulo: 'Where you can pay with Bitcoin',
     bajada:
-      'The map fills up as the brigade advances. Every pin is a shop that accepted Bitcoin, put up its sign and registered publicly.',
+      'BTC Map merchants in the Sierra Norte de Puebla. Zacatlán joins this public network when a shop verifies Lightning and is tagged on OpenStreetMap.',
     contadorLabel: 'shops registered',
     contadorMeta: 'goal at close',
-    vacioTitulo: 'No shops registered yet',
+    vacioTitulo: 'Zacatlán is not on the local map yet',
     vacioTexto:
-      'The brigade starts on August 24, 2026. The first pins will appear during week 1, as shops in the town center put up their signage.',
+      'The orange pins are BTC Map merchants in the Sierra Norte. The brigade will add the town-center shops from September.',
     rutaTitulo: 'Brigade route',
-    rutaTexto: 'The three points where the walk begins in week 1.',
-    leyendaActivo: 'Accepts Bitcoin',
+    rutaTexto: 'The three points where the merchant-and-artisan walk begins in week 2.',
+    leyendaActivo: 'Registered by the brigade',
+    leyendaBtcMap: 'BTC Map (region)',
     leyendaRuta: 'Route point',
+    btcMapTitulo: 'BTC Map network',
+    btcMapTexto:
+      'OpenStreetMap places that take Bitcoin within 60 km of Zacatlán. Tap one to fly there, or open its BTC Map page.',
+    btcMapContador: 'places in the region',
+    btcMapVer: 'Open BTC Map',
+    btcMapAgregar: 'Add a place',
+    btcMapSubir: 'Submit a shop to BTC Map',
+    btcMapSubirTexto: 'Opens the official BTC Map form. They review it and publish it on OpenStreetMap.',
+    btcMapFicha: 'View on BTC Map',
+    btcMapRegion: 'Show the region',
+    btcMapCargando: 'Loading BTC Map…',
+    btcMapError: 'Could not load BTC Map. Open it at btcmap.org.',
+    btcMapAKm: 'km',
     comoRegistrarse: 'Run a business in Zacatlán?',
     comoRegistrarseTexto: 'Write to us and we’ll come by to train you and add you to the map.',
-    atribucion: 'Map © OpenStreetMap contributors · Tiles © CARTO',
+    protocoloTitulo: 'Listing protocol',
+    protocoloBajada:
+      'BTC Map reads OpenStreetMap. A shop lands on the public map after an in-person check and OSM tags — not an internal form of ours.',
+    protocoloPasos: [
+      {
+        titulo: 'Verify on site',
+        texto: 'Train the merchant, get Lightning working and confirm a test payment.',
+      },
+      {
+        titulo: 'Tag it on OSM',
+        texto: 'Edit the node, or send it via btcmap.org/add-location if you do not edit OSM.',
+      },
+      {
+        titulo: 'Wait for the sync',
+        texto: 'BTC Map refreshes OSM about every 10 minutes. Then we add it to this brigade map too.',
+      },
+    ],
+    protocoloTags: ['currency:XBT=yes', 'payment:lightning=yes', 'check_date=YYYY-MM-DD'],
+    protocoloGuia: 'Tagging guide',
+    atribucion: 'Map © OpenStreetMap · Tiles © CARTO · Merchants © BTC Map',
   },
 
   metas: {
@@ -346,9 +398,9 @@ export const en: Diccionario = {
     items: [
       { valor: 21, label: 'Shops running on Lightning', nota: 'Goal at the close of week 4' },
       { valor: 50, label: 'Women with their own wallet', nota: 'Consciousness Brunch · Unlock Summit' },
-      { valor: 40, label: 'Students with a wallet', nota: 'University route · week 3' },
-      { valor: 15, label: 'Merchants and artisans', nota: 'First assembly · week 1' },
-      { valor: 10, label: 'Families trained', nota: 'Door-to-door brigade · week 2' },
+      { valor: 40, label: 'Students with a wallet', nota: 'University route · week 1' },
+      { valor: 15, label: 'Merchants and artisans', nota: 'First assembly · week 2' },
+      { valor: 10, label: 'Families trained', nota: 'Door-to-door brigade · week 3' },
       { valor: 21, label: 'Hotels and tourism services', nota: 'Ready for Bitcoin travelers' },
     ],
     equipoTitulo: 'People and responsibility',
@@ -403,6 +455,7 @@ export const en: Diccionario = {
     bajada:
       'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
     escanea: 'Scan to donate over Lightning',
+    ctaLightning: 'Donate with Lightning',
     copiar: 'Copy address',
     copiado: 'Copied',
     sinConfigurar: 'Lightning address not configured yet',
@@ -437,7 +490,7 @@ export const en: Diccionario = {
 
   footer: {
     descripcion: (inicio: string, fin: string) =>
-      `Bitcoin Education Brigade · Zacatlán de las Manzanas, Sierra Norte de Puebla. From ${inicio} to ${fin}.`,
+      `Circular Economy edition: Zacatlán de las Manzanas, Sierra Norte de Puebla. From ${inicio} to ${fin}.`,
     lema: 'An open process, measurable and auditable by the community.',
   },
 };

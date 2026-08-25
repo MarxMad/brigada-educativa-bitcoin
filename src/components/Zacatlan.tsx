@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { Play, Pause } from 'lucide-react';
+import { Play, Pause, ExternalLink } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
+import { SITIO_ZACATLAN } from '@/config/enlaces';
 
 /**
  * El video completo, sin recortar. En el hero va de fondo y `object-cover` le
@@ -48,6 +49,31 @@ export default function Zacatlan() {
             </p>
           </Reveal>
         </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 sm:mb-8">
+          {t.zacatlan.datos.map((dato) => (
+            <Reveal key={dato.titulo}>
+              <div className="h-full rounded-[16px] bg-white/[0.04] border border-white/[0.06] px-4 py-4 sm:px-5 sm:py-5">
+                <p className="text-[#F7931A] text-[12px] font-[450] leading-none uppercase tracking-[0.14em] mb-2">
+                  {dato.titulo}
+                </p>
+                <p className="text-white/70 text-[13.5px] font-[450] leading-[1.4]">{dato.texto}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={80}>
+          <a
+            href={SITIO_ZACATLAN}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 h-[44px] px-4 rounded-[12px] border border-white/15 text-white text-[14px] font-[450] leading-none hover:border-[#F7931A]/50 mb-8 sm:mb-10"
+          >
+            {t.zacatlan.ctaSitio}
+            <ExternalLink className="w-[13px] h-[13px]" />
+          </a>
+        </Reveal>
 
         <Reveal delay={100} dir="scale">
           <figure className="group relative rounded-[20px] sm:rounded-[28px] overflow-hidden border border-white/[0.08] bg-black">

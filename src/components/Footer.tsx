@@ -30,8 +30,13 @@ export default function Footer() {
                   fill="url(#marcaPie)"
                 />
               </svg>
-              <span className="text-white text-[22px] font-[450] leading-none tracking-[-0.02em]">
-                Brigada
+              <span className="flex flex-col leading-[1.15]">
+                <span className="text-white text-[16px] font-[450] tracking-[-0.02em]">
+                  {t.nav.marca}
+                </span>
+                <span className="text-white/50 text-[11px] font-[450]">
+                  {t.nav.marcaEdicion}
+                </span>
               </span>
             </a>
             <p className="text-white/50 text-[14px] font-[450] leading-[1.5]">

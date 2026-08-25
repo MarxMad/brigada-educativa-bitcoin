@@ -1,19 +1,52 @@
-import { useEffect, useRef } from 'react';
-import { MapPin, Store } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ExternalLink, Store } from 'lucide-react';
+import type { LayerGroup, Map as LeafletMap, Marker } from 'leaflet';
 import Reveal, { CountUp } from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { COMERCIOS, META_COMERCIOS, CENTRO, ZOOM, PUNTOS_RUTA } from '@/config/mapa';
+import {
+  BTC_MAP,
+  buscarLugaresBtcMap,
+  CENTRO,
+  distanciaKm,
+  ZOOM,
+  type LugarBtcMap,
+} from '@/config/mapa';
+
+function escapeHtml(texto: string) {
+  return texto
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+type EtiquetasMapa = {
+  activo: string;
+  ruta: string;
+  btcMap: string;
+  ficha: string;
+};
+
+type AccionesMapa = {
+  irALugar: (id: number) => void;
+  verRegion: () => void;
+};
 
 /**
  * Leaflet manipula el DOM por su cuenta, así que se carga con import dinámico
  * después del montaje: así no entra al bundle inicial ni rompe si el navegador
  * no llega a ejecutarlo.
  */
-function useLeaflet(contenedor: React.RefObject<HTMLDivElement | null>, etiquetas: {
-  activo: string;
-  ruta: string;
-}) {
-  const mapaRef = useRef<unknown>(null);
+function useLeaflet(
+  contenedor: React.RefObject<HTMLDivElement | null>,
+  etiquetas: EtiquetasMapa,
+  lugaresBtc: LugarBtcMap[],
+  acciones: React.MutableRefObject<AccionesMapa | null>,
+) {
+  const mapaRef = useRef<LeafletMap | null>(null);
+  const capaBtcRef = useRef<LayerGroup | null>(null);
+  const marcadoresBtc = useRef(new Map<number, Marker>());
+  const [listo, setListo] = useState(false);
 
   useEffect(() => {
     const nodo = contenedor.current;
@@ -31,68 +64,143 @@ function useLeaflet(contenedor: React.RefObject<HTMLDivElement | null>, etiqueta
         scrollWheelZoom: false,
         attributionControl: false,
       });
+      if (cancelado) {
+        mapa.remove();
+        return;
+      }
       mapaRef.current = mapa;
 
-      // Basemap oscuro de CARTO: es el que mejor empata con el negro del sitio.
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         subdomains: 'abcd',
         maxZoom: 20,
       }).addTo(mapa);
 
-      const iconoComercio = L.divIcon({
-        className: '',
-        html: `<span class="pin-comercio"></span>`,
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
-      });
+      const capaBtc = L.layerGroup().addTo(mapa);
+      capaBtcRef.current = capaBtc;
 
-      const iconoRuta = L.divIcon({
-        className: '',
-        html: `<span class="pin-ruta"></span>`,
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
-      });
+      acciones.current = {
+        irALugar: (id: number) => {
+          const m = marcadoresBtc.current.get(id);
+          if (!m) return;
+          const { lat, lng } = m.getLatLng();
+          mapa.flyTo([lat, lng], 15);
+          window.setTimeout(() => m.openPopup(), 280);
+        },
+        verRegion: () => {
+          const puntos: [number, number][] = [
+            CENTRO,
+            ...[...marcadoresBtc.current.values()].map((m) => {
+              const { lat, lng } = m.getLatLng();
+              return [lat, lng] as [number, number];
+            }),
+          ];
+          mapa.fitBounds(L.latLngBounds(puntos), { padding: [36, 36], maxZoom: 12 });
+        },
+      };
 
-      PUNTOS_RUTA.forEach((p) => {
-        L.marker([p.lat, p.lng], { icon: iconoRuta })
-          .addTo(mapa)
-          .bindTooltip(`${p.nombre} · ${etiquetas.ruta}`, { direction: 'top', offset: [0, -8] });
-      });
-
-      COMERCIOS.forEach((c) => {
-        L.marker([c.lat, c.lng], { icon: iconoComercio })
-          .addTo(mapa)
-          .bindTooltip(`<b>${c.nombre}</b><br>${c.giro} · ${etiquetas.activo}`, {
-            direction: 'top',
-            offset: [0, -10],
-          });
-      });
-
-      // Si ya hay comercios, encuadra todos los pines.
-      if (COMERCIOS.length > 0) {
-        const grupo = L.featureGroup([
-          ...COMERCIOS.map((c) => L.marker([c.lat, c.lng])),
-          ...PUNTOS_RUTA.map((p) => L.marker([p.lat, p.lng])),
-        ]);
-        mapa.fitBounds(grupo.getBounds().pad(0.25));
-      }
+      setListo(true);
+      requestAnimationFrame(() => mapa.invalidateSize());
     })();
 
     return () => {
       cancelado = true;
-      const m = mapaRef.current as { remove?: () => void } | null;
-      if (m?.remove) m.remove();
+      setListo(false);
+      acciones.current = null;
+      const m = mapaRef.current;
+      if (m) m.remove();
       mapaRef.current = null;
+      capaBtcRef.current = null;
+      marcadoresBtc.current.clear();
     };
-  }, [contenedor, etiquetas.activo, etiquetas.ruta]);
+  }, [contenedor, etiquetas.activo, etiquetas.ruta, etiquetas.btcMap, etiquetas.ficha, acciones]);
+
+  useEffect(() => {
+    if (!listo) return;
+    const nodo = contenedor.current;
+    const mapa = mapaRef.current;
+    if (!nodo || !mapa) return;
+    const ro = new ResizeObserver(() => mapa.invalidateSize());
+    ro.observe(nodo);
+    return () => ro.disconnect();
+  }, [listo, contenedor]);
+
+  useEffect(() => {
+    if (!listo || !capaBtcRef.current) return;
+
+    let cancelado = false;
+
+    (async () => {
+      const L = await import('leaflet');
+      if (cancelado || !capaBtcRef.current) return;
+
+      capaBtcRef.current.clearLayers();
+      marcadoresBtc.current.clear();
+
+      const iconoBtc = L.divIcon({
+        className: '',
+        html: `<span class="pin-btcmap"></span>`,
+        iconSize: [16, 16],
+        iconAnchor: [8, 8],
+        popupAnchor: [0, -10],
+      });
+
+      for (const lugar of lugaresBtc) {
+        const direccion = lugar.direccion
+          ? `<p class="popup-btc-dir">${escapeHtml(lugar.direccion)}</p>`
+          : '';
+        const marcador = L.marker([lugar.lat, lugar.lon], { icon: iconoBtc }).bindPopup(
+          `<div class="popup-btc">
+            <p class="popup-btc-kicker">${escapeHtml(etiquetas.btcMap)}</p>
+            <p class="popup-btc-nombre">${escapeHtml(lugar.nombre)}</p>
+            ${direccion}
+            <a class="popup-btc-link" href="${BTC_MAP.ficha(lugar.id)}" target="_blank" rel="noopener noreferrer">${escapeHtml(etiquetas.ficha)}</a>
+          </div>`,
+          { maxWidth: 240, className: 'popup-btc-wrap' },
+        );
+        capaBtcRef.current.addLayer(marcador);
+        marcadoresBtc.current.set(lugar.id, marcador);
+      }
+      if (lugaresBtc.length > 0) acciones.current?.verRegion();
+    })();
+
+    return () => {
+      cancelado = true;
+    };
+  }, [listo, lugaresBtc, etiquetas.btcMap, etiquetas.ficha]);
 }
 
 export default function Mapa() {
   const t = useT();
   const contenedor = useRef<HTMLDivElement>(null);
-  useLeaflet(contenedor, { activo: t.mapa.leyendaActivo, ruta: t.mapa.leyendaRuta });
+  const acciones = useRef<AccionesMapa | null>(null);
+  const [lugaresBtc, setLugaresBtc] = useState<LugarBtcMap[]>([]);
+  const [estadoBtc, setEstadoBtc] = useState<'cargando' | 'ok' | 'error'>('cargando');
 
-  const registrados = COMERCIOS.length;
+  useLeaflet(
+    contenedor,
+    {
+      activo: t.mapa.leyendaActivo,
+      ruta: t.mapa.leyendaRuta,
+      btcMap: t.mapa.leyendaBtcMap,
+      ficha: t.mapa.btcMapFicha,
+    },
+    lugaresBtc,
+    acciones,
+  );
+
+  useEffect(() => {
+    const ac = new AbortController();
+    buscarLugaresBtcMap(ac.signal)
+      .then((lugares) => {
+        setLugaresBtc(lugares);
+        setEstadoBtc('ok');
+      })
+      .catch((err: unknown) => {
+        if (err instanceof DOMException && err.name === 'AbortError') return;
+        setEstadoBtc('error');
+      });
+    return () => ac.abort();
+  }, []);
 
   return (
     <section id="mapa" className="relative bg-[#0A0806] border-t border-white/[0.06] overflow-hidden">
@@ -116,26 +224,24 @@ export default function Mapa() {
           </Reveal>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-5">
-          {/* Mapa */}
-          <Reveal dir="left" className="flex-1 min-w-0">
-            <div className="relative rounded-[24px] sm:rounded-[33px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
+        <div className="flex flex-col lg:flex-row lg:items-stretch gap-5">
+          <Reveal dir="left" className="flex-1 min-w-0 flex flex-col">
+            <div className="relative flex-1 min-h-[380px] sm:min-h-[480px] lg:min-h-[560px] rounded-[24px] sm:rounded-[33px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
               <div
                 ref={contenedor}
-                className="w-full h-[380px] sm:h-[520px] lg:h-[600px]"
+                className="absolute inset-0 w-full h-full"
                 role="application"
                 aria-label={t.mapa.titulo}
               />
 
-              {registrados === 0 && (
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 sm:p-7 bg-gradient-to-t from-[#0A0806] via-[#0A0806]/85 to-transparent">
-                  <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.25] mb-2">
-                    {t.mapa.vacioTitulo}
-                  </p>
-                  <p className="text-white/60 text-[13.5px] sm:text-[15px] font-[450] leading-[1.45] max-w-[560px]">
-                    {t.mapa.vacioTexto}
-                  </p>
-                </div>
+              {lugaresBtc.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => acciones.current?.verRegion()}
+                  className="absolute top-4 right-4 z-[1000] h-[34px] px-3 rounded-[10px] bg-[#0A0806]/85 border border-white/10 text-white/80 text-[12px] font-[450] leading-none backdrop-blur-md hover:border-[#F7931A]/50 hover:text-white"
+                >
+                  {t.mapa.btcMapRegion}
+                </button>
               )}
             </div>
             <p className="mt-3 px-1 text-white/30 text-[11px] font-[450] leading-none">
@@ -143,82 +249,144 @@ export default function Mapa() {
             </p>
           </Reveal>
 
-          {/* Panel lateral */}
-          <Reveal dir="right" delay={100} className="w-full lg:w-[360px] shrink-0">
-            <div className="flex flex-col gap-4">
-              <div className="borde-oro rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] p-6 sm:p-8">
-                <p className="flex items-baseline gap-2 mb-2">
-                  <span className="texto-oro text-[52px] sm:text-[64px] font-normal leading-[0.85]">
-                    <CountUp to={registrados} />
-                  </span>
-                  <span className="text-white/25 text-[24px] sm:text-[30px] font-[450] leading-none">
-                    / {META_COMERCIOS}
-                  </span>
-                </p>
-                <p className="text-white text-[15px] sm:text-[16px] font-[450] leading-[1.3] mb-1">
-                  {t.mapa.contadorLabel}
-                </p>
-                <p className="text-white/45 text-[13px] font-[450] leading-[1.35]">
-                  {META_COMERCIOS} {t.mapa.contadorMeta}
-                </p>
-
-                <div className="mt-6 h-[6px] rounded-full bg-white/[0.08] overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#F7931A] to-[#E8B45A] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                    style={{ width: `${Math.min((registrados / META_COMERCIOS) * 100, 100)}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className="rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-6 sm:p-8">
-                <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-2">
-                  {t.mapa.rutaTitulo}
-                </p>
-                <p className="text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-5">
-                  {t.mapa.rutaTexto}
-                </p>
-                <ul className="flex flex-col gap-2.5">
-                  {PUNTOS_RUTA.map((p) => (
-                    <li key={p.id} className="flex items-center gap-3">
-                      <MapPin className="w-[14px] h-[14px] shrink-0 text-[#E8B45A]" />
-                      <span className="text-white/80 text-[14px] font-[450] leading-[1.3]">
-                        {p.nombre}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 pt-5 border-t border-white/[0.07] flex flex-col gap-2.5">
-                  <span className="flex items-center gap-3">
-                    <span className="w-[14px] h-[14px] shrink-0 flex items-center justify-center">
-                      <span className="w-[11px] h-[11px] rounded-full bg-[#F7931A] ring-2 ring-[#F7931A]/30" />
-                    </span>
-                    <span className="text-white/55 text-[13px] font-[450]">{t.mapa.leyendaActivo}</span>
-                  </span>
-                  <span className="flex items-center gap-3">
-                    <span className="w-[14px] h-[14px] shrink-0 flex items-center justify-center">
-                      <span className="w-[9px] h-[9px] rounded-full border border-[#E8B45A]/70 bg-transparent" />
-                    </span>
-                    <span className="text-white/55 text-[13px] font-[450]">{t.mapa.leyendaRuta}</span>
-                  </span>
-                </div>
-              </div>
-
+          <Reveal dir="right" delay={100} className="w-full lg:w-[360px] shrink-0 flex">
+            <div className="flex flex-col gap-4 w-full h-full min-h-0">
               <a
-                href="#contacto"
-                className="group rounded-[24px] bg-[#F7931A] p-6 sm:p-7 transition-opacity hover:opacity-90"
+                href={BTC_MAP.agregar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-[24px] bg-[#F7931A] p-5 sm:p-6 transition-opacity hover:opacity-90"
               >
-                <Store className="w-[20px] h-[20px] text-[#0A0806]/70 mb-4" />
-                <p className="text-[#0A0806] text-[17px] sm:text-[19px] font-[450] leading-[1.2] mb-2">
-                  {t.mapa.comoRegistrarse}
+                <Store className="w-[18px] h-[18px] text-[#0A0806]/70 mb-2.5" />
+                <p className="text-[#0A0806] text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-1.5">
+                  {t.mapa.btcMapSubir}
                 </p>
-                <p className="text-[#0A0806]/70 text-[13.5px] font-[450] leading-[1.4]">
-                  {t.mapa.comoRegistrarseTexto}
+                <p className="text-[#0A0806]/70 text-[13px] font-[450] leading-[1.4]">
+                  {t.mapa.btcMapSubirTexto}
                 </p>
               </a>
+
+              <div className="flex-1 min-h-0 rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-5 sm:p-6 flex flex-col">
+                <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-2">
+                  {t.mapa.btcMapTitulo}
+                </p>
+                <p className="text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-4">
+                  {t.mapa.btcMapTexto}
+                </p>
+
+                {estadoBtc === 'ok' && (
+                  <p className="flex items-baseline gap-2 mb-4">
+                    <span className="texto-oro text-[32px] font-normal leading-none">
+                      <CountUp to={lugaresBtc.length} duration={1.1} />
+                    </span>
+                    <span className="text-white/45 text-[13px] font-[450]">{t.mapa.btcMapContador}</span>
+                  </p>
+                )}
+                {estadoBtc === 'cargando' && (
+                  <p className="text-white/40 text-[13px] font-[450] mb-4">{t.mapa.btcMapCargando}</p>
+                )}
+                {estadoBtc === 'error' && (
+                  <p className="text-white/45 text-[13px] font-[450] mb-4">{t.mapa.btcMapError}</p>
+                )}
+
+                {lugaresBtc.length > 0 && (
+                  <ul className="flex flex-col gap-1 flex-1 min-h-0 overflow-y-auto mb-4 pr-1">
+                    {lugaresBtc.map((lugar) => {
+                      const km = Math.max(1, Math.round(distanciaKm(CENTRO[0], CENTRO[1], lugar.lat, lugar.lon)));
+                      return (
+                        <li key={lugar.id}>
+                          <button
+                            type="button"
+                            onClick={() => acciones.current?.irALugar(lugar.id)}
+                            className="w-full text-left rounded-[10px] px-2.5 py-2 hover:bg-white/[0.05] transition-colors"
+                          >
+                            <span className="block text-white/85 text-[13.5px] font-[450] leading-[1.25]">
+                              {lugar.nombre}
+                            </span>
+                            <span className="text-white/35 text-[11px] font-[450] leading-none">
+                              {km} {t.mapa.btcMapAKm}
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <a
+                    href={BTC_MAP.explorar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 h-[34px] px-3 rounded-[10px] bg-white/[0.07] text-white/80 text-[12px] font-[450] leading-none hover:bg-white/[0.11]"
+                  >
+                    {t.mapa.btcMapVer}
+                    <ExternalLink className="w-[11px] h-[11px]" />
+                  </a>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={160} className="mt-5">
+          <div className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-5 sm:p-8">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
+              <div className="max-w-[640px]">
+                <p className="text-white text-[16px] sm:text-[20px] font-[450] leading-[1.2] mb-2">
+                  {t.mapa.protocoloTitulo}
+                </p>
+                <p className="text-white/55 text-[13.5px] font-[450] leading-[1.4]">
+                  {t.mapa.protocoloBajada}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={BTC_MAP.guiaEtiquetado}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 h-[34px] px-3 rounded-[10px] border border-white/10 text-white/70 text-[12px] font-[450] leading-none hover:border-[#F7931A]/40"
+                >
+                  {t.mapa.protocoloGuia}
+                </a>
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center h-[34px] px-3 rounded-[10px] text-white/70 text-[12px] font-[450] leading-none hover:text-white"
+                >
+                  {t.mapa.comoRegistrarse}
+                </a>
+              </div>
+            </div>
+            <ol className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-5">
+              {t.mapa.protocoloPasos.map((paso, i) => (
+                <li
+                  key={paso.titulo}
+                  className="rounded-[16px] bg-white/[0.04] border border-white/[0.05] p-4 sm:p-5"
+                >
+                  <span className="w-[22px] h-[22px] rounded-full bg-[#F7931A] text-[#0A0806] text-[11px] font-[450] leading-none tnum flex items-center justify-center mb-3">
+                    {i + 1}
+                  </span>
+                  <span className="block text-white text-[14px] sm:text-[15px] font-[450] leading-[1.25] mb-1">
+                    {paso.titulo}
+                  </span>
+                  <span className="block text-white/50 text-[12.5px] font-[450] leading-[1.4]">
+                    {paso.texto}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <div className="flex flex-wrap gap-1.5">
+              {t.mapa.protocoloTags.map((tag) => (
+                <code
+                  key={tag}
+                  className="px-2 py-1 rounded-[6px] bg-white/[0.06] text-[#E8B45A] text-[11px] font-[450] leading-none"
+                >
+                  {tag}
+                </code>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

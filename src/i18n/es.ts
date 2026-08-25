@@ -3,12 +3,12 @@ export const es = {
   htmlLang: 'es',
 
   proyecto: {
-    nombre: 'Brigada Educativa Bitcoin',
+    nombre: 'Economía Circular Bitcoin Zacatlán',
     sede: 'Zacatlán de las Manzanas',
     estado: 'Sierra Norte de Puebla, México',
-    inicio: '24 de agosto de 2026',
-    fin: '20 de septiembre de 2026',
-    inicioISO: '2026-08-24',
+    inicio: '7 de septiembre de 2026',
+    fin: '2 de octubre de 2026',
+    inicioISO: '2026-09-07',
     duracion: '4 semanas',
   },
 
@@ -24,30 +24,33 @@ export const es = {
     abrirMenu: 'Abrir menú',
     secciones: 'Secciones',
     cambiarIdioma: 'Switch to English',
+    marca: 'Economía Circular Bitcoin',
+    marcaEdicion: 'Zacatlán',
   },
 
   hero: {
-    tituloA: 'Educación Bitcoin para el',
-    tituloDestacado: 'Primer Pueblo Mágico',
-    tituloB: 'de México',
+    tituloA: 'Economía Circular Bitcoin',
+    tituloDestacado: 'Zacatlán',
+    tituloB: '',
     bajada:
-      'Cuatro semanas de brigada para activar la economía circular Bitcoin en Zacatlán de las Manzanas',
+      'Proyecto de economía circular en Zacatlán de las Manzanas. La Brigada Educativa Bitcoin es la fase de activación: arranca el 7 de septiembre con la Ruta Universitaria y Unlock Summit 2026.',
     ctaPrimario: 'Ver la ruta',
     ctaSecundario: 'Suma tu marca',
     arrancaEn: 'Arranca en',
     hoyArranca: 'Hoy arranca',
     enMarcha: 'En marcha',
-    terminada: 'Brigada concluida',
+    terminada: 'Fase de activación concluida',
     hoyToca: 'Hoy toca',
     primerDia: 'El primer día',
     siguienteEnPlan: 'Siguiente en el plan',
     verTemario: 'Ver el temario',
+    desliza: 'Desliza para ver cada semana',
     horaSede: '09:00 h · Zacatlán',
     semanaCorta: 'Semana',
     tarjetaLabel: 'Personas por capacitar',
     tarjetaUnidad: ' personas',
     tarjetaBadge: '4 semanas',
-    tarjetaFechas: '24 ago – 20 sep 2026',
+    tarjetaFechas: '7 sep – 2 oct 2026',
     ejes: ['S1', 'S2', 'S3', 'S4', 'Cierre'],
   },
 
@@ -57,8 +60,7 @@ export const es = {
     'Lightning Network',
     'La Cabaña de Satoshi',
     'Economía Circular',
-    'Sierra Norte de Puebla',
-    'Soberanía Financiera',
+    'Ruta Universitaria',
     'Unlock Summit 2026',
   ],
 
@@ -69,13 +71,19 @@ export const es = {
       'Pueblo Mágico de la Sierra Norte de Puebla: el Reloj Floral, la Calle del Arco, el mercado, los huertos de manzana y la cascada.',
     reproducir: 'Reproducir video',
     pausar: 'Pausar video',
+    ctaSitio: 'Sitio oficial del municipio',
+    datos: [
+      { titulo: 'Pueblo Mágico', texto: 'Cabecera de la Sierra Norte de Puebla, con reloj floral, arco y huertos de manzana.' },
+      { titulo: 'Gran Feria de la Manzana', texto: 'La fiesta que pone a Zacatlán en el mapa turístico de México cada año.' },
+      { titulo: 'Gobierno municipal', texto: 'Palacio Municipal s/n, Col. Centro. El Ayuntamiento publica avisos, turismo y trámites en su sitio.' },
+    ],
   },
 
   proyectoSec: {
     eyebrow: 'El proyecto',
     tituloA: 'Una',
     tituloDestacado: 'economía circular',
-    tituloB: 'que empieza por la educación',
+    tituloB: 'en Zacatlán de las Manzanas',
     tabsLabel: 'Misión, objetivo y visión',
     tabs: { mision: 'Misión', objetivo: 'Objetivo', vision: 'Visión' },
     mision:
@@ -134,8 +142,8 @@ export const es = {
 
   ruta: {
     eyebrow: 'Plan operativo',
-    tituloDestacado: 'Cuatro semanas',
-    tituloB: ', calle por calle',
+    tituloDestacado: 'Universidades y Unlock',
+    tituloB: ', luego la calle',
     resultado: 'Resultado de la semana',
     semanaLabel: 'Semana',
     semanasNav: 'Semanas del plan',
@@ -144,14 +152,70 @@ export const es = {
     de: 'de',
     anterior: 'Anterior',
     siguiente: 'Siguiente',
+    destacada: 'Destacada',
+    verRutaUniversitaria: 'Registro Ruta Universitaria',
+    verCalendario: 'Abrir calendario',
+    calendarioTitulo: 'Calendario de la semana 1',
+    bajada:
+      'La Brigada Educativa Bitcoin es la fase de activación de Economía Circular Bitcoin Zacatlán. La semana 1 concentra la Ruta Universitaria y Unlock Summit 2026.',
     semanas: [
       {
         id: 's1',
         numero: '01',
-        nombre: 'Instalación de base y primer contacto',
-        fechas: '24 – 28 de agosto',
+        destacada: true,
+        nombre: 'Universidades y Unlock Summit 2026',
+        fechas: '7 – 13 de septiembre',
         resumen:
-          'La Cabaña de Satoshi se convierte en el corazón educativo de la Economía Circular Bitcoin, siguiendo el modelo de Bitcoin Beach en El Salvador y Bitcoin Jungle en Costa Rica.',
+          'La fase de activación arranca en las universidades y se cruza con la 4ta edición del Unlock Summit: ruta universitaria, cena de bienvenida, ponencias, talleres y Brunch de Conciencia.',
+        bloques: [
+          {
+            dias: 'Lunes a Miércoles',
+            titulo: 'Ruta Universitaria',
+            puntos: [
+              'Historia del dinero hasta Bitcoin.',
+              'Bitcoin como protección de tus ahorros: 21 M de unidades, nadie lo controla.',
+              'Presentación del libro «Bitcoin Coach» como herramienta indispensable para el aprendizaje.',
+              'Práctica: descargar wallet y hacer el respaldo de tus llaves.',
+            ],
+          },
+          {
+            dias: 'Jueves',
+            titulo: 'Cena de Bienvenida — Unlock Summit 2026',
+            puntos: [
+              'Proyección del Proyecto de Economía Circular Bitcoin en Zacatlán de las Manzanas.',
+              'Avances de la Brigada Educativa Bitcoin obtenidos.',
+              'Presentación del libro «Bitcoin Coach» como herramienta indispensable para el aprendizaje.',
+            ],
+          },
+          {
+            dias: 'Viernes y Sábado',
+            titulo: 'Día 1 y 2 — Unlock Summit 2026',
+            puntos: [
+              'Stand con libros «Bitcoin Coach».',
+              'Presentación del Proyecto Economía Circular Bitcoin.',
+              'Ponencias y talleres sobre Bitcoin.',
+              'Descarga de wallets y respaldo de tus llaves.',
+            ],
+          },
+          {
+            dias: 'Domingo',
+            titulo: 'Día 3 — Brunch de Conciencia',
+            puntos: [
+              'Stand con libros «Bitcoin Coach».',
+              'Presentación del libro y cómo Bitcoin es parte del despertar de conciencia.',
+            ],
+          },
+        ],
+        meta: '40 estudiantes con wallet para sus ahorros y 50 mujeres con wallet para sus ahorros.',
+      },
+      {
+        id: 's2',
+        numero: '02',
+        destacada: false,
+        nombre: 'Artesanos y comerciantes',
+        fechas: '14 – 18 de septiembre',
+        resumen:
+          'La Cabaña de Satoshi se convierte en el corazón educativo de la Economía Circular Bitcoin, siguiendo el modelo de Bitcoin Beach en El Salvador y Bitcoin Jungle en Costa Rica. La brigada a comerciantes inicia el martes 15.',
         bloques: [
           {
             dias: 'Lunes',
@@ -186,10 +250,11 @@ export const es = {
         meta: '15 comerciantes y artesanos informados con su wallet en su dispositivo. Expectativa comunitaria creada.',
       },
       {
-        id: 's2',
-        numero: '02',
+        id: 's3',
+        numero: '03',
+        destacada: false,
         nombre: 'Familias, empresas y turismo',
-        fechas: '31 de agosto – 4 de septiembre',
+        fechas: '21 – 25 de septiembre',
         resumen:
           'La brigada sale a la calle: casa por casa, empresa por empresa y hotel por hotel, para que Zacatlán esté listo para recibir turismo Bitcoin.',
         bloques: [
@@ -207,7 +272,7 @@ export const es = {
             titulo: 'Brigada a Empresas',
             puntos: [
               'Visitar a 10 empresarios locales.',
-              'Explicación uno a uno de Bitcoin y sus beneficios para el negocio.',
+              'Explicación uno a uno: ¿Qué es Bitcoin? Y sus beneficios; sin comisión bancaria, protege tus ingresos de la inflación.',
               'Invitación a la Segunda Asamblea Bitcoin en La Cabaña.',
             ],
           },
@@ -216,7 +281,7 @@ export const es = {
             titulo: 'Brigada a Hoteles y Servicios de Turismo',
             puntos: [
               'Visitar a 10 hoteles y servidores de turismo locales.',
-              'Explicación uno a uno de Bitcoin y sus beneficios.',
+              'Explicación uno a uno: ¿Qué es Bitcoin? Y sus beneficios; sin comisión bancaria, protege tus ingresos de la inflación.',
               'Invitación a la Segunda Asamblea Bitcoin en La Cabaña.',
             ],
           },
@@ -224,8 +289,9 @@ export const es = {
             dias: 'Viernes',
             titulo: 'Segunda Asamblea en la Cabaña de Satoshi',
             puntos: [
-              'Charla: «Empezando por lo simple» y «¿Por qué Bitcoin?».',
-              'Presentación del libro «Bitcoin Coach».',
+              'Charla: «Empezando por lo simple, entender cómo funciona el dinero» y «¿Por qué Bitcoin?».',
+              'Presentación del libro «Bitcoin Coach» como herramienta indispensable para el aprendizaje.',
+              'Cómo atraer a los millones de Bitcoiners globales. Ventaja competitiva: Primer Pueblo Mágico Bitcoin-friendly.',
               'Demostración en vivo: pago Lightning de una compra.',
               'Descarga de wallets y respaldo de sus llaves.',
             ],
@@ -234,58 +300,11 @@ export const es = {
         meta: '10 familias con su wallet, y 21 hoteles, restaurantes y servidores de turismo listos para atender turistas Bitcoin.',
       },
       {
-        id: 's3',
-        numero: '03',
-        nombre: 'Universidades y Unlock Summit 2026',
-        fechas: '7 – 13 de septiembre',
-        resumen:
-          'La ruta universitaria se cruza con la 4ta edición del Unlock Summit: tres días de ponencias, talleres y stand de Investor House con los libros «Bitcoin Coach».',
-        bloques: [
-          {
-            dias: 'Lunes a Miércoles',
-            titulo: 'Ruta Universitaria',
-            puntos: [
-              'Historia del dinero hasta Bitcoin.',
-              'Bitcoin como protección de tus ahorros: 21 M de unidades, nadie lo controla.',
-              'Presentación del libro «Bitcoin Coach» como herramienta indispensable para el aprendizaje.',
-              'Práctica: descargar wallet y hacer el respaldo de tus llaves.',
-            ],
-          },
-          {
-            dias: 'Jueves',
-            titulo: 'Cena de Bienvenida — Unlock Summit 2026',
-            puntos: [
-              'Proyección del Proyecto de Economía Circular Bitcoin en Zacatlán de las Manzanas.',
-              'Avances de la Brigada Educativa Bitcoin obtenidos.',
-              'Presentación del libro «Bitcoin Coach».',
-            ],
-          },
-          {
-            dias: 'Viernes y Sábado',
-            titulo: 'Día 1 y 2 — Unlock Summit 2026',
-            puntos: [
-              'Stand de Investor House con libros «Bitcoin Coach».',
-              'Presentación del Proyecto Economía Circular Bitcoin.',
-              'Ponencias y talleres sobre Bitcoin.',
-              'Descarga de wallets y respaldo de tus llaves.',
-            ],
-          },
-          {
-            dias: 'Domingo',
-            titulo: 'Día 3 — Brunch de Conciencia',
-            puntos: [
-              'Stand de Investor House con libros «Bitcoin Coach».',
-              'Presentación del libro y cómo Bitcoin es parte del despertar de conciencia.',
-            ],
-          },
-        ],
-        meta: '40 estudiantes con wallet para sus ahorros y 50 mujeres con wallet para sus ahorros.',
-      },
-      {
         id: 's4',
         numero: '04',
+        destacada: false,
         nombre: 'Consolidación y medición',
-        fechas: '14 – 20 de septiembre',
+        fechas: '28 de septiembre – 2 de octubre',
         resumen:
           'Seguimiento a los pioneros, señalética instalada, mapa público de adopción y una asamblea de cierre que deja el modelo documentado y replicable.',
         bloques: [
@@ -293,7 +312,7 @@ export const es = {
             dias: 'Lunes a Jueves',
             titulo: 'Expansión a Comercios',
             puntos: [
-              'Equipo dividido en 3 grupos para visitar y dar seguimiento a los pioneros de Bitcoin en Zacatlán.',
+              'Equipo dividido en 3 grupos para visitar y dar seguimiento a los pioneros de Bitcoin en Zacatlán de las Manzanas.',
               'Instalación de señalética y registro en mapa público de quienes adoptaron Bitcoin.',
               'Invitación a la Asamblea de Cierre.',
             ],
@@ -305,7 +324,7 @@ export const es = {
               'Presentación de los resultados obtenidos.',
               'Identificación de líderes locales para dar continuidad al proyecto.',
               'Establecimiento de Bitcoiner en Residencia Permanente.',
-              'Convivio de celebración por la culminación de la Primera Brigada Educativa Bitcoin.',
+              'Convivio de celebración por la culminación de la Primera Brigada Educativa Bitcoin en Zacatlán de las Manzanas.',
             ],
           },
         ],
@@ -315,22 +334,55 @@ export const es = {
   },
 
   mapa: {
-    eyebrow: 'Mapa de adopción',
+    eyebrow: 'Mapa de la región',
     titulo: 'Dónde se puede pagar con Bitcoin',
     bajada:
-      'El mapa se llena conforme avanza la brigada. Cada pin es un comercio que aceptó Bitcoin, instaló su señalética y se registró públicamente.',
+      'Comercios de BTC Map en la Sierra Norte de Puebla. Zacatlán se suma a esta red pública cuando un local verifica Lightning y se etiqueta en OpenStreetMap.',
     contadorLabel: 'comercios registrados',
     contadorMeta: 'meta al cierre',
-    vacioTitulo: 'Todavía no hay comercios registrados',
+    vacioTitulo: 'Zacatlán todavía no está en el mapa local',
     vacioTexto:
-      'La brigada arranca el 24 de agosto de 2026. Los primeros pines aparecerán durante la semana 1, conforme los comercios del centro instalen su señalética.',
+      'Los pines naranja son comercios de BTC Map en la Sierra Norte. La brigada sumará los de la cabecera a partir de septiembre.',
     rutaTitulo: 'Zona de la brigada',
-    rutaTexto: 'Los tres puntos donde arranca el recorrido en la semana 1.',
-    leyendaActivo: 'Acepta Bitcoin',
+    rutaTexto: 'Los tres puntos donde arranca el recorrido con comerciantes y artesanos en la semana 2.',
+    leyendaActivo: 'Registrado por la brigada',
+    leyendaBtcMap: 'BTC Map (región)',
     leyendaRuta: 'Punto de la ruta',
+    btcMapTitulo: 'Red de BTC Map',
+    btcMapTexto:
+      'Lugares de OpenStreetMap que aceptan Bitcoin a 60 km de Zacatlán. Toca uno para verlo en el mapa o abre la ficha en BTC Map.',
+    btcMapContador: 'lugares en la región',
+    btcMapVer: 'Abrir BTC Map',
+    btcMapAgregar: 'Agregar un lugar',
+    btcMapSubir: 'Subir un negocio a BTC Map',
+    btcMapSubirTexto: 'Se abre el formulario oficial de BTC Map. Ellos lo revisan y lo publican en OpenStreetMap.',
+    btcMapFicha: 'Ver en BTC Map',
+    btcMapRegion: 'Ver la región',
+    btcMapCargando: 'Cargando BTC Map…',
+    btcMapError: 'No se pudo cargar BTC Map. Ábrelo en btcmap.org.',
+    btcMapAKm: 'km',
     comoRegistrarse: '¿Tienes un comercio en Zacatlán?',
     comoRegistrarseTexto: 'Escríbenos y te visitamos para capacitarte y registrarte en el mapa.',
-    atribucion: 'Mapa © colaboradores de OpenStreetMap · Teselas © CARTO',
+    protocoloTitulo: 'Protocolo de alta',
+    protocoloBajada:
+      'BTC Map lee OpenStreetMap. Un comercio entra al mapa público cuando se verifica en persona y se etiqueta el lugar, no con un alta interna nuestra.',
+    protocoloPasos: [
+      {
+        titulo: 'Verificar en el local',
+        texto: 'Capacitar, dejar Lightning funcionando y confirmar un pago de prueba.',
+      },
+      {
+        titulo: 'Etiquetar en OSM',
+        texto: 'Editar el nodo o enviarlo en btcmap.org/add-location si no editan OSM.',
+      },
+      {
+        titulo: 'Esperar el sync',
+        texto: 'BTC Map refresca OSM ~cada 10 minutos. Luego lo sumamos a este mapa de la brigada.',
+      },
+    ],
+    protocoloTags: ['currency:XBT=yes', 'payment:lightning=yes', 'check_date=AAAA-MM-DD'],
+    protocoloGuia: 'Guía de etiquetado',
+    atribucion: 'Mapa © OpenStreetMap · Teselas © CARTO · Comercios © BTC Map',
   },
 
   metas: {
@@ -344,9 +396,9 @@ export const es = {
     items: [
       { valor: 21, label: 'Comercios operando con Lightning', nota: 'Meta al cierre de la semana 4' },
       { valor: 50, label: 'Mujeres con wallet propia', nota: 'Brunch de Conciencia · Unlock Summit' },
-      { valor: 40, label: 'Estudiantes con wallet', nota: 'Ruta universitaria · semana 3' },
-      { valor: 15, label: 'Comerciantes y artesanos', nota: 'Primera asamblea · semana 1' },
-      { valor: 10, label: 'Familias capacitadas', nota: 'Brigada casa por casa · semana 2' },
+      { valor: 40, label: 'Estudiantes con wallet', nota: 'Ruta universitaria · semana 1' },
+      { valor: 15, label: 'Comerciantes y artesanos', nota: 'Primera asamblea · semana 2' },
+      { valor: 10, label: 'Familias capacitadas', nota: 'Brigada casa por casa · semana 3' },
       { valor: 21, label: 'Hoteles y servicios de turismo', nota: 'Listos para turistas Bitcoin' },
     ],
     equipoTitulo: 'Personas y responsabilidad',
@@ -401,6 +453,7 @@ export const es = {
     bajada:
       'Tu donación cubre la Cabaña, el material impreso y el trabajo de los facilitadores durante las cuatro semanas.',
     escanea: 'Escanea para donar por Lightning',
+    ctaLightning: 'Donar por Lightning',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
     sinConfigurar: 'Dirección Lightning pendiente de configurar',
@@ -435,7 +488,7 @@ export const es = {
 
   footer: {
     descripcion: (inicio: string, fin: string) =>
-      `Brigada Educativa Bitcoin · Zacatlán de las Manzanas, Sierra Norte de Puebla. Del ${inicio} al ${fin}.`,
+      `Economía Circular edición: Zacatlán de las Manzanas, Sierra Norte de Puebla. Del ${inicio} al ${fin}.`,
     lema: 'Proceso abierto, medible y auditable por la comunidad.',
   },
 };
