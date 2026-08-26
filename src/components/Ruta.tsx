@@ -71,8 +71,7 @@ export default function Ruta() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 sm:mb-12">
           <div className="max-w-[720px]">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-                <span className="w-6 h-px bg-[#F7931A]" />
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
                 {t.ruta.eyebrow}
               </p>
             </Reveal>

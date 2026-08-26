@@ -1,3 +1,5 @@
+import { WALLET_BULLBITCOIN } from '@/config/enlaces';
+
 export const es = {
   codigo: 'es',
   htmlLang: 'es',
@@ -19,6 +21,7 @@ export const es = {
     metas: 'Metas',
     prensa: 'Prensa',
     aliados: 'Aliados',
+    wallet: 'Wallet',
     contacto: 'Contacto',
     sumaTuMarca: 'Suma tu marca',
     abrirMenu: 'Abrir menú',
@@ -65,17 +68,17 @@ export const es = {
   ],
 
   zacatlan: {
-    eyebrow: 'El lugar',
+    eyebrow: 'Lugar',
     titulo: 'Zacatlán de las Manzanas',
     bajada:
-      'Pueblo Mágico de la Sierra Norte de Puebla: el Reloj Floral, la Calle del Arco, el mercado, los huertos de manzana y la cascada.',
+      'Pueblo Mágico de la Sierra Norte de Puebla: el Reloj Floral, la Calle del Arco, el mercado, los huertos de manzana y la cascada. El Municipio de Zacatlán de las Manzanas es el primer respaldo institucional del proyecto.',
     reproducir: 'Reproducir video',
     pausar: 'Pausar video',
     ctaSitio: 'Sitio oficial del municipio',
     datos: [
+      { titulo: 'Respaldo municipal', texto: 'El Municipio de Zacatlán de las Manzanas respalda el proyecto. Palacio Municipal s/n, Col. Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Cabecera de la Sierra Norte de Puebla, con reloj floral, arco y huertos de manzana.' },
       { titulo: 'Gran Feria de la Manzana', texto: 'La fiesta que pone a Zacatlán en el mapa turístico de México cada año.' },
-      { titulo: 'Gobierno municipal', texto: 'Palacio Municipal s/n, Col. Centro. El Ayuntamiento publica avisos, turismo y trámites en su sitio.' },
     ],
   },
 
@@ -115,7 +118,7 @@ export const es = {
   },
 
   brigada: {
-    eyebrow: 'Cómo trabaja la brigada',
+    eyebrow: 'Cómo funciona la brigada',
     titulo: 'No damos conferencias. Tocamos puertas.',
     bajada:
       'Educación financiera Bitcoin que llega al mostrador, a la cocina y al salón de clases — con herramientas prácticas y accesibles, sin renunciar a la identidad cultural que distingue a este Pueblo Mágico.',
@@ -416,7 +419,7 @@ export const es = {
       'Desde el anuncio del proyecto, medios internacionales como Crypto India Magazine nos han entrevistado para conocer más sobre las economías circulares Bitcoin emergentes, lo que refleja el alto interés que existe en torno a este tipo de iniciativas.',
     puntos: [
       'Documentar el proyecto durante todo su proceso dará visibilidad mundial a los participantes, atrayendo marcas y medios de distintas partes del mundo interesados en apoyar proyectos educativos que impulsan el desarrollo tecnológico en los municipios de México.',
-      'Ya contamos con el respaldo del Gobierno del Estado de Puebla y municipios cercanos con las características de Pueblo Mágico interesados en lo que estamos haciendo.',
+      'Ya contamos con el respaldo del Municipio de Zacatlán de las Manzanas, del Gobierno del Estado de Puebla y de municipios cercanos con las características de Pueblo Mágico interesados en lo que estamos haciendo.',
       'Realización de un documental sobre el macro proyecto: una oportunidad única y enorme de visibilidad para las marcas aliadas que decidan sumarse como patrocinadoras.',
     ],
     enMedios: 'En medios',
@@ -431,6 +434,7 @@ export const es = {
     pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Respaldo institucional',
     respaldos: [
+      { nombre: 'Municipio de Zacatlán de las Manzanas', estado: 'Confirmado' },
       { nombre: 'Gobierno del Estado de Puebla', estado: 'Confirmado' },
       { nombre: 'Municipios Pueblo Mágico cercanos', estado: 'Interesados' },
       { nombre: 'Documental del macro proyecto', estado: 'En proceso' },
@@ -440,11 +444,30 @@ export const es = {
   aliados: {
     titulo: 'Aliados del proyecto',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-48 lg:h-36 max-w-[92%]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-24 sm:h-40 lg:h-28 max-w-[94%]' },
-      { nombre: 'Unlock Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-full' },
-      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam.jpg', alto: 'h-28 sm:h-40 lg:h-32 max-w-[90%]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20 max-w-[200px]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-10 sm:h-12 max-w-[220px]' },
+      { nombre: 'Unlock Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
+      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
+      {
+        nombre: 'Bull Bitcoin',
+        img: '/img/logo-bullbitcoin.png',
+        alto: 'h-14 sm:h-16 max-w-[140px]',
+        href: WALLET_BULLBITCOIN,
+      },
     ],
+  },
+
+  wallet: {
+    eyebrow: 'Crea tu wallet',
+    tituloA: 'Abre tu cuenta en',
+    tituloDestacado: 'Bull Bitcoin',
+    bajada:
+      'La misma wallet que instalamos en la brigada. Crea tu cuenta con el enlace de Steph Serrano: botón o código QR, tú eliges.',
+    cta: 'Crear cuenta',
+    qrLabel: 'Escanea para registrarte',
+    qrTexto: 'También puedes escanear el código con la cámara de tu teléfono.',
+    qrAlt: 'Código QR para crear una cuenta en Bull Bitcoin',
+    logoAlt: 'Bull Bitcoin',
   },
 
   donar: {
@@ -482,8 +505,13 @@ export const es = {
     ctaSecundario: 'Ver la cobertura',
     nombre: 'Steph Serrano',
     rol: 'Coordinación general · Brigada Educativa Bitcoin',
-    canal: 'Contacto de WhatsApp',
-    qrTexto: 'Escanea el código con la cámara de tu teléfono para escribirnos.',
+    canal: 'Telegram',
+    usuario: '@STEPHSERRANO',
+    correoLabel: 'Correo',
+    qrStephLabel: 'Contacto Steph',
+    qrStephTexto: 'Escanea el código o ábrelo en Telegram para escribirnos.',
+    qrGrupoLabel: 'Grupo Escuela Bitcoin',
+    qrGrupoTexto: 'Escanea el código con la cámara para unirte al grupo.',
   },
 
   footer: {

@@ -82,6 +82,14 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+  .animate-marquee,
+  .animate-marquee-slow,
+  .animate-marquee-aliados {
+    animation: none !important;
+  }
+  .marquee-clone {
+    display: none !important;
+  }
 }
 
 ::selection {
@@ -107,9 +115,15 @@ body {
 .animate-marquee-slow {
   animation: marquee 70s linear infinite reverse;
 }
+.animate-marquee-aliados {
+  animation: marquee 36s linear infinite;
+}
 .marquee-mask {
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.group\/ticker:hover .animate-marquee-aliados {
+  animation-play-state: paused;
 }
 
 /* Órbita / flotación de elementos decorativos */

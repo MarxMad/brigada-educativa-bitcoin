@@ -4,7 +4,11 @@ function Track({ reverse = false, items }: { reverse?: boolean; items: readonly 
   return (
     <div className={`flex w-max ${reverse ? 'animate-marquee-slow' : 'animate-marquee'}`}>
       {[0, 1].map((copy) => (
-        <div key={copy} className="flex shrink-0" aria-hidden={copy === 1 ? 'true' : undefined}>
+        <div
+          key={copy}
+          className={`flex shrink-0 ${copy === 1 ? 'marquee-clone' : ''}`}
+          aria-hidden={copy === 1 ? true : undefined}
+        >
           {items.map((item) => (
             <span
               key={item}

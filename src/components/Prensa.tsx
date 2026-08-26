@@ -21,8 +21,7 @@ export default function Prensa() {
         <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-12">
           <div className="flex-1 min-w-0 flex flex-col">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-                <span className="w-6 h-px bg-[#F7931A]" />
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
                 {t.prensa.eyebrow}
               </p>
             </Reveal>
@@ -105,7 +104,7 @@ export default function Prensa() {
             <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-5">
               {t.prensa.respaldoTitulo}
             </p>
-            <ul className="grid sm:grid-cols-3 gap-3">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {t.prensa.respaldos.map((r) => (
                 <li
                   key={r.nombre}

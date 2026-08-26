@@ -32,8 +32,7 @@ export default function Brigada() {
 
           <div className="min-w-0">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#0A0806]/70 uppercase tracking-[0.18em] mb-6">
-                <span className="w-6 h-px bg-[#0A0806]/50" />
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#0A0806]/70 uppercase tracking-[0.18em] mb-6">
                 {t.brigada.eyebrow}
               </p>
             </Reveal>

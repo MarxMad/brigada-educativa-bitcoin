@@ -64,8 +64,7 @@ export default function Proyecto() {
           {/* Columna de texto */}
           <div className="max-w-[720px] flex-1">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-                <span className="w-6 h-px bg-[#F7931A]" />
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
                 {t.proyectoSec.eyebrow}
               </p>
             </Reveal>
@@ -174,8 +173,7 @@ export default function Proyecto() {
         {/* Valores */}
         <div className="mt-24 sm:mt-32">
           <Reveal>
-            <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-              <span className="w-6 h-px bg-[#F7931A]" />
+            <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
               {t.proyectoSec.valoresEyebrow}
             </p>
           </Reveal>

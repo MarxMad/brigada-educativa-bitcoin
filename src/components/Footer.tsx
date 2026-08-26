@@ -9,6 +9,7 @@ export default function Footer() {
     { label: t.nav.mapa, href: '#mapa' },
     { label: t.nav.metas, href: '#metas' },
     { label: t.nav.prensa, href: '#prensa' },
+    { label: t.nav.wallet, href: '#wallet' },
     { label: t.nav.contacto, href: '#contacto' },
   ];
 

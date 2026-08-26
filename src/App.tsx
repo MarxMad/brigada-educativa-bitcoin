@@ -10,6 +10,7 @@ import Mapa from '@/components/Mapa';
 import Metas from '@/components/Metas';
 import Prensa from '@/components/Prensa';
 import Aliados from '@/components/Aliados';
+import Wallet from '@/components/Wallet';
 import Donar from '@/components/Donar';
 import Contacto from '@/components/Contacto';
 import Footer from '@/components/Footer';
@@ -28,6 +29,7 @@ function App() {
         <Metas />
         <Prensa />
         <Aliados />
+        <Wallet />
         <Donar />
         <Contacto />
         <Footer />

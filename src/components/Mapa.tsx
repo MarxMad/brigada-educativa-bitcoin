@@ -207,8 +207,7 @@ export default function Mapa() {
       <div className="relative z-10 w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-24 sm:py-32 md:py-40">
         <div className="max-w-[720px] mb-12 sm:mb-16">
           <Reveal>
-            <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-              <span className="w-6 h-px bg-[#F7931A]" />
+            <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
               {t.mapa.eyebrow}
             </p>
           </Reveal>

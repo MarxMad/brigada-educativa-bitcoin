@@ -1,3 +1,4 @@
+import { WALLET_BULLBITCOIN } from '@/config/enlaces';
 import type { Diccionario } from './es';
 
 export const en: Diccionario = {
@@ -21,6 +22,7 @@ export const en: Diccionario = {
     metas: 'Goals',
     prensa: 'Press',
     aliados: 'Partners',
+    wallet: 'Wallet',
     contacto: 'Contact',
     sumaTuMarca: 'Become a sponsor',
     abrirMenu: 'Open menu',
@@ -67,17 +69,17 @@ export const en: Diccionario = {
   ],
 
   zacatlan: {
-    eyebrow: 'The place',
+    eyebrow: 'Place',
     titulo: 'Zacatlán de las Manzanas',
     bajada:
-      'A Pueblo Mágico in the Sierra Norte de Puebla: the Floral Clock, Calle del Arco, the market, the apple orchards and the waterfall.',
+      'A Pueblo Mágico in the Sierra Norte de Puebla: the Floral Clock, Calle del Arco, the market, the apple orchards and the waterfall. The Municipality of Zacatlán de las Manzanas is the project’s first institutional backer.',
     reproducir: 'Play video',
     pausar: 'Pause video',
     ctaSitio: 'Official municipal website',
     datos: [
+      { titulo: 'Municipal backing', texto: 'The Municipality of Zacatlán de las Manzanas backs the project. Palacio Municipal s/n, Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Seat of the Sierra Norte de Puebla, with the floral clock, the arch and the apple orchards.' },
       { titulo: 'Great Apple Fair', texto: 'The festival that puts Zacatlán on Mexico’s tourism map every year.' },
-      { titulo: 'Town hall', texto: 'Palacio Municipal s/n, Centro. The Ayuntamiento posts tourism, notices and procedures on its site.' },
     ],
   },
 
@@ -418,7 +420,7 @@ export const en: Diccionario = {
       'Since the project was announced, international outlets such as Crypto India Magazine have interviewed us to learn more about emerging Bitcoin circular economies — a sign of how much interest there is in this kind of initiative.',
     puntos: [
       'Documenting the project throughout will give worldwide visibility to everyone taking part, drawing brands and media from around the world interested in backing educational projects that push technological development in Mexico’s municipalities.',
-      'We already have the backing of the Government of the State of Puebla and nearby municipalities with Pueblo Mágico status who are interested in what we are doing.',
+      'We already have the backing of the Municipality of Zacatlán de las Manzanas, the Government of the State of Puebla, and nearby municipalities with Pueblo Mágico status who are interested in what we are doing.',
       'A documentary about the wider project is in the works: a unique and enormous visibility opportunity for partner brands that decide to come on board as sponsors.',
     ],
     enMedios: 'In the media',
@@ -433,6 +435,7 @@ export const en: Diccionario = {
     pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Institutional backing',
     respaldos: [
+      { nombre: 'Municipality of Zacatlán de las Manzanas', estado: 'Confirmed' },
       { nombre: 'Government of the State of Puebla', estado: 'Confirmed' },
       { nombre: 'Nearby Pueblo Mágico municipalities', estado: 'Interested' },
       { nombre: 'Documentary on the wider project', estado: 'In progress' },
@@ -442,11 +445,30 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-48 lg:h-36 max-w-[92%]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-24 sm:h-40 lg:h-28 max-w-[94%]' },
-      { nombre: 'Unlock Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-full' },
-      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam.jpg', alto: 'h-28 sm:h-40 lg:h-32 max-w-[90%]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20 max-w-[200px]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-10 sm:h-12 max-w-[220px]' },
+      { nombre: 'Unlock Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
+      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
+      {
+        nombre: 'Bull Bitcoin',
+        img: '/img/logo-bullbitcoin.png',
+        alto: 'h-14 sm:h-16 max-w-[140px]',
+        href: WALLET_BULLBITCOIN,
+      },
     ],
+  },
+
+  wallet: {
+    eyebrow: 'Create your wallet',
+    tituloA: 'Open your account on',
+    tituloDestacado: 'Bull Bitcoin',
+    bajada:
+      'The same wallet we install on the brigade. Create your account with Steph Serrano’s referral link: tap the button or scan the QR.',
+    cta: 'Create account',
+    qrLabel: 'Scan to sign up',
+    qrTexto: 'You can also scan the code with your phone camera.',
+    qrAlt: 'QR code to create a Bull Bitcoin account',
+    logoAlt: 'Bull Bitcoin',
   },
 
   donar: {
@@ -484,8 +506,13 @@ export const en: Diccionario = {
     ctaSecundario: 'See the coverage',
     nombre: 'Steph Serrano',
     rol: 'General coordination · Bitcoin Education Brigade',
-    canal: 'WhatsApp contact',
-    qrTexto: 'Scan the code with your phone camera to reach us.',
+    canal: 'Telegram',
+    usuario: '@STEPHSERRANO',
+    correoLabel: 'Email',
+    qrStephLabel: 'Steph contact',
+    qrStephTexto: 'Scan the code or open it in Telegram to write to us.',
+    qrGrupoLabel: 'Escuela Bitcoin group',
+    qrGrupoTexto: 'Scan the code with your camera to join the group.',
   },
 
   footer: {

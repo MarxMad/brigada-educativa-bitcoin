@@ -20,8 +20,7 @@ export default function Metas() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8 sm:mb-10">
           <div className="max-w-[640px]">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-4">
-                <span className="w-6 h-px bg-[#F7931A]" />
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-4">
                 {t.metas.eyebrow}
               </p>
             </Reveal>
