@@ -447,8 +447,8 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-[36rem] sm:h-[48rem] md:h-[56rem] max-w-[600px] sm:max-w-[800px] md:max-w-[960px]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-[36rem] sm:h-[48rem] md:h-[56rem] max-w-[800px] sm:max-w-[1080px] md:max-w-[1280px]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-40 md:h-48 max-w-[220px] sm:max-w-[280px] md:max-w-[320px]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-32 sm:h-40 md:h-48 max-w-[360px] sm:max-w-[480px] md:max-w-[560px]' },
       { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
