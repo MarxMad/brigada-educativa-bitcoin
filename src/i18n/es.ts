@@ -53,7 +53,7 @@ export const es = {
     tarjetaLabel: 'Personas por capacitar',
     tarjetaUnidad: ' personas',
     tarjetaBadge: '4 semanas',
-    tarjetaFechas: '7 sep – 2 oct 2026',
+    tarjetaFechas: '7 sep al 2 oct 2026',
     ejes: ['S1', 'S2', 'S3', 'S4', 'Cierre'],
   },
 
@@ -123,7 +123,7 @@ export const es = {
     eyebrow: 'Cómo funciona la brigada',
     titulo: 'No damos conferencias. Tocamos puertas.',
     bajada:
-      'Educación financiera Bitcoin que llega al mostrador, a la cocina y al salón de clases — con herramientas prácticas y accesibles, sin renunciar a la identidad cultural que distingue a este Pueblo Mágico.',
+      'Educación financiera Bitcoin que llega al mostrador, a la cocina y al salón de clases, con herramientas prácticas y accesibles, sin renunciar a la identidad cultural que distingue a este Pueblo Mágico.',
     monedaAlt: 'Moneda de Bitcoin girando',
     pasos: [
       {
@@ -169,7 +169,7 @@ export const es = {
         numero: '01',
         destacada: true,
         nombre: 'Universidades y UNLOCK Summit 2026',
-        fechas: '7 – 13 de septiembre',
+        fechas: '7 al 13 de septiembre',
         resumen:
           'La fase de activación arranca en las universidades y se cruza con la 4ta edición del UNLOCK Summit: ruta universitaria, cena de bienvenida, ponencias, talleres y Brunch de Conciencia.',
         bloques: [
@@ -185,7 +185,7 @@ export const es = {
           },
           {
             dias: 'Jueves',
-            titulo: 'Cena de Bienvenida — UNLOCK Summit 2026',
+            titulo: 'Cena de Bienvenida: UNLOCK Summit 2026',
             puntos: [
               'Inauguración del Proyecto de Economía Circular Bitcoin en Zacatlán de las Manzanas.',
               'Avances de la Brigada Educativa Bitcoin obtenidos.',
@@ -194,7 +194,7 @@ export const es = {
           },
           {
             dias: 'Viernes y Sábado',
-            titulo: 'Día 1 y 2 — UNLOCK Summit 2026',
+            titulo: 'Día 1 y 2: UNLOCK Summit 2026',
             puntos: [
               'Stand con libros «Bitcoin Coach».',
               'Presentación del Proyecto Economía Circular Bitcoin.',
@@ -204,7 +204,7 @@ export const es = {
           },
           {
             dias: 'Domingo',
-            titulo: 'Día 3 — Brunch de Conciencia',
+            titulo: 'Día 3: Brunch de Conciencia',
             puntos: [
               'Stand con libros «Bitcoin Coach».',
               'Presentación del libro y cómo Bitcoin es parte del despertar de conciencia.',
@@ -218,7 +218,7 @@ export const es = {
         numero: '02',
         destacada: false,
         nombre: 'Artesanos y comerciantes',
-        fechas: '14 – 18 de septiembre',
+        fechas: '14 al 18 de septiembre',
         resumen:
           'La Cabaña de Satoshi se convierte en el corazón educativo de la Economía Circular Bitcoin, siguiendo el modelo de Bitcoin Beach en El Salvador y Bitcoin Jungle en Costa Rica. La brigada a comerciantes inicia el martes 15.',
         bloques: [
@@ -259,7 +259,7 @@ export const es = {
         numero: '03',
         destacada: false,
         nombre: 'Familias, empresas y turismo',
-        fechas: '21 – 25 de septiembre',
+        fechas: '21 al 25 de septiembre',
         resumen:
           'La brigada sale a la calle: casa por casa, empresa por empresa y hotel por hotel, para que Zacatlán esté listo para recibir turismo Bitcoin.',
         bloques: [
@@ -309,7 +309,7 @@ export const es = {
         numero: '04',
         destacada: false,
         nombre: 'Consolidación y medición',
-        fechas: '28 de septiembre – 2 de octubre',
+        fechas: '28 de septiembre al 2 de octubre',
         resumen:
           'Seguimiento a los pioneros, señalética instalada, mapa público de adopción y una asamblea de cierre que deja el modelo documentado y replicable.',
         bloques: [
@@ -368,25 +368,6 @@ export const es = {
     btcMapAKm: 'km',
     comoRegistrarse: '¿Tienes un comercio en Zacatlán?',
     comoRegistrarseTexto: 'Escríbenos y te visitamos para capacitarte y registrarte en el mapa.',
-    protocoloTitulo: 'Protocolo de alta',
-    protocoloBajada:
-      'BTC Map lee OpenStreetMap. Un comercio entra al mapa público cuando se verifica en persona y se etiqueta el lugar, no con un alta interna nuestra.',
-    protocoloPasos: [
-      {
-        titulo: 'Verificar en el local',
-        texto: 'Capacitar, dejar Lightning funcionando y confirmar un pago de prueba.',
-      },
-      {
-        titulo: 'Etiquetar en OSM',
-        texto: 'Editar el nodo o enviarlo en btcmap.org/add-location si no editan OSM.',
-      },
-      {
-        titulo: 'Esperar el sync',
-        texto: 'BTC Map refresca OSM ~cada 10 minutos. Luego lo sumamos a este mapa de la brigada.',
-      },
-    ],
-    protocoloTags: ['currency:XBT=yes', 'payment:lightning=yes', 'check_date=AAAA-MM-DD'],
-    protocoloGuia: 'Guía de etiquetado',
     atribucion: 'Mapa © OpenStreetMap · Teselas © CARTO · Comercios © BTC Map',
   },
 
@@ -477,14 +458,13 @@ export const es = {
     titulo: 'Financia una brigada completa',
     bajada:
       'Tu donación cubre la Cabaña, el material impreso y el trabajo de los facilitadores durante las cuatro semanas.',
-    escanea: 'Escanea para donar por Liquid Network',
-    ctaLightning: 'Donar por Liquid',
+    escanea: 'Escanea para donar por Lightning',
+    ctaLightning: 'Donar por Lightning',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
-    red: 'Liquid Network',
-    sinConfigurar: 'Dirección Liquid pendiente de configurar',
+    sinConfigurar: 'Dirección Lightning pendiente de configurar',
     sinConfigurarTexto:
-      'Agrega tu dirección Liquid en src/config/donaciones.ts para activar esta sección.',
+      'Agrega tu dirección Lightning en src/config/donaciones.ts para activar esta sección.',
     destinoTitulo: 'A dónde va cada satoshi',
     destino: [
       { concepto: 'Acondicionamiento de la Cabaña', detalle: 'WiFi, proyector y pizarrón.' },

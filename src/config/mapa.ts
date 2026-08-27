@@ -46,8 +46,6 @@ export const BTC_MAP = {
   explorar: `https://btcmap.org/?lat=${CENTRO[0]}&long=${CENTRO[1]}&zoom=13`,
   agregar: 'https://btcmap.org/add-location',
   ficha: (id: number) => `https://btcmap.org/merchant/${id}`,
-  guiaOsm: 'https://wiki.openstreetmap.org/wiki/Bitcoin',
-  guiaEtiquetado: 'https://wiki.btcmap.org/general/tagging-instructions.html',
 };
 
 export type LugarBtcMap = {

@@ -54,7 +54,7 @@ export const en: Diccionario = {
     tarjetaLabel: 'People to train',
     tarjetaUnidad: ' people',
     tarjetaBadge: '4 weeks',
-    tarjetaFechas: 'Sep 7 – Oct 2, 2026',
+    tarjetaFechas: 'Sep 7 to Oct 2, 2026',
     ejes: ['W1', 'W2', 'W3', 'W4', 'Close'],
   },
 
@@ -93,9 +93,9 @@ export const en: Diccionario = {
     tabsLabel: 'Mission, objective and vision',
     tabs: { mision: 'Mission', objetivo: 'Objective', vision: 'Vision' },
     mision:
-      'To drive a Circular Economy by running an intensive Bitcoin financial education program in Zacatlán de las Manzanas that, over four weeks, trains merchants, artisans, students and families in the use of Bitcoin and the Lightning Network — switching on the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla and laying the groundwork for it to become a Bitcoin-friendly destination.',
+      'To drive a Circular Economy by running an intensive Bitcoin financial education program in Zacatlán de las Manzanas that, over four weeks, trains merchants, artisans, students and families in the use of Bitcoin and the Lightning Network, switching on the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla and laying the groundwork for it to become a Bitcoin-friendly destination.',
     objetivo:
-      'To empower the community of Zacatlán de las Manzanas through Bitcoin education, providing practical and accessible tools so that merchants, artisans, students and families can take an active part in the global digital economy — protecting their savings from inflation, cutting transaction costs and removing financial barriers, all without giving up the cultural identity and traditions that make this Pueblo Mágico what it is.',
+      'To empower the community of Zacatlán de las Manzanas through Bitcoin education, providing practical and accessible tools so that merchants, artisans, students and families can take an active part in the global digital economy, protecting their savings from inflation, cutting transaction costs and removing financial barriers, all without giving up the cultural identity and traditions that make this Pueblo Mágico what it is.',
     vision:
       'That Zacatlán de las Manzanas becomes recognized worldwide as Mexico’s first Bitcoin Pueblo Mágico and a model of social innovation, where blockchain technology and the circular economy converge to build collective well-being; where every merchant, artisan, student and family holds sovereign control over their own money; and where an organized, educated community inspires other towns across Mexico to follow its example of autonomous, inclusive and sustainable development.',
     modeloTitulo: 'Following the model of',
@@ -124,7 +124,7 @@ export const en: Diccionario = {
     eyebrow: 'How the brigade works',
     titulo: 'We don’t give lectures. We knock on doors.',
     bajada:
-      'Bitcoin financial education that reaches the shop counter, the kitchen and the classroom — practical, accessible, and without giving up the cultural identity that sets this Pueblo Mágico apart.',
+      'Bitcoin financial education that reaches the shop counter, the kitchen and the classroom: practical, accessible, and without giving up the cultural identity that sets this Pueblo Mágico apart.',
     monedaAlt: 'Spinning Bitcoin coin',
     pasos: [
       {
@@ -170,7 +170,7 @@ export const en: Diccionario = {
         numero: '01',
         destacada: true,
         nombre: 'Universities and UNLOCK Summit 2026',
-        fechas: 'September 7 – 13',
+        fechas: 'September 7 to 13',
         resumen:
           'Activation starts on campus and meets the 4th edition of UNLOCK Summit: university route, welcome dinner, talks, workshops and the Consciousness Brunch.',
         bloques: [
@@ -186,7 +186,7 @@ export const en: Diccionario = {
           },
           {
             dias: 'Thursday',
-            titulo: 'Welcome dinner — UNLOCK Summit 2026',
+            titulo: 'Welcome dinner: UNLOCK Summit 2026',
             puntos: [
               'Inauguration of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
               'Progress from the Bitcoin Education Brigade.',
@@ -195,7 +195,7 @@ export const en: Diccionario = {
           },
           {
             dias: 'Friday and Saturday',
-            titulo: 'Day 1 and 2 — UNLOCK Summit 2026',
+            titulo: 'Day 1 and 2: UNLOCK Summit 2026',
             puntos: [
               'A stand with “Bitcoin Coach” books.',
               'Presentation of the Bitcoin Circular Economy project.',
@@ -205,7 +205,7 @@ export const en: Diccionario = {
           },
           {
             dias: 'Sunday',
-            titulo: 'Day 3 — Consciousness Brunch',
+            titulo: 'Day 3: Consciousness Brunch',
             puntos: [
               'A stand with “Bitcoin Coach” books.',
               'Book presentation, and how Bitcoin is part of the awakening of consciousness.',
@@ -219,7 +219,7 @@ export const en: Diccionario = {
         numero: '02',
         destacada: false,
         nombre: 'Artisans and merchants',
-        fechas: 'September 14 – 18',
+        fechas: 'September 14 to 18',
         resumen:
           'La Cabaña de Satoshi becomes the educational heart of the Bitcoin Circular Economy, following Bitcoin Beach in El Salvador and Bitcoin Jungle in Costa Rica. The merchant brigade starts on Tuesday the 15th.',
         bloques: [
@@ -237,7 +237,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to merchants and artisans',
             puntos: [
               'Visit 15 key shops a day in the town center: Reloj Floral, Calle del Arco and the municipal market.',
-              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
+              'One-to-one explanation: what Bitcoin is and what it does; no bank fees, protects your income from inflation.',
               'Invitation to the First Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -245,7 +245,7 @@ export const en: Diccionario = {
             dias: 'Friday',
             titulo: 'Community assembly at La Cabaña de Satoshi',
             puntos: [
-              'Talk: “Starting simple — understanding how money works” and “Why Bitcoin?”.',
+              'Talk: “Starting simple: understanding how money works” and “Why Bitcoin?”.',
               'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
               'How to attract the millions of Bitcoiners worldwide. The competitive edge: first Bitcoin-friendly Pueblo Mágico.',
               'Live demo: paying for a purchase over Lightning.',
@@ -260,7 +260,7 @@ export const en: Diccionario = {
         numero: '03',
         destacada: false,
         nombre: 'Families, businesses and tourism',
-        fechas: 'September 21 – 25',
+        fechas: 'September 21 to 25',
         resumen:
           'The brigade takes to the streets: house by house, business by business and hotel by hotel, so Zacatlán is ready to welcome Bitcoin tourism.',
         bloques: [
@@ -269,7 +269,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to families',
             puntos: [
               'Visit 10 homes a day to speak with a family member.',
-              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
+              'One-to-one explanation: what Bitcoin is and what it does; no bank fees, protects your income from inflation.',
               'Invitation to the Second Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -278,7 +278,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to businesses',
             puntos: [
               'Visit 10 local business owners.',
-              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
+              'One-to-one explanation: what Bitcoin is and what it does; no bank fees, protects your income from inflation.',
               'Invitation to the Second Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -287,7 +287,7 @@ export const en: Diccionario = {
             titulo: 'Brigade to hotels and tourism services',
             puntos: [
               'Visit 10 local hotels and tourism operators.',
-              'One-to-one explanation: what Bitcoin is and what it does — no bank fees, protects your income from inflation.',
+              'One-to-one explanation: what Bitcoin is and what it does; no bank fees, protects your income from inflation.',
               'Invitation to the Second Bitcoin Assembly at La Cabaña.',
             ],
           },
@@ -295,7 +295,7 @@ export const en: Diccionario = {
             dias: 'Friday',
             titulo: 'Second assembly at La Cabaña de Satoshi',
             puntos: [
-              'Talk: “Starting simple — understanding how money works” and “Why Bitcoin?”.',
+              'Talk: “Starting simple: understanding how money works” and “Why Bitcoin?”.',
               'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
               'How to attract the millions of Bitcoiners worldwide. The competitive edge: first Bitcoin-friendly Pueblo Mágico.',
               'Live demo: paying for a purchase over Lightning.',
@@ -310,7 +310,7 @@ export const en: Diccionario = {
         numero: '04',
         destacada: false,
         nombre: 'Consolidation and measurement',
-        fechas: 'September 28 – October 2',
+        fechas: 'September 28 to October 2',
         resumen:
           'Follow-up with the pioneers, signage installed, a public adoption map, and a closing assembly that leaves the model documented and repeatable.',
         bloques: [
@@ -369,25 +369,6 @@ export const en: Diccionario = {
     btcMapAKm: 'km',
     comoRegistrarse: 'Run a business in Zacatlán?',
     comoRegistrarseTexto: 'Write to us and we’ll come by to train you and add you to the map.',
-    protocoloTitulo: 'Listing protocol',
-    protocoloBajada:
-      'BTC Map reads OpenStreetMap. A shop lands on the public map after an in-person check and OSM tags — not an internal form of ours.',
-    protocoloPasos: [
-      {
-        titulo: 'Verify on site',
-        texto: 'Train the merchant, get Lightning working and confirm a test payment.',
-      },
-      {
-        titulo: 'Tag it on OSM',
-        texto: 'Edit the node, or send it via btcmap.org/add-location if you do not edit OSM.',
-      },
-      {
-        titulo: 'Wait for the sync',
-        texto: 'BTC Map refreshes OSM about every 10 minutes. Then we add it to this brigade map too.',
-      },
-    ],
-    protocoloTags: ['currency:XBT=yes', 'payment:lightning=yes', 'check_date=YYYY-MM-DD'],
-    protocoloGuia: 'Tagging guide',
     atribucion: 'Map © OpenStreetMap · Tiles © CARTO · Merchants © BTC Map',
   },
 
@@ -419,7 +400,7 @@ export const en: Diccionario = {
     eyebrow: 'Media impact',
     titulo: 'The world is already watching Zacatlán',
     intro:
-      'Since the project was announced, international outlets such as Crypto India Magazine have interviewed us to learn more about emerging Bitcoin circular economies — a sign of how much interest there is in this kind of initiative.',
+      'Since the project was announced, international outlets such as Crypto India Magazine have interviewed us to learn more about emerging Bitcoin circular economies, a sign of how much interest there is in this kind of initiative.',
     puntos: [
       'Documenting the project throughout will give worldwide visibility to everyone taking part, drawing brands and media from around the world interested in backing educational projects that push technological development in Mexico’s municipalities.',
       'We already have the backing of the Municipality of Zacatlán de las Manzanas, the Government of the State of Puebla, and nearby municipalities with Pueblo Mágico status who are interested in what we are doing.',
@@ -478,14 +459,13 @@ export const en: Diccionario = {
     titulo: 'Fund a whole brigade',
     bajada:
       'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
-    escanea: 'Scan to donate over Liquid Network',
-    ctaLightning: 'Donate with Liquid',
+    escanea: 'Scan to donate over Lightning',
+    ctaLightning: 'Donate with Lightning',
     copiar: 'Copy address',
     copiado: 'Copied',
-    red: 'Liquid Network',
-    sinConfigurar: 'Liquid address not configured yet',
+    sinConfigurar: 'Lightning address not configured yet',
     sinConfigurarTexto:
-      'Add your Liquid address in src/config/donaciones.ts to switch this section on.',
+      'Add your Lightning address in src/config/donaciones.ts to switch this section on.',
     destinoTitulo: 'Where every satoshi goes',
     destino: [
       { concepto: 'Getting the Cabaña ready', detalle: 'WiFi, projector and whiteboard.' },

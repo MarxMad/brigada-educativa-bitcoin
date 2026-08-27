@@ -329,57 +329,6 @@ export default function Mapa() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={160} className="mt-4 sm:mt-5">
-          <div className="rounded-[18px] sm:rounded-[33px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-4 sm:p-8">
-            <div className="flex items-center justify-between gap-3 mb-3 sm:mb-6">
-              <p className="text-white text-[15px] sm:text-[20px] font-[450] leading-[1.2]">
-                {t.mapa.protocoloTitulo}
-              </p>
-              <a
-                href={BTC_MAP.guiaEtiquetado}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 h-[34px] px-3 rounded-[10px] border border-white/10 text-white/70 text-[12px] font-[450] leading-none hover:border-[#F7931A]/40"
-              >
-                {t.mapa.protocoloGuia}
-              </a>
-            </div>
-            <p className="hidden sm:block text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-5 max-w-[640px]">
-              {t.mapa.protocoloBajada}
-            </p>
-            <ol className="flex flex-col gap-1.5 sm:grid sm:grid-cols-3 sm:gap-4 mb-0 sm:mb-5">
-              {t.mapa.protocoloPasos.map((paso, i) => (
-                <li
-                  key={paso.titulo}
-                  className="flex items-center gap-2.5 sm:block sm:rounded-[16px] sm:bg-white/[0.04] sm:border sm:border-white/[0.05] sm:p-5"
-                >
-                  <span className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] shrink-0 rounded-full bg-[#F7931A] text-[#0A0806] text-[11px] font-[450] leading-none tnum flex items-center justify-center sm:mb-3">
-                    {i + 1}
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-white text-[13px] sm:text-[15px] font-[450] leading-[1.25] sm:mb-1">
-                      {paso.titulo}
-                    </span>
-                    <span className="hidden sm:block text-white/50 text-[12.5px] font-[450] leading-[1.4]">
-                      {paso.texto}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-            <div className="hidden sm:flex flex-wrap gap-1.5">
-              {t.mapa.protocoloTags.map((tag) => (
-                <code
-                  key={tag}
-                  className="px-2 py-1 rounded-[6px] bg-white/[0.06] text-[#E8B45A] text-[11px] font-[450] leading-none"
-                >
-                  {tag}
-                </code>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

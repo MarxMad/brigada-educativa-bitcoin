@@ -92,7 +92,7 @@ export default function Ruta() {
             <div className="flex items-center gap-3 h-[52px] px-6 bg-[rgba(10,7,7,0.35)] rounded-[11px] backdrop-blur-[17px]">
               <span className="w-2 h-2 rounded-full bg-[#F7931A] animate-pulse" />
               <span className="text-white/80 text-[13px] sm:text-[14px] font-[450] leading-[14px] whitespace-nowrap">
-                {t.proyecto.inicio} — {t.proyecto.fin}
+                {t.codigo === 'es' ? `${t.proyecto.inicio} al ${t.proyecto.fin}` : `${t.proyecto.inicio} to ${t.proyecto.fin}`}
               </span>
             </div>
           </Reveal>
