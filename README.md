@@ -86,7 +86,7 @@ Todo respeta `prefers-reduced-motion`.
 ## Assets
 
 Extraídos del PDF `Deck Brigada Educativa Bitcoin US26.pdf`:
-logos de Escuela Bitcoin México, Investor House, Unlock Summit y Unlock Agency;
+logos de Escuela Bitcoin México, Investor House, UNLOCK Summit y UNLOCK Agency;
 las ilustraciones 3D de Bitcoin; la nota de prensa; la foto y el QR de contacto.
 
 ### Videos

@@ -37,7 +37,7 @@ export const en: Diccionario = {
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'A circular-economy project in Zacatlán de las Manzanas. The Bitcoin Education Brigade is the activation phase: it starts on September 7 with the University Route and Unlock Summit 2026.',
+      'A circular-economy project in Zacatlán de las Manzanas. The Bitcoin Education Brigade is the activation phase: it starts on September 7 with the University Route and UNLOCK Summit 2026.',
     ctaPrimario: 'See the plan',
     ctaSecundario: 'Become a sponsor',
     arrancaEn: 'Starts in',
@@ -65,7 +65,7 @@ export const en: Diccionario = {
     'La Cabaña de Satoshi',
     'Circular Economy',
     'University Route',
-    'Unlock Summit 2026',
+    'UNLOCK Summit 2026',
   ],
 
   zacatlan: {
@@ -146,7 +146,7 @@ export const en: Diccionario = {
 
   ruta: {
     eyebrow: 'Operating plan',
-    tituloDestacado: 'Universities and Unlock',
+    tituloDestacado: 'Universities and UNLOCK',
     tituloB: ', then the streets',
     resultado: 'Week outcome',
     semanaLabel: 'Week',
@@ -161,16 +161,16 @@ export const en: Diccionario = {
     verCalendario: 'Open calendar',
     calendarioTitulo: 'Week 1 calendar',
     bajada:
-      'The Bitcoin Education Brigade is the activation phase of Bitcoin Circular Economy Zacatlán. Week 1 is the University Route and Unlock Summit 2026.',
+      'The Bitcoin Education Brigade is the activation phase of Bitcoin Circular Economy Zacatlán. Week 1 is the University Route and UNLOCK Summit 2026.',
     semanas: [
       {
         id: 's1',
         numero: '01',
         destacada: true,
-        nombre: 'Universities and Unlock Summit 2026',
+        nombre: 'Universities and UNLOCK Summit 2026',
         fechas: 'September 7 – 13',
         resumen:
-          'Activation starts on campus and meets the 4th edition of Unlock Summit: university route, welcome dinner, talks, workshops and the Consciousness Brunch.',
+          'Activation starts on campus and meets the 4th edition of UNLOCK Summit: university route, welcome dinner, talks, workshops and the Consciousness Brunch.',
         bloques: [
           {
             dias: 'Monday to Wednesday',
@@ -184,7 +184,7 @@ export const en: Diccionario = {
           },
           {
             dias: 'Thursday',
-            titulo: 'Welcome dinner — Unlock Summit 2026',
+            titulo: 'Welcome dinner — UNLOCK Summit 2026',
             puntos: [
               'Screening of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
               'Progress from the Bitcoin Education Brigade.',
@@ -193,7 +193,7 @@ export const en: Diccionario = {
           },
           {
             dias: 'Friday and Saturday',
-            titulo: 'Day 1 and 2 — Unlock Summit 2026',
+            titulo: 'Day 1 and 2 — UNLOCK Summit 2026',
             puntos: [
               'A stand with “Bitcoin Coach” books.',
               'Presentation of the Bitcoin Circular Economy project.',
@@ -399,7 +399,7 @@ export const en: Diccionario = {
     deLaMasAlta: 'relative to the highest goal',
     items: [
       { valor: 21, label: 'Shops running on Lightning', nota: 'Goal at the close of week 4' },
-      { valor: 50, label: 'Women with their own wallet', nota: 'Consciousness Brunch · Unlock Summit' },
+      { valor: 50, label: 'Women with their own wallet', nota: 'Consciousness Brunch · UNLOCK Summit' },
       { valor: 40, label: 'Students with a wallet', nota: 'University route · week 1' },
       { valor: 15, label: 'Merchants and artisans', nota: 'First assembly · week 2' },
       { valor: 10, label: 'Families trained', nota: 'Door-to-door brigade · week 3' },
@@ -447,7 +447,7 @@ export const en: Diccionario = {
     lista: [
       { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20 max-w-[200px]' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-10 sm:h-12 max-w-[220px]' },
-      { nombre: 'Unlock Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
+      { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',

@@ -122,16 +122,28 @@ export default function Prensa() {
           </article>
         </Reveal>
 
-        <Reveal delay={240} className="mt-5 hidden sm:block">
+        <Reveal delay={240} className="mt-5">
           <article className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] border border-white/[0.06] overflow-hidden">
             <div className="bg-[#11100F]">
               <p className="px-6 pt-4 pb-2 text-white/35 text-[11px] font-[450] leading-none uppercase tracking-[0.14em]">
                 {t.prensa.pdfLabel}
               </p>
+              <a
+                href={PDF_REVISTA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block sm:hidden"
+              >
+                <img
+                  src="/img/cim-x-unlock-portada.jpg"
+                  alt={t.prensa.pdfLabel}
+                  className="w-full h-auto"
+                />
+              </a>
               <iframe
                 title={t.prensa.pdfLabel}
                 src={`${PDF_REVISTA}#toolbar=0&navpanes=0&view=FitH`}
-                className="w-full h-[640px] lg:h-[780px] border-0 bg-[#11100F]"
+                className="hidden sm:block w-full h-[640px] lg:h-[780px] border-0 bg-[#11100F]"
               />
             </div>
           </article>

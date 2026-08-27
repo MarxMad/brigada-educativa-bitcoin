@@ -26,12 +26,14 @@ export default function Aliados() {
               >
                 {lista.map((aliado) => {
                   const logo = (
-                    <img
-                      src={aliado.img}
-                      alt={copy === 0 ? aliado.nombre : ''}
-                      loading="lazy"
-                      className={`${aliado.alto} w-auto object-contain`}
-                    />
+                    <span className="inline-flex items-center justify-center bg-white rounded-[16px] px-5 py-3 sm:px-6 sm:py-4">
+                      <img
+                        src={aliado.img}
+                        alt={copy === 0 ? aliado.nombre : ''}
+                        loading="lazy"
+                        className={`${aliado.alto} w-auto object-contain`}
+                      />
+                    </span>
                   );
 
                   return (

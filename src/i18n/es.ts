@@ -36,7 +36,7 @@ export const es = {
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'Proyecto de economía circular en Zacatlán de las Manzanas. La Brigada Educativa Bitcoin es la fase de activación: arranca el 7 de septiembre con la Ruta Universitaria y Unlock Summit 2026.',
+      'Proyecto de economía circular en Zacatlán de las Manzanas. La Brigada Educativa Bitcoin es la fase de activación: arranca el 7 de septiembre con la Ruta Universitaria y UNLOCK Summit 2026.',
     ctaPrimario: 'Ver la ruta',
     ctaSecundario: 'Suma tu marca',
     arrancaEn: 'Arranca en',
@@ -64,7 +64,7 @@ export const es = {
     'La Cabaña de Satoshi',
     'Economía Circular',
     'Ruta Universitaria',
-    'Unlock Summit 2026',
+    'UNLOCK Summit 2026',
   ],
 
   zacatlan: {
@@ -145,7 +145,7 @@ export const es = {
 
   ruta: {
     eyebrow: 'Plan operativo',
-    tituloDestacado: 'Universidades y Unlock',
+    tituloDestacado: 'Universidades y UNLOCK',
     tituloB: ', luego la calle',
     resultado: 'Resultado de la semana',
     semanaLabel: 'Semana',
@@ -160,16 +160,16 @@ export const es = {
     verCalendario: 'Abrir calendario',
     calendarioTitulo: 'Calendario de la semana 1',
     bajada:
-      'La Brigada Educativa Bitcoin es la fase de activación de Economía Circular Bitcoin Zacatlán. La semana 1 concentra la Ruta Universitaria y Unlock Summit 2026.',
+      'La Brigada Educativa Bitcoin es la fase de activación de Economía Circular Bitcoin Zacatlán. La semana 1 concentra la Ruta Universitaria y UNLOCK Summit 2026.',
     semanas: [
       {
         id: 's1',
         numero: '01',
         destacada: true,
-        nombre: 'Universidades y Unlock Summit 2026',
+        nombre: 'Universidades y UNLOCK Summit 2026',
         fechas: '7 – 13 de septiembre',
         resumen:
-          'La fase de activación arranca en las universidades y se cruza con la 4ta edición del Unlock Summit: ruta universitaria, cena de bienvenida, ponencias, talleres y Brunch de Conciencia.',
+          'La fase de activación arranca en las universidades y se cruza con la 4ta edición del UNLOCK Summit: ruta universitaria, cena de bienvenida, ponencias, talleres y Brunch de Conciencia.',
         bloques: [
           {
             dias: 'Lunes a Miércoles',
@@ -183,7 +183,7 @@ export const es = {
           },
           {
             dias: 'Jueves',
-            titulo: 'Cena de Bienvenida — Unlock Summit 2026',
+            titulo: 'Cena de Bienvenida — UNLOCK Summit 2026',
             puntos: [
               'Proyección del Proyecto de Economía Circular Bitcoin en Zacatlán de las Manzanas.',
               'Avances de la Brigada Educativa Bitcoin obtenidos.',
@@ -192,7 +192,7 @@ export const es = {
           },
           {
             dias: 'Viernes y Sábado',
-            titulo: 'Día 1 y 2 — Unlock Summit 2026',
+            titulo: 'Día 1 y 2 — UNLOCK Summit 2026',
             puntos: [
               'Stand con libros «Bitcoin Coach».',
               'Presentación del Proyecto Economía Circular Bitcoin.',
@@ -398,7 +398,7 @@ export const es = {
     deLaMasAlta: 'respecto a la meta más alta',
     items: [
       { valor: 21, label: 'Comercios operando con Lightning', nota: 'Meta al cierre de la semana 4' },
-      { valor: 50, label: 'Mujeres con wallet propia', nota: 'Brunch de Conciencia · Unlock Summit' },
+      { valor: 50, label: 'Mujeres con wallet propia', nota: 'Brunch de Conciencia · UNLOCK Summit' },
       { valor: 40, label: 'Estudiantes con wallet', nota: 'Ruta universitaria · semana 1' },
       { valor: 15, label: 'Comerciantes y artesanos', nota: 'Primera asamblea · semana 2' },
       { valor: 10, label: 'Familias capacitadas', nota: 'Brigada casa por casa · semana 3' },
@@ -446,7 +446,7 @@ export const es = {
     lista: [
       { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20 max-w-[200px]' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-10 sm:h-12 max-w-[220px]' },
-      { nombre: 'Unlock Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
+      { nombre: 'UNLOCK Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',
