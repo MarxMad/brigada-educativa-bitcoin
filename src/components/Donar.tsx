@@ -1,52 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Check, Copy, Zap, AlertTriangle } from 'lucide-react';
+import { useState } from 'react';
+import { Check, Copy, Wallet, Zap, AlertTriangle } from 'lucide-react';
 import Reveal, { Tarjeta } from '@/components/Reveal';
 import { useT } from '@/i18n';
 import {
-  DIRECCION_LIGHTNING,
+  DIRECCION_LIQUID,
+  IMAGEN_QR_DONAR,
   NOMBRE_DESTINO,
   donacionesActivas,
-  uriLightning,
+  uriLiquid,
 } from '@/config/donaciones';
-
-/** Genera el QR en el navegador; la librería sólo se carga si hay dirección. */
-function useQR(texto: string) {
-  const [dataUrl, setDataUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!texto) return;
-    let cancelado = false;
-
-    (async () => {
-      const QR = await import('qrcode');
-      const url = await QR.toDataURL(texto, {
-        errorCorrectionLevel: 'M',
-        margin: 1,
-        width: 520,
-        color: { dark: '#0A0806', light: '#FFFFFF' },
-      });
-      if (!cancelado) setDataUrl(url);
-    })().catch(() => {
-      // Si falla la generación dejamos la dirección en texto, que sigue sirviendo.
-    });
-
-    return () => {
-      cancelado = true;
-    };
-  }, [texto]);
-
-  return dataUrl;
-}
 
 export default function Donar() {
   const t = useT();
   const activas = donacionesActivas();
-  const qr = useQR(activas ? uriLightning() : '');
   const [copiado, setCopiado] = useState(false);
 
   const copiar = async () => {
     try {
-      await navigator.clipboard.writeText(DIRECCION_LIGHTNING);
+      await navigator.clipboard.writeText(DIRECCION_LIQUID);
       setCopiado(true);
       window.setTimeout(() => setCopiado(false), 2000);
     } catch {
@@ -118,30 +89,29 @@ export default function Donar() {
                   </p>
 
                   <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-5">
-                    {qr ? (
-                      <img
-                        src={qr}
-                        alt={`${t.donar.escanea} — ${DIRECCION_LIGHTNING}`}
-                        className="w-full h-auto"
-                      />
-                    ) : (
-                      <div className="w-full aspect-square animate-pulse rounded-[12px] bg-[#0A0806]/10" />
-                    )}
+                    <img
+                      src={IMAGEN_QR_DONAR}
+                      alt={`${t.donar.escanea} — ${DIRECCION_LIQUID}`}
+                      className="w-full h-auto"
+                    />
                   </div>
 
                   <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">
                     {NOMBRE_DESTINO}
                   </p>
+                  <p className="text-center text-[#E8B45A] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-3">
+                    {t.donar.red}
+                  </p>
                   <p className="text-center text-white text-[13px] sm:text-[14px] font-[450] leading-[1.3] mb-5 break-all">
-                    {DIRECCION_LIGHTNING}
+                    {DIRECCION_LIQUID}
                   </p>
 
                   <div className="flex flex-col gap-2.5">
                     <a
-                      href={uriLightning()}
+                      href={uriLiquid()}
                       className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
                     >
-                      <Zap className="w-[15px] h-[15px]" />
+                      <Wallet className="w-[15px] h-[15px]" />
                       {t.donar.ctaLightning}
                     </a>
                     <button

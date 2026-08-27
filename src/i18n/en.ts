@@ -447,13 +447,13 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-24 sm:h-36 md:h-44 max-w-[280px] sm:max-w-[380px] md:max-w-[440px]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-16 sm:h-24 md:h-32 max-w-[300px] sm:max-w-[440px] md:max-w-[520px]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-[36rem] sm:h-[48rem] md:h-[56rem] max-w-[600px] sm:max-w-[800px] md:max-w-[960px]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-[36rem] sm:h-[48rem] md:h-[56rem] max-w-[800px] sm:max-w-[1080px] md:max-w-[1280px]' },
       { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',
-        img: '/img/logo-bullbitcoin-lockup.png?v=3',
+        img: '/img/logo-bullbitcoin-lockup.png?v=4',
         alto: 'h-20 sm:h-28 md:h-32 max-w-[200px] sm:max-w-[240px]',
         href: WALLET_BULLBITCOIN,
       },
@@ -478,13 +478,14 @@ export const en: Diccionario = {
     titulo: 'Fund a whole brigade',
     bajada:
       'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
-    escanea: 'Scan to donate over Lightning',
-    ctaLightning: 'Donate with Lightning',
+    escanea: 'Scan to donate over Liquid Network',
+    ctaLightning: 'Donate with Liquid',
     copiar: 'Copy address',
     copiado: 'Copied',
-    sinConfigurar: 'Lightning address not configured yet',
+    red: 'Liquid Network',
+    sinConfigurar: 'Liquid address not configured yet',
     sinConfigurarTexto:
-      'Add your Lightning address in src/config/donaciones.ts to switch this section on.',
+      'Add your Liquid address in src/config/donaciones.ts to switch this section on.',
     destinoTitulo: 'Where every satoshi goes',
     destino: [
       { concepto: 'Getting the Cabaña ready', detalle: 'WiFi, projector and whiteboard.' },

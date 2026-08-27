@@ -1,29 +1,24 @@
 /**
- * Configuración de donaciones por Lightning.
+ * Donaciones por Liquid Network (Elements).
  *
- * IMPORTANTE: `DIRECCION_LIGHTNING` está vacía a propósito. No la inventé
- * porque una dirección equivocada manda el dinero de la gente a la cartera de
- * un desconocido, y eso no se puede deshacer.
- *
- * Pon aquí tu Lightning Address — se ve como un correo, por ejemplo
- * `brigada@getalby.com` o `brigada@coinos.io`. La sacas gratis creando una
- * cuenta en Alby (getalby.com), Coinos (coinos.io) o Wallet of Satoshi.
- *
- * En cuanto tenga valor, la sección de donaciones se activa sola: aparece el
- * código QR, el botón de copiar y el enlace `lightning:`. Mientras esté vacía,
- * la sección muestra un aviso de pendiente en vez de datos falsos.
+ * Dirección confidential `lq1…` de la brigada. El QR está en
+ * `public/img/qr-donar.png` — es el código que nos pasaron, no uno generado.
  */
-export const DIRECCION_LIGHTNING = '';
+export const DIRECCION_LIQUID =
+  'lq1qqtfv3ly55ftaw03j6fgd8d0gt3mnswkzrv5sujzgn4wpfgncvf23r4qk509fj6mn0vf5vl9k68r4cvxz6rnt2vssaggalm8da';
+
+/** QR estático de esa misma dirección. */
+export const IMAGEN_QR_DONAR = '/img/qr-donar.png';
 
 /** Se muestra bajo el QR. Puramente informativo. */
 export const NOMBRE_DESTINO = 'Brigada Educativa Bitcoin';
 
 /** ¿Está lista para recibir? */
-export const donacionesActivas = () => DIRECCION_LIGHTNING.trim().length > 0;
+export const donacionesActivas = () => DIRECCION_LIQUID.trim().length > 0;
 
 /**
- * URI que abre la wallet del visitante.
- * Para una Lightning Address el esquema estándar es `lightning:usuario@dominio`.
+ * URI que abre wallets que entienden Liquid (p. ej. Blockstream Green).
+ * El esquema BIP21 de Liquid es `liquidnetwork:<address>`.
  */
-export const uriLightning = () =>
-  donacionesActivas() ? `lightning:${DIRECCION_LIGHTNING.trim()}` : '';
+export const uriLiquid = () =>
+  donacionesActivas() ? `liquidnetwork:${DIRECCION_LIQUID.trim()}` : '';

@@ -26,13 +26,14 @@ export default function Wallet() {
                   href={WALLET_BULLBITCOIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mb-7 transition-opacity hover:opacity-80"
+                  className="inline-flex mb-7 overflow-visible transition-opacity hover:opacity-80"
                 >
                   <img
-                    src="/img/logo-bullbitcoin.png?v=3"
+                    src="/img/logo-bullbitcoin.png?v=4"
                     alt={t.wallet.logoAlt}
-                    loading="lazy"
-                    className="h-[72px] sm:h-[92px] w-auto max-w-[220px] object-contain object-left"
+                    width={1600}
+                    height={1298}
+                    className="h-[104px] sm:h-[120px] md:h-[128px] w-auto max-w-[260px] aspect-[1600/1298] object-contain object-left"
                   />
                 </a>
 
