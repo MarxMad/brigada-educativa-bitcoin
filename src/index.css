@@ -116,7 +116,7 @@ body {
   animation: marquee 70s linear infinite reverse;
 }
 .animate-marquee-aliados {
-  animation: marquee 36s linear infinite;
+  animation: marquee 12s linear infinite;
 }
 .marquee-mask {
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);

@@ -427,14 +427,14 @@ export const es = {
   aliados: {
     titulo: 'Aliados del proyecto',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-32 sm:h-40 md:h-48 max-w-[220px] sm:max-w-[280px] md:max-w-[320px]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-32 sm:h-40 md:h-48 max-w-[360px] sm:max-w-[480px] md:max-w-[560px]' },
-      { nombre: 'UNLOCK Summit 4ta Edición', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
-      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', relleno: 'p-1.5 sm:p-2' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', relleno: 'p-1 sm:p-1.5' },
+      { nombre: 'UNLOCK Summit 4ta Edición', img: '/img/logo-unlock-summit.png', relleno: 'px-5 py-6 sm:px-6 sm:py-7' },
+      { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', relleno: 'p-4 sm:p-5' },
       {
         nombre: 'Bull Bitcoin',
         img: '/img/logo-bullbitcoin-lockup.png?v=4',
-        alto: 'h-20 sm:h-28 md:h-32 max-w-[200px] sm:max-w-[240px]',
+        relleno: 'p-3.5 sm:p-4 md:p-5',
         href: WALLET_BULLBITCOIN,
       },
     ],
@@ -462,9 +462,10 @@ export const es = {
     ctaLightning: 'Donar por Lightning',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
-    sinConfigurar: 'Dirección Lightning pendiente de configurar',
-    sinConfigurarTexto:
-      'Agrega tu dirección Lightning en src/config/donaciones.ts para activar esta sección.',
+    contactoTitulo: 'Donar por Lightning',
+    contactoTexto:
+      'Escríbenos en Telegram y te pasamos la dirección Lightning de la brigada.',
+    ctaTelegram: 'Escribir en Telegram',
     destinoTitulo: 'A dónde va cada satoshi',
     destino: [
       { concepto: 'Acondicionamiento de la Cabaña', detalle: 'WiFi, proyector y pizarrón.' },

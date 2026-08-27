@@ -1,6 +1,9 @@
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 
+const TARJETA =
+  'box-border inline-flex h-32 w-[240px] min-h-32 min-w-[240px] sm:h-40 sm:w-[280px] sm:min-h-40 sm:min-w-[280px] md:h-48 md:w-[320px] md:min-h-48 md:min-w-[320px] shrink-0 items-center justify-center overflow-hidden bg-white rounded-[16px]';
+
 export default function Aliados() {
   const t = useT();
   const lista = t.aliados.lista;
@@ -26,12 +29,12 @@ export default function Aliados() {
               >
                 {lista.map((aliado) => {
                   const logo = (
-                    <span className="inline-flex shrink-0 items-center justify-center overflow-visible bg-white rounded-[16px] px-5 py-4 sm:px-7 sm:py-5">
+                    <span className={`${TARJETA} ${aliado.relleno}`}>
                       <img
                         src={aliado.img}
                         alt={copy === 0 ? aliado.nombre : ''}
                         loading="lazy"
-                        className={`${aliado.alto} w-auto max-h-none shrink-0 object-contain object-center`}
+                        className="h-full w-full max-h-full max-w-full object-contain object-center"
                       />
                     </span>
                   );

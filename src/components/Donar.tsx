@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Check, Copy, Zap, AlertTriangle } from 'lucide-react';
+import { Check, Copy, Zap } from 'lucide-react';
 import Reveal, { Tarjeta } from '@/components/Reveal';
 import { useT } from '@/i18n';
+import { TELEGRAM_STEPH } from '@/config/enlaces';
 import {
   DIRECCION_LIGHTNING,
   NOMBRE_DESTINO,
@@ -164,16 +165,25 @@ export default function Donar() {
                   </div>
                 </>
               ) : (
-                <div className="text-center py-8">
+                <div className="text-center py-4 sm:py-6">
                   <span className="inline-flex w-[52px] h-[52px] items-center justify-center rounded-full bg-[#F7931A]/12 border border-[#F7931A]/30 mb-5">
-                    <AlertTriangle className="w-[22px] h-[22px] text-[#F7931A]" />
+                    <Zap className="w-[22px] h-[22px] text-[#F7931A]" />
                   </span>
                   <p className="text-white text-[17px] font-[450] leading-[1.25] mb-3">
-                    {t.donar.sinConfigurar}
+                    {t.donar.contactoTitulo}
                   </p>
-                  <p className="text-white/55 text-[13.5px] font-[450] leading-[1.5]">
-                    {t.donar.sinConfigurarTexto}
+                  <p className="text-white/55 text-[13.5px] font-[450] leading-[1.5] mb-6">
+                    {t.donar.contactoTexto}
                   </p>
+                  <a
+                    href={TELEGRAM_STEPH}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
+                  >
+                    <Zap className="w-[15px] h-[15px]" />
+                    {t.donar.ctaTelegram}
+                  </a>
                 </div>
               )}
             </div>

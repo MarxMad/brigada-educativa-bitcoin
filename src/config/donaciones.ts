@@ -1,17 +1,14 @@
 /**
  * Configuración de donaciones por Lightning.
  *
- * IMPORTANTE: `DIRECCION_LIGHTNING` está vacía a propósito. No la inventé
- * porque una dirección equivocada manda el dinero de la gente a la cartera de
- * un desconocido, y eso no se puede deshacer.
+ * IMPORTANTE: `DIRECCION_LIGHTNING` está vacía a propósito. No hay LNURL ni
+ * Lightning Address en git, transcripciones ni archivos. No inventar una:
+ * una dirección equivocada manda el dinero a un desconocido y no se deshace.
  *
- * Pon aquí tu Lightning Address — se ve como un correo, por ejemplo
- * `brigada@getalby.com` o `brigada@coinos.io`. La sacas gratis creando una
- * cuenta en Alby (getalby.com), Coinos (coinos.io) o Wallet of Satoshi.
- *
- * En cuanto tenga valor, la sección de donaciones se activa sola: aparece el
- * código QR, el botón de copiar y el enlace `lightning:`. Mientras esté vacía,
- * la sección muestra un aviso de pendiente en vez de datos falsos.
+ * Pon aquí la Lightning Address o LNURL de la brigada (p. ej. `foo@getalby.com`
+ * o `LNURL1…`). En cuanto tenga valor, la tarjeta muestra QR, copiar y el
+ * enlace `lightning:`. Mientras esté vacía, el sitio público invita a escribir
+ * por Telegram — nunca un aviso de configuración ni una ruta de archivo.
  */
 export const DIRECCION_LIGHTNING = '';
 
