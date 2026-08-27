@@ -74,6 +74,25 @@ export default function Zacatlan() {
           </a>
         </Reveal>
 
+        <Reveal delay={90} dir="scale">
+          <figure className="relative mb-8 sm:mb-10 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#F7931A]/25 bg-[#11100F] shadow-[0_24px_80px_-32px_rgba(247,147,26,0.45)]">
+            <img
+              src="/img/manzana-bitcoin.jpg"
+              alt={t.zacatlan.mosaicoAlt}
+              width={1024}
+              height={558}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto block"
+            />
+            <figcaption className="px-5 sm:px-7 py-4 sm:py-5 bg-gradient-to-r from-[#0A0806] to-[#16120C] border-t border-[#F7931A]/20">
+              <p className="text-white/70 text-[13.5px] sm:text-[15px] font-[450] leading-[1.45]">
+                {t.zacatlan.mosaicoPie}
+              </p>
+            </figcaption>
+          </figure>
+        </Reveal>
+
         <Reveal delay={100} dir="scale">
           <figure className="group relative rounded-[20px] sm:rounded-[28px] overflow-hidden border border-white/[0.08] bg-black">
             <video

@@ -75,6 +75,8 @@ export const es = {
     reproducir: 'Reproducir video',
     pausar: 'Pausar video',
     ctaSitio: 'Sitio oficial del municipio',
+    mosaicoAlt: 'Mosaico de una manzana con el símbolo de Bitcoin',
+    mosaicoPie: 'La manzana de Zacatlán y Bitcoin: el fruto de una economía que se enseña en persona.',
     datos: [
       { titulo: 'Respaldo municipal', texto: 'El Municipio de Zacatlán de las Manzanas respalda el proyecto. Palacio Municipal s/n, Col. Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Cabecera de la Sierra Norte de Puebla, con reloj floral, arco y huertos de manzana.' },
@@ -450,8 +452,8 @@ export const es = {
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',
-        img: '/img/logo-bullbitcoin.png',
-        alto: 'h-14 sm:h-16 max-w-[140px]',
+        img: '/img/logo-bullbitcoin-lockup.png',
+        alto: 'h-16 sm:h-20 max-w-[180px]',
         href: WALLET_BULLBITCOIN,
       },
     ],

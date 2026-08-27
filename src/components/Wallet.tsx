@@ -22,12 +22,19 @@ export default function Wallet() {
 
             <div className="relative flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
               <div className="flex-1 min-w-0">
-                <img
-                  src="/img/logo-bullbitcoin.png"
-                  alt={t.wallet.logoAlt}
-                  loading="lazy"
-                  className="h-14 sm:h-16 w-auto object-contain object-left mb-7"
-                />
+                <a
+                  href={WALLET_BULLBITCOIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mb-7 transition-opacity hover:opacity-80"
+                >
+                  <img
+                    src="/img/logo-bullbitcoin.png"
+                    alt={t.wallet.logoAlt}
+                    loading="lazy"
+                    className="h-[72px] sm:h-[92px] w-auto max-w-[220px] object-contain object-left"
+                  />
+                </a>
 
                 <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
                   {t.wallet.eyebrow}

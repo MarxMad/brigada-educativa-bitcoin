@@ -204,10 +204,10 @@ export default function Mapa() {
 
   return (
     <section id="mapa" className="relative bg-[#0A0806] border-t border-white/[0.06] overflow-hidden">
-      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-24 sm:py-32 md:py-40">
-        <div className="max-w-[720px] mb-12 sm:mb-16">
+      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-14 sm:py-24 md:py-40">
+        <div className="max-w-[720px] mb-8 sm:mb-16">
           <Reveal>
-            <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
+            <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-4 sm:mb-6">
               {t.mapa.eyebrow}
             </p>
           </Reveal>
@@ -225,7 +225,7 @@ export default function Mapa() {
 
         <div className="flex flex-col lg:flex-row lg:items-stretch gap-5">
           <Reveal dir="left" className="flex-1 min-w-0 flex flex-col">
-            <div className="relative flex-1 min-h-[380px] sm:min-h-[480px] lg:min-h-[560px] rounded-[24px] sm:rounded-[33px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
+            <div className="relative flex-1 min-h-[220px] sm:min-h-[400px] lg:min-h-[560px] rounded-[20px] sm:rounded-[33px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
               <div
                 ref={contenedor}
                 className="absolute inset-0 w-full h-full"

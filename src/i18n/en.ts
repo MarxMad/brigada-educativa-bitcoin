@@ -76,6 +76,8 @@ export const en: Diccionario = {
     reproducir: 'Play video',
     pausar: 'Pause video',
     ctaSitio: 'Official municipal website',
+    mosaicoAlt: 'Mosaic of an apple with the Bitcoin symbol',
+    mosaicoPie: 'Zacatlán’s apple and Bitcoin: the fruit of an economy taught in person.',
     datos: [
       { titulo: 'Municipal backing', texto: 'The Municipality of Zacatlán de las Manzanas backs the project. Palacio Municipal s/n, Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Seat of the Sierra Norte de Puebla, with the floral clock, the arch and the apple orchards.' },
@@ -451,8 +453,8 @@ export const en: Diccionario = {
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',
-        img: '/img/logo-bullbitcoin.png',
-        alto: 'h-14 sm:h-16 max-w-[140px]',
+        img: '/img/logo-bullbitcoin-lockup.png',
+        alto: 'h-16 sm:h-20 max-w-[180px]',
         href: WALLET_BULLBITCOIN,
       },
     ],
