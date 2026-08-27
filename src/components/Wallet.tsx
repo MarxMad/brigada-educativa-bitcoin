@@ -29,7 +29,7 @@ export default function Wallet() {
                   className="inline-block mb-7 transition-opacity hover:opacity-80"
                 >
                   <img
-                    src="/img/logo-bullbitcoin.png"
+                    src="/img/logo-bullbitcoin.png?v=3"
                     alt={t.wallet.logoAlt}
                     loading="lazy"
                     className="h-[72px] sm:h-[92px] w-auto max-w-[220px] object-contain object-left"

@@ -15,9 +15,9 @@ export default function Aliados() {
         </Reveal>
       </div>
 
-      <div className="group/ticker relative pb-20 sm:pb-28 overflow-hidden">
+      <div className="group/ticker relative pt-8 pb-16 sm:pt-12 sm:pb-24 overflow-x-hidden overflow-y-visible">
         <div className="marquee-mask">
-          <div className="flex w-max animate-marquee-aliados">
+          <div className="flex w-max animate-marquee-aliados items-center">
             {[0, 1].map((copy) => (
               <div
                 key={copy}
@@ -26,12 +26,12 @@ export default function Aliados() {
               >
                 {lista.map((aliado) => {
                   const logo = (
-                    <span className="inline-flex items-center justify-center bg-white rounded-[16px] px-5 py-3 sm:px-6 sm:py-4">
+                    <span className="inline-flex items-center justify-center overflow-visible bg-white rounded-[18px] px-6 py-5 sm:px-10 sm:py-7">
                       <img
                         src={aliado.img}
                         alt={copy === 0 ? aliado.nombre : ''}
                         loading="lazy"
-                        className={`${aliado.alto} w-auto object-contain`}
+                        className={`${aliado.alto} w-auto max-h-none object-contain object-center`}
                       />
                     </span>
                   );

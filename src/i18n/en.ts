@@ -188,7 +188,7 @@ export const en: Diccionario = {
             dias: 'Thursday',
             titulo: 'Welcome dinner — UNLOCK Summit 2026',
             puntos: [
-              'Screening of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
+              'Inauguration of the Bitcoin Circular Economy project in Zacatlán de las Manzanas.',
               'Progress from the Bitcoin Education Brigade.',
               'Presentation of the book “Bitcoin Coach” as an essential learning tool.',
             ],
@@ -447,14 +447,14 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-16 sm:h-20 max-w-[200px]' },
-      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-10 sm:h-12 max-w-[220px]' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', alto: 'h-24 sm:h-36 md:h-44 max-w-[280px] sm:max-w-[380px] md:max-w-[440px]' },
+      { nombre: 'Investor House', img: '/img/logo-investor-house.png', alto: 'h-16 sm:h-24 md:h-32 max-w-[300px] sm:max-w-[440px] md:max-w-[520px]' },
       { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', alto: 'h-10 sm:h-12 max-w-[240px]' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', alto: 'h-14 sm:h-16 max-w-[220px]' },
       {
         nombre: 'Bull Bitcoin',
-        img: '/img/logo-bullbitcoin-lockup.png',
-        alto: 'h-16 sm:h-20 max-w-[180px]',
+        img: '/img/logo-bullbitcoin-lockup.png?v=3',
+        alto: 'h-20 sm:h-28 md:h-32 max-w-[200px] sm:max-w-[240px]',
         href: WALLET_BULLBITCOIN,
       },
     ],
