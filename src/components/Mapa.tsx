@@ -249,47 +249,49 @@ export default function Mapa() {
           </Reveal>
 
           <Reveal dir="right" delay={100} className="w-full lg:w-[360px] shrink-0 flex">
-            <div className="flex flex-col gap-4 w-full h-full min-h-0">
+            <div className="flex flex-col gap-3 sm:gap-4 w-full h-full min-h-0">
               <a
                 href={BTC_MAP.agregar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-[24px] bg-[#F7931A] p-5 sm:p-6 transition-opacity hover:opacity-90"
+                className="flex items-center gap-3 rounded-[14px] bg-[#F7931A] h-[44px] sm:h-[48px] px-4 transition-opacity hover:opacity-90"
               >
-                <Store className="w-[18px] h-[18px] text-[#0A0806]/70 mb-2.5" />
-                <p className="text-[#0A0806] text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-1.5">
+                <Store className="w-[16px] h-[16px] text-[#0A0806]/70 shrink-0" />
+                <span className="min-w-0 flex-1 truncate text-[#0A0806] text-[13.5px] sm:text-[15px] font-[450] leading-none">
                   {t.mapa.btcMapSubir}
-                </p>
-                <p className="text-[#0A0806]/70 text-[13px] font-[450] leading-[1.4]">
-                  {t.mapa.btcMapSubirTexto}
-                </p>
+                </span>
+                <ExternalLink className="w-[13px] h-[13px] text-[#0A0806]/50 shrink-0" />
               </a>
 
-              <div className="flex-1 min-h-0 rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-5 sm:p-6 flex flex-col">
-                <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.2] mb-2">
-                  {t.mapa.btcMapTitulo}
-                </p>
-                <p className="text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-4">
+              <div className="flex-1 min-h-0 rounded-[20px] sm:rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-4 sm:p-6 flex flex-col">
+                <div className="flex items-baseline justify-between gap-3 mb-2 sm:mb-3">
+                  <p className="text-white text-[15px] sm:text-[18px] font-[450] leading-[1.2]">
+                    {t.mapa.btcMapTitulo}
+                  </p>
+                  {estadoBtc === 'ok' && (
+                    <p className="flex items-baseline gap-1.5 shrink-0">
+                      <span className="texto-oro text-[22px] sm:text-[32px] font-normal leading-none">
+                        <CountUp to={lugaresBtc.length} duration={1.1} />
+                      </span>
+                      <span className="hidden sm:inline text-white/40 text-[13px] font-[450]">
+                        {t.mapa.btcMapContador}
+                      </span>
+                    </p>
+                  )}
+                </div>
+                <p className="hidden sm:block text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-4">
                   {t.mapa.btcMapTexto}
                 </p>
 
-                {estadoBtc === 'ok' && (
-                  <p className="flex items-baseline gap-2 mb-4">
-                    <span className="texto-oro text-[32px] font-normal leading-none">
-                      <CountUp to={lugaresBtc.length} duration={1.1} />
-                    </span>
-                    <span className="text-white/45 text-[13px] font-[450]">{t.mapa.btcMapContador}</span>
-                  </p>
-                )}
                 {estadoBtc === 'cargando' && (
-                  <p className="text-white/40 text-[13px] font-[450] mb-4">{t.mapa.btcMapCargando}</p>
+                  <p className="text-white/40 text-[13px] font-[450] mb-3">{t.mapa.btcMapCargando}</p>
                 )}
                 {estadoBtc === 'error' && (
-                  <p className="text-white/45 text-[13px] font-[450] mb-4">{t.mapa.btcMapError}</p>
+                  <p className="text-white/45 text-[13px] font-[450] mb-3">{t.mapa.btcMapError}</p>
                 )}
 
                 {lugaresBtc.length > 0 && (
-                  <ul className="flex flex-col gap-1 flex-1 min-h-0 overflow-y-auto mb-4 pr-1">
+                  <ul className="flex flex-col max-h-[168px] sm:max-h-[240px] lg:max-h-none overflow-y-auto mb-3 sm:mb-4 pr-1">
                     {lugaresBtc.map((lugar) => {
                       const km = Math.max(1, Math.round(distanciaKm(CENTRO[0], CENTRO[1], lugar.lat, lugar.lon)));
                       return (
@@ -297,12 +299,12 @@ export default function Mapa() {
                           <button
                             type="button"
                             onClick={() => acciones.current?.irALugar(lugar.id)}
-                            className="w-full text-left rounded-[10px] px-2.5 py-2 hover:bg-white/[0.05] transition-colors"
+                            className="w-full flex items-center justify-between gap-3 text-left rounded-[8px] px-1.5 py-1.5 sm:px-2.5 sm:py-2 hover:bg-white/[0.05] transition-colors"
                           >
-                            <span className="block text-white/85 text-[13.5px] font-[450] leading-[1.25]">
+                            <span className="min-w-0 truncate text-white/85 text-[13px] sm:text-[13.5px] font-[450] leading-none">
                               {lugar.nombre}
                             </span>
-                            <span className="text-white/35 text-[11px] font-[450] leading-none">
+                            <span className="shrink-0 text-white/35 text-[11px] font-[450] leading-none tnum">
                               {km} {t.mapa.btcMapAKm}
                             </span>
                           </button>
@@ -328,53 +330,45 @@ export default function Mapa() {
           </Reveal>
         </div>
 
-        <Reveal delay={160} className="mt-5">
-          <div className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-5 sm:p-8">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
-              <div className="max-w-[640px]">
-                <p className="text-white text-[16px] sm:text-[20px] font-[450] leading-[1.2] mb-2">
-                  {t.mapa.protocoloTitulo}
-                </p>
-                <p className="text-white/55 text-[13.5px] font-[450] leading-[1.4]">
-                  {t.mapa.protocoloBajada}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href={BTC_MAP.guiaEtiquetado}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 h-[34px] px-3 rounded-[10px] border border-white/10 text-white/70 text-[12px] font-[450] leading-none hover:border-[#F7931A]/40"
-                >
-                  {t.mapa.protocoloGuia}
-                </a>
-                <a
-                  href="#contacto"
-                  className="inline-flex items-center h-[34px] px-3 rounded-[10px] text-white/70 text-[12px] font-[450] leading-none hover:text-white"
-                >
-                  {t.mapa.comoRegistrarse}
-                </a>
-              </div>
+        <Reveal delay={160} className="mt-4 sm:mt-5">
+          <div className="rounded-[18px] sm:rounded-[33px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-4 sm:p-8">
+            <div className="flex items-center justify-between gap-3 mb-3 sm:mb-6">
+              <p className="text-white text-[15px] sm:text-[20px] font-[450] leading-[1.2]">
+                {t.mapa.protocoloTitulo}
+              </p>
+              <a
+                href={BTC_MAP.guiaEtiquetado}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 h-[34px] px-3 rounded-[10px] border border-white/10 text-white/70 text-[12px] font-[450] leading-none hover:border-[#F7931A]/40"
+              >
+                {t.mapa.protocoloGuia}
+              </a>
             </div>
-            <ol className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-5">
+            <p className="hidden sm:block text-white/55 text-[13.5px] font-[450] leading-[1.4] mb-5 max-w-[640px]">
+              {t.mapa.protocoloBajada}
+            </p>
+            <ol className="flex flex-col gap-1.5 sm:grid sm:grid-cols-3 sm:gap-4 mb-0 sm:mb-5">
               {t.mapa.protocoloPasos.map((paso, i) => (
                 <li
                   key={paso.titulo}
-                  className="rounded-[16px] bg-white/[0.04] border border-white/[0.05] p-4 sm:p-5"
+                  className="flex items-center gap-2.5 sm:block sm:rounded-[16px] sm:bg-white/[0.04] sm:border sm:border-white/[0.05] sm:p-5"
                 >
-                  <span className="w-[22px] h-[22px] rounded-full bg-[#F7931A] text-[#0A0806] text-[11px] font-[450] leading-none tnum flex items-center justify-center mb-3">
+                  <span className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] shrink-0 rounded-full bg-[#F7931A] text-[#0A0806] text-[11px] font-[450] leading-none tnum flex items-center justify-center sm:mb-3">
                     {i + 1}
                   </span>
-                  <span className="block text-white text-[14px] sm:text-[15px] font-[450] leading-[1.25] mb-1">
-                    {paso.titulo}
-                  </span>
-                  <span className="block text-white/50 text-[12.5px] font-[450] leading-[1.4]">
-                    {paso.texto}
+                  <span className="min-w-0">
+                    <span className="block text-white text-[13px] sm:text-[15px] font-[450] leading-[1.25] sm:mb-1">
+                      {paso.titulo}
+                    </span>
+                    <span className="hidden sm:block text-white/50 text-[12.5px] font-[450] leading-[1.4]">
+                      {paso.texto}
+                    </span>
                   </span>
                 </li>
               ))}
             </ol>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="hidden sm:flex flex-wrap gap-1.5">
               {t.mapa.protocoloTags.map((tag) => (
                 <code
                   key={tag}
