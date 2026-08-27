@@ -463,10 +463,6 @@ export const en: Diccionario = {
     ctaLightning: 'Donate with Lightning',
     copiar: 'Copy address',
     copiado: 'Copied',
-    contactoTitulo: 'Donate with Lightning',
-    contactoTexto:
-      'Write to us on Telegram and we’ll send you the brigade’s Lightning address.',
-    ctaTelegram: 'Message on Telegram',
     destinoTitulo: 'Where every satoshi goes',
     destino: [
       { concepto: 'Getting the Cabaña ready', detalle: 'WiFi, projector and whiteboard.' },

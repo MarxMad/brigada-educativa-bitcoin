@@ -462,10 +462,6 @@ export const es = {
     ctaLightning: 'Donar por Lightning',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
-    contactoTitulo: 'Donar por Lightning',
-    contactoTexto:
-      'Escríbenos en Telegram y te pasamos la dirección Lightning de la brigada.',
-    ctaTelegram: 'Escribir en Telegram',
     destinoTitulo: 'A dónde va cada satoshi',
     destino: [
       { concepto: 'Acondicionamiento de la Cabaña', detalle: 'WiFi, proyector y pizarrón.' },

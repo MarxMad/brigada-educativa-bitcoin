@@ -1,53 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Check, Copy, Zap } from 'lucide-react';
 import Reveal, { Tarjeta } from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { TELEGRAM_STEPH } from '@/config/enlaces';
 import {
-  DIRECCION_LIGHTNING,
+  DIRECCION_DONAR,
+  IMAGEN_QR_DONAR,
   NOMBRE_DESTINO,
-  donacionesActivas,
-  uriLightning,
+  uriDonar,
 } from '@/config/donaciones';
-
-/** Genera el QR en el navegador; la librería sólo se carga si hay dirección. */
-function useQR(texto: string) {
-  const [dataUrl, setDataUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!texto) return;
-    let cancelado = false;
-
-    (async () => {
-      const QR = await import('qrcode');
-      const url = await QR.toDataURL(texto, {
-        errorCorrectionLevel: 'M',
-        margin: 1,
-        width: 520,
-        color: { dark: '#0A0806', light: '#FFFFFF' },
-      });
-      if (!cancelado) setDataUrl(url);
-    })().catch(() => {
-      // Si falla la generación dejamos la dirección en texto, que sigue sirviendo.
-    });
-
-    return () => {
-      cancelado = true;
-    };
-  }, [texto]);
-
-  return dataUrl;
-}
 
 export default function Donar() {
   const t = useT();
-  const activas = donacionesActivas();
-  const qr = useQR(activas ? uriLightning() : '');
   const [copiado, setCopiado] = useState(false);
 
   const copiar = async () => {
     try {
-      await navigator.clipboard.writeText(DIRECCION_LIGHTNING);
+      await navigator.clipboard.writeText(DIRECCION_DONAR);
       setCopiado(true);
       window.setTimeout(() => setCopiado(false), 2000);
     } catch {
@@ -112,80 +80,51 @@ export default function Donar() {
 
           <Reveal dir="right" delay={120} className="w-full lg:w-[400px] shrink-0">
             <div className="rounded-[24px] sm:rounded-[28px] bg-[#0A0806] p-5 sm:p-7 lg:sticky lg:top-8 shadow-[0_24px_60px_-20px_rgba(10,8,6,0.45)]">
-              {activas ? (
-                <>
-                  <p className="text-white/70 text-[14px] font-[450] leading-[1.3] mb-5 text-center">
-                    {t.donar.escanea}
-                  </p>
+              <p className="text-white/70 text-[14px] font-[450] leading-[1.3] mb-5 text-center">
+                {t.donar.escanea}
+              </p>
 
-                  <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-5">
-                    {qr ? (
-                      <img
-                        src={qr}
-                        alt={`${t.donar.escanea} — ${DIRECCION_LIGHTNING}`}
-                        className="w-full h-auto"
-                      />
-                    ) : (
-                      <div className="w-full aspect-square animate-pulse rounded-[12px] bg-[#0A0806]/10" />
-                    )}
-                  </div>
+              <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-5">
+                <img
+                  src={IMAGEN_QR_DONAR}
+                  alt={`${t.donar.escanea} — ${DIRECCION_DONAR}`}
+                  className="w-full h-auto min-h-[220px] sm:min-h-[260px] object-contain"
+                />
+              </div>
 
-                  <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">
-                    {NOMBRE_DESTINO}
-                  </p>
-                  <p className="text-center text-white text-[13px] sm:text-[14px] font-[450] leading-[1.3] mb-5 break-all">
-                    {DIRECCION_LIGHTNING}
-                  </p>
+              <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">
+                {NOMBRE_DESTINO}
+              </p>
+              <p className="text-center text-white text-[13px] sm:text-[14px] font-[450] leading-[1.45] mb-5 break-all select-all">
+                {DIRECCION_DONAR}
+              </p>
 
-                  <div className="flex flex-col gap-2.5">
-                    <a
-                      href={uriLightning()}
-                      className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
-                    >
-                      <Zap className="w-[15px] h-[15px]" />
-                      {t.donar.ctaLightning}
-                    </a>
-                    <button
-                      type="button"
-                      onClick={copiar}
-                      className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] border border-white/20 text-white text-[15px] font-[450] transition-colors hover:bg-white/5"
-                    >
-                      {copiado ? (
-                        <>
-                          <Check className="w-[15px] h-[15px] text-[#E8B45A]" />
-                          {t.donar.copiado}
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-[15px] h-[15px]" />
-                          {t.donar.copiar}
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-4 sm:py-6">
-                  <span className="inline-flex w-[52px] h-[52px] items-center justify-center rounded-full bg-[#F7931A]/12 border border-[#F7931A]/30 mb-5">
-                    <Zap className="w-[22px] h-[22px] text-[#F7931A]" />
-                  </span>
-                  <p className="text-white text-[17px] font-[450] leading-[1.25] mb-3">
-                    {t.donar.contactoTitulo}
-                  </p>
-                  <p className="text-white/55 text-[13.5px] font-[450] leading-[1.5] mb-6">
-                    {t.donar.contactoTexto}
-                  </p>
-                  <a
-                    href={TELEGRAM_STEPH}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
-                  >
-                    <Zap className="w-[15px] h-[15px]" />
-                    {t.donar.ctaTelegram}
-                  </a>
-                </div>
-              )}
+              <div className="flex flex-col gap-2.5">
+                <a
+                  href={uriDonar()}
+                  className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
+                >
+                  <Zap className="w-[15px] h-[15px]" />
+                  {t.donar.ctaLightning}
+                </a>
+                <button
+                  type="button"
+                  onClick={copiar}
+                  className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] border border-white/20 text-white text-[15px] font-[450] transition-colors hover:bg-white/5"
+                >
+                  {copiado ? (
+                    <>
+                      <Check className="w-[15px] h-[15px] text-[#E8B45A]" />
+                      {t.donar.copiado}
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-[15px] h-[15px]" />
+                      {t.donar.copiar}
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           </Reveal>
         </div>
