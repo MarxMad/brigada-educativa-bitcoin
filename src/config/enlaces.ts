@@ -10,3 +10,5 @@ export const CORREO_ESCUELA = 'escuela.bitcoin.mexico@gmail.com';
 export const WALLET_BULLBITCOIN =
   'https://accounts.bullbitcoin.com/es/registration?referral_code=stephsatoshi';
 export const SITIO_BULLBITCOIN = 'https://bullbitcoin.com';
+/** Sitio oficial de UNLOCK Summit 2026. */
+export const UNLOCK_SUMMIT_2026 = 'https://unlocksummit.io/unlock-summit-2026/';

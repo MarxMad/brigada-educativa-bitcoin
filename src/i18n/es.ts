@@ -20,6 +20,7 @@ export const es = {
     mapa: 'Mapa',
     metas: 'Metas',
     prensa: 'Prensa',
+    unlock: 'UNLOCK',
     aliados: 'Aliados',
     wallet: 'Wallet',
     contacto: 'Contacto',
@@ -397,7 +398,8 @@ export const es = {
 
   prensa: {
     eyebrow: 'Impacto mediático',
-    titulo: 'El mundo ya está mirando a Zacatlán',
+    tituloA: 'El mundo ya está mirando a',
+    tituloDestacado: 'Zacatlán',
     intro:
       'Desde el anuncio del proyecto, medios internacionales como Crypto India Magazine nos han entrevistado para conocer más sobre las economías circulares Bitcoin emergentes, lo que refleja el alto interés que existe en torno a este tipo de iniciativas.',
     puntos: [
@@ -414,6 +416,7 @@ export const es = {
     revistaUrl: 'https://cryptoindiamagazine.aflip.in/narrative-v1-i2.html',
     revistaCta: 'Leer la revista',
     pdfCta: 'Descargar PDF',
+    pdfAbrir: 'Ver el PDF',
     pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Respaldo institucional',
     respaldos: [
@@ -422,6 +425,16 @@ export const es = {
       { nombre: 'Municipios Pueblo Mágico cercanos', estado: 'Interesados' },
       { nombre: 'Documental del macro proyecto', estado: 'En proceso' },
     ],
+  },
+
+  unlock: {
+    eyebrow: 'UNLOCK Summit 2026',
+    tituloA: 'La brigada se cruza con',
+    tituloDestacado: 'UNLOCK',
+    bajada:
+      'La semana 1 del plan operativo coincide con la 4ta edición de UNLOCK Summit: ruta universitaria, cena de bienvenida, ponencias, talleres y Brunch de Conciencia. UNLOCK es aliado del proyecto. Conoce el encuentro en su sitio oficial.',
+    cta: 'Ir a UNLOCK 2026',
+    logoAlt: 'UNLOCK Summit 4ta Edición',
   },
 
   aliados: {

@@ -21,6 +21,7 @@ export const en: Diccionario = {
     mapa: 'Map',
     metas: 'Goals',
     prensa: 'Press',
+    unlock: 'UNLOCK',
     aliados: 'Partners',
     wallet: 'Wallet',
     contacto: 'Contact',
@@ -398,7 +399,8 @@ export const en: Diccionario = {
 
   prensa: {
     eyebrow: 'Media impact',
-    titulo: 'The world is already watching Zacatlán',
+    tituloA: 'The world is already watching',
+    tituloDestacado: 'Zacatlán',
     intro:
       'Since the project was announced, international outlets such as Crypto India Magazine have interviewed us to learn more about emerging Bitcoin circular economies, a sign of how much interest there is in this kind of initiative.',
     puntos: [
@@ -415,6 +417,7 @@ export const en: Diccionario = {
     revistaUrl: 'https://cryptoindiamagazine.aflip.in/narrative-v1-i2.html',
     revistaCta: 'Read the magazine',
     pdfCta: 'Download PDF',
+    pdfAbrir: 'View the PDF',
     pdfLabel: 'CIM × UNLOCK 2026',
     respaldoTitulo: 'Institutional backing',
     respaldos: [
@@ -423,6 +426,16 @@ export const en: Diccionario = {
       { nombre: 'Nearby Pueblo Mágico municipalities', estado: 'Interested' },
       { nombre: 'Documentary on the wider project', estado: 'In progress' },
     ],
+  },
+
+  unlock: {
+    eyebrow: 'UNLOCK Summit 2026',
+    tituloA: 'The brigade meets',
+    tituloDestacado: 'UNLOCK',
+    bajada:
+      'Week 1 of the operating plan overlaps with the 4th edition of UNLOCK Summit: university route, welcome dinner, talks, workshops and the Consciousness Brunch. UNLOCK is a project partner. See the gathering on its official site.',
+    cta: 'Go to UNLOCK 2026',
+    logoAlt: 'UNLOCK Summit 4th Edition',
   },
 
   aliados: {

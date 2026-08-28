@@ -9,6 +9,7 @@ import Ruta from '@/components/Ruta';
 import Mapa from '@/components/Mapa';
 import Metas from '@/components/Metas';
 import Prensa from '@/components/Prensa';
+import Unlock from '@/components/Unlock';
 import Aliados from '@/components/Aliados';
 import Wallet from '@/components/Wallet';
 import Donar from '@/components/Donar';
@@ -28,6 +29,7 @@ function App() {
         <Mapa />
         <Metas />
         <Prensa />
+        <Unlock />
         <Aliados />
         <Wallet />
         <Donar />
