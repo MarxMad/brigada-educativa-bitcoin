@@ -390,25 +390,14 @@ function Nav() {
       <nav className="w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] pt-[20px] sm:pt-[30px] flex items-center justify-between relative z-50">
         <Animate delay={0} direction="down">
             <a href="#inicio" className="flex items-center gap-2.5 min-w-0">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 256 256"
-                fill="none"
-                className="sm:w-[32px] sm:h-[32px] shrink-0"
+              <img
+                src="/img/logo-manzana-bitcoin.png"
+                alt=""
                 aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="marcaBrigada" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#F7931A" />
-                    <stop offset="100%" stopColor="#FFD98E" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M 256 256 L 178 256 C 150.386 256 128 233.614 128 206 L 128 256 L 0 256 L 0 192 C 0 156.654 28.654 128 64 128 C 99.346 128 128 156.654 128 192 L 128 128 L 256 128 Z M 78 0 C 105.614 0 128 22.386 128 50 L 128 0 L 256 0 L 256 64 C 256 99.346 227.346 128 192 128 C 156.654 128 128 99.346 128 64 L 128 128 L 0 128 L 0 0 Z"
-                  fill="url(#marcaBrigada)"
-                />
-              </svg>
+                width={34}
+                height={34}
+                className="w-[30px] h-[30px] sm:w-[34px] sm:h-[34px] shrink-0 object-contain"
+              />
               <span className="flex flex-col min-w-0 leading-[1.15]">
                 <span className="text-white text-[14px] sm:text-[16px] font-[450] tracking-[-0.02em]">
                   {t.nav.marca}
