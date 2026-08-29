@@ -7,7 +7,7 @@ export default function Footer() {
     { label: t.nav.proyecto, href: '#proyecto' },
     { label: t.nav.ruta, href: '#ruta' },
     { label: t.nav.mapa, href: '#mapa' },
-    { label: t.nav.metas, href: '#metas' },
+    // { label: t.nav.metas, href: '#metas' }, // vuelve cuando se reactive <Metas />
     { label: t.nav.prensa, href: '#prensa' },
     { label: t.nav.unlock, href: '#unlock' },
     { label: t.nav.wallet, href: '#wallet' },

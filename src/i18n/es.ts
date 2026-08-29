@@ -79,7 +79,6 @@ export const es = {
     mosaicoAlt: 'Mosaico de una manzana con el símbolo de Bitcoin',
     mosaicoPie: 'La manzana de Zacatlán y Bitcoin: el fruto de una economía que se enseña en persona.',
     datos: [
-      { titulo: 'Respaldo municipal', texto: 'El Municipio de Zacatlán de las Manzanas respalda el proyecto. Palacio Municipal s/n, Col. Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Cabecera de la Sierra Norte de Puebla, con reloj floral, arco y huertos de manzana.' },
       { titulo: 'Gran Feria de la Manzana', texto: 'La fiesta que pone a Zacatlán en el mapa turístico de México cada año.' },
     ],
@@ -418,6 +417,7 @@ export const es = {
     pdfCta: 'Descargar PDF',
     pdfAbrir: 'Ver el PDF',
     pdfLabel: 'CIM × UNLOCK 2026',
+    pdfPie: 'Pasa las páginas dentro de la hoja o descarga el PDF para verlo completo.',
     respaldoTitulo: 'Respaldo institucional',
     respaldos: [
       { nombre: 'Municipio de Zacatlán de las Manzanas', estado: 'Confirmado' },
@@ -471,8 +471,16 @@ export const es = {
     titulo: 'Financia una brigada completa',
     bajada:
       'Tu donación cubre la Cabaña, el material impreso y el trabajo de los facilitadores durante las cuatro semanas.',
-    escanea: 'Escanea para donar por Lightning',
-    ctaLightning: 'Donar por Lightning',
+    escanea: 'Escanea con tu wallet para donar',
+    generandoQr: 'Generando el código…',
+    redes: {
+      liquid: 'Red Liquid · L-BTC',
+      lightning: 'Red Lightning',
+      onchain: 'Bitcoin on-chain',
+    },
+    cta: 'Abrir en mi wallet',
+    ayudaEscaneo:
+      'Si la cámara del teléfono no abre nada, escanea desde la wallet: en BULL entra a Enviar y usa su escáner. El QR nunca elige la app; eso lo decide tu teléfono.',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
     destinoTitulo: 'A dónde va cada satoshi',

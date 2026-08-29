@@ -3,7 +3,7 @@ import { Mail } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { CORREO_ESCUELA, TELEGRAM_STEPH } from '@/config/enlaces';
+import { CORREO_ESCUELA } from '@/config/enlaces';
 
 import { INICIO_BRIGADA } from '@/components/useCuentaRegresiva';
 
@@ -113,77 +113,32 @@ export default function Contacto() {
                 aria-hidden="true"
               />
 
-              <div className="relative flex items-center gap-5 mb-6">
-                <img
-                  src="/img/steph-serrano.png"
-                  alt={t.contacto.nombre}
-                  loading="lazy"
-                  className="w-[76px] h-[76px] rounded-full object-cover object-top bg-white/[0.06]"
-                />
-                <div className="min-w-0">
-                  <p className="text-white text-[20px] sm:text-[23px] font-[450] leading-[1.1] mb-1.5">
-                    {t.contacto.nombre}
-                  </p>
-                  <p className="text-white/55 text-[13px] sm:text-[14px] font-[450] leading-[1.35] mb-2">
-                    {t.contacto.rol}
-                  </p>
-                  <a
-                    href={TELEGRAM_STEPH}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#F7931A] text-[13px] sm:text-[14px] font-[450] leading-none hover:opacity-80"
-                  >
-                    {t.contacto.usuario}
-                  </a>
-                </div>
-              </div>
-
               <a
                 href={`mailto:${CORREO_ESCUELA}`}
-                className="relative mb-6 inline-flex items-center gap-2.5 rounded-[12px] bg-white/[0.06] border border-white/[0.08] px-3.5 py-2.5 text-white/85 text-[13px] sm:text-[14px] font-[450] leading-none hover:border-[#F7931A]/40 hover:text-white transition-colors"
+                className="relative mb-7 inline-flex items-center gap-2.5 rounded-[12px] bg-white/[0.06] border border-white/[0.08] px-3.5 py-2.5 text-white/85 text-[14px] sm:text-[15px] font-[450] leading-none hover:border-[#F7931A]/40 hover:text-white transition-colors"
               >
-                <Mail className="w-[14px] h-[14px] text-[#F7931A] shrink-0" aria-hidden="true" />
+                <Mail className="w-[15px] h-[15px] text-[#F7931A] shrink-0" aria-hidden="true" />
                 <span className="sr-only">{t.contacto.correoLabel}: </span>
                 {CORREO_ESCUELA}
               </a>
 
-              <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a
-                  href={TELEGRAM_STEPH}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col min-w-0"
-                >
-                  <p className="text-white/70 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
-                    {t.contacto.qrStephLabel}
-                  </p>
+              <div className="relative">
+                <p className="text-white/70 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-3">
+                  {t.contacto.qrGrupoLabel}
+                </p>
+                {/* Cuadrado: el QR ocupa una caja 1:1 para que se lea igual de bien
+                    en la tarjeta ancha del desktop y en el celular. */}
+                <div className="mx-auto w-full max-w-[300px] aspect-square flex items-center justify-center rounded-[16px] bg-white p-4 sm:p-5">
                   <img
-                    src="/img/qr-telegram-steph.png"
-                    alt={`${t.contacto.canal} ${t.contacto.usuario}`}
+                    src="/img/qr-telegram-escuela.png"
+                    alt={t.contacto.qrGrupoLabel}
                     loading="lazy"
-                    className="w-full rounded-[16px] object-contain bg-[#F7931A]"
+                    className="w-full h-full object-contain"
                   />
-                  <p className="mt-2.5 text-white/50 text-[12px] font-[450] leading-[1.35]">
-                    {t.contacto.qrStephTexto}
-                  </p>
-                </a>
-
-                <div className="flex flex-col min-w-0">
-                  <p className="text-white/70 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
-                    {t.contacto.qrGrupoLabel}
-                  </p>
-                  <div className="flex-1 flex items-center justify-center rounded-[16px] bg-white p-3 sm:p-4">
-                    <img
-                      src="/img/qr-telegram-escuela.png"
-                      alt={t.contacto.qrGrupoLabel}
-                      loading="lazy"
-                      className="w-full max-w-[220px] h-auto"
-                    />
-                  </div>
-                  <p className="mt-2.5 text-white/50 text-[12px] font-[450] leading-[1.35]">
-                    {t.contacto.qrGrupoTexto}
-                  </p>
                 </div>
+                <p className="mt-3 text-center text-white/50 text-[12.5px] font-[450] leading-[1.4]">
+                  {t.contacto.qrGrupoTexto}
+                </p>
               </div>
             </div>
           </Reveal>

@@ -1,17 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, Copy, Zap } from 'lucide-react';
+import QRCode from 'qrcode';
 import Reveal, { Tarjeta } from '@/components/Reveal';
 import { useT } from '@/i18n';
 import {
   DIRECCION_DONAR,
-  IMAGEN_QR_DONAR,
   NOMBRE_DESTINO,
+  RED_DONAR,
   uriDonar,
 } from '@/config/donaciones';
+
+const URI_DONAR = uriDonar();
 
 export default function Donar() {
   const t = useT();
   const [copiado, setCopiado] = useState(false);
+  const [qr, setQr] = useState('');
+
+  // El QR se dibuja del mismo URI que usa el botón: no puede apuntar a otro lado.
+  useEffect(() => {
+    let vivo = true;
+
+    QRCode.toDataURL(URI_DONAR, {
+      errorCorrectionLevel: 'M',
+      margin: 1,
+      scale: 8,
+      color: { dark: '#0A0806', light: '#FFFFFF' },
+    })
+      .then((src) => {
+        if (vivo) setQr(src);
+      })
+      .catch(() => {
+        // Sin QR quedan la dirección escrita y el botón, que llevan al mismo sitio.
+      });
+
+    return () => {
+      vivo = false;
+    };
+  }, []);
 
   const copiar = async () => {
     try {
@@ -84,13 +110,23 @@ export default function Donar() {
                 {t.donar.escanea}
               </p>
 
-              <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-5">
-                <img
-                  src={IMAGEN_QR_DONAR}
-                  alt={`${t.donar.escanea} — ${DIRECCION_DONAR}`}
-                  className="w-full h-auto min-h-[220px] sm:min-h-[260px] object-contain"
-                />
+              <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-4 min-h-[236px] sm:min-h-[276px] flex items-center justify-center">
+                {qr ? (
+                  <img
+                    src={qr}
+                    alt={`${t.donar.escanea} — ${DIRECCION_DONAR}`}
+                    className="w-full h-auto object-contain"
+                  />
+                ) : (
+                  <span className="text-[#0A0806]/30 text-[13px] font-[450]">
+                    {t.donar.generandoQr}
+                  </span>
+                )}
               </div>
+
+              <p className="text-center text-[#0A0806] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-4 mx-auto w-fit rounded-full bg-[#F7931A] px-3 py-1.5">
+                {t.donar.redes[RED_DONAR]}
+              </p>
 
               <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">
                 {NOMBRE_DESTINO}
@@ -101,11 +137,11 @@ export default function Donar() {
 
               <div className="flex flex-col gap-2.5">
                 <a
-                  href={uriDonar()}
+                  href={URI_DONAR}
                   className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
                 >
                   <Zap className="w-[15px] h-[15px]" />
-                  {t.donar.ctaLightning}
+                  {t.donar.cta}
                 </a>
                 <button
                   type="button"
@@ -125,6 +161,10 @@ export default function Donar() {
                   )}
                 </button>
               </div>
+
+              <p className="mt-4 text-white/45 text-[12.5px] font-[450] leading-[1.45]">
+                {t.donar.ayudaEscaneo}
+              </p>
             </div>
           </Reveal>
         </div>

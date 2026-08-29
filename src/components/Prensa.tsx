@@ -114,29 +114,11 @@ export default function Prensa() {
           </Reveal>
         </div>
 
-        <Reveal delay={180} className="mb-8 lg:mb-10">
-          <p className="text-white/40 text-[11px] sm:text-[12px] font-[450] leading-none uppercase tracking-[0.16em] mb-4">
-            {t.prensa.respaldoTitulo}
-          </p>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {t.prensa.respaldos.map((r) => (
-              <li
-                key={r.nombre}
-                className="flex flex-col gap-2 rounded-[16px] border border-white/[0.08] bg-white/[0.03] px-4 py-4"
-              >
-                <span className="text-[11px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.12em]">
-                  {r.estado}
-                </span>
-                <span className="text-white/90 text-[14px] font-[450] leading-[1.3]">
-                  {r.nombre}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-
         <Reveal delay={220}>
-          <article className="rounded-[24px] sm:rounded-[28px] border border-white/[0.08] bg-[rgba(17,16,15,0.4)] overflow-hidden">
+          {/* Lectura tipo revista: la hoja conserva la proporción real del PDF
+              (612 x 792 pt) y se queda centrada en vez de ocupar todo el ancho.
+              En celular no cambia nada: sigue siendo la portada que abre el PDF. */}
+          <article className="mx-auto w-full max-w-[560px] lg:max-w-[720px] rounded-[24px] sm:rounded-[28px] border border-white/[0.08] bg-[rgba(17,16,15,0.4)] overflow-hidden shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]">
             <div className="flex items-center justify-between gap-4 px-5 sm:px-6 py-3.5 border-b border-white/[0.06] bg-[#11100F]">
               <p className="text-white/45 text-[11px] font-[450] leading-none uppercase tracking-[0.14em]">
                 {t.prensa.pdfLabel}
@@ -171,13 +153,20 @@ export default function Prensa() {
                 </span>
               </span>
             </a>
-            <iframe
-              title={t.prensa.pdfLabel}
-              src={`${PDF_REVISTA}#toolbar=0&navpanes=0&view=FitH`}
-              className="hidden sm:block w-full h-[640px] lg:h-[780px] border-0 bg-[#11100F]"
-            />
+
+            <div className="hidden sm:block bg-[#11100F] p-4 sm:p-6">
+              <iframe
+                title={t.prensa.pdfLabel}
+                src={`${PDF_REVISTA}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+                className="w-full aspect-[612/792] border-0 rounded-[6px] bg-white shadow-[0_18px_50px_-18px_rgba(0,0,0,0.85)]"
+              />
+              <p className="mt-4 text-center text-white/35 text-[12px] font-[450] leading-none">
+                {t.prensa.pdfPie}
+              </p>
+            </div>
           </article>
         </Reveal>
+
       </div>
     </section>
   );

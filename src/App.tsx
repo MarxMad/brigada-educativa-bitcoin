@@ -7,7 +7,7 @@ import Proyecto from '@/components/Proyecto';
 import Brigada from '@/components/Brigada';
 import Ruta from '@/components/Ruta';
 import Mapa from '@/components/Mapa';
-import Metas from '@/components/Metas';
+// import Metas from '@/components/Metas';
 import Prensa from '@/components/Prensa';
 import Unlock from '@/components/Unlock';
 import Aliados from '@/components/Aliados';
@@ -27,7 +27,10 @@ function App() {
         <Zacatlan />
         <Ruta />
         <Mapa />
-        <Metas />
+        {/* Metas medibles: fuera de la página por ahora. El componente sigue en
+            src/components/Metas.tsx y los textos en i18n; para volver a mostrarla
+            basta con descomentar esta línea y su import. */}
+        {/* <Metas /> */}
         <Prensa />
         <Unlock />
         <Aliados />

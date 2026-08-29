@@ -80,7 +80,6 @@ export const en: Diccionario = {
     mosaicoAlt: 'Mosaic of an apple with the Bitcoin symbol',
     mosaicoPie: 'Zacatlán’s apple and Bitcoin: the fruit of an economy taught in person.',
     datos: [
-      { titulo: 'Municipal backing', texto: 'The Municipality of Zacatlán de las Manzanas backs the project. Palacio Municipal s/n, Centro.' },
       { titulo: 'Pueblo Mágico', texto: 'Seat of the Sierra Norte de Puebla, with the floral clock, the arch and the apple orchards.' },
       { titulo: 'Great Apple Fair', texto: 'The festival that puts Zacatlán on Mexico’s tourism map every year.' },
     ],
@@ -419,6 +418,7 @@ export const en: Diccionario = {
     pdfCta: 'Download PDF',
     pdfAbrir: 'View the PDF',
     pdfLabel: 'CIM × UNLOCK 2026',
+    pdfPie: 'Turn the pages inside the sheet, or download the PDF to read it in full.',
     respaldoTitulo: 'Institutional backing',
     respaldos: [
       { nombre: 'Municipality of Zacatlán de las Manzanas', estado: 'Confirmed' },
@@ -472,8 +472,16 @@ export const en: Diccionario = {
     titulo: 'Fund a whole brigade',
     bajada:
       'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
-    escanea: 'Scan to donate over Lightning',
-    ctaLightning: 'Donate with Lightning',
+    escanea: 'Scan with your wallet to donate',
+    generandoQr: 'Generating the code…',
+    redes: {
+      liquid: 'Liquid network · L-BTC',
+      lightning: 'Lightning network',
+      onchain: 'Bitcoin on-chain',
+    },
+    cta: 'Open in my wallet',
+    ayudaEscaneo:
+      'If your phone camera does nothing, scan from inside the wallet: in BULL, open Send and use its scanner. A QR never picks the app — your phone does.',
     copiar: 'Copy address',
     copiado: 'Copied',
     destinoTitulo: 'Where every satoshi goes',

@@ -41,6 +41,21 @@ export const ZOOM = 11;
 /** Radio con el que pedimos comercios a BTC Map alrededor de la cabecera. */
 export const RADIO_BTC_MAP_KM = 60;
 
+/**
+ * Teselas del mapa.
+ *
+ * CARTO dejó de servir su basemap de forma anónima: sin llave estampa la marca
+ * de agua «API KEY REQUIRED» sobre cada tesela. La llave es gratuita hasta
+ * 5 millones de teselas al mes, no requiere cuenta y llega por correo en un
+ * minuto desde https://carto.com/basemaps/apikey — se guarda en `VITE_CARTO_KEY`
+ * (en `.env.local` para desarrollo y en las variables del proyecto de Vercel).
+ */
+const CARTO_KEY = import.meta.env.VITE_CARTO_KEY?.trim() ?? '';
+
+export const TESELAS_URL =
+  `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png` +
+  (CARTO_KEY ? `?key=${CARTO_KEY}` : '');
+
 export const BTC_MAP = {
   search: 'https://api.btcmap.org/v4/places/search/',
   explorar: `https://btcmap.org/?lat=${CENTRO[0]}&long=${CENTRO[1]}&zoom=13`,

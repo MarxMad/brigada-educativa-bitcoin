@@ -8,6 +8,7 @@ import {
   buscarLugaresBtcMap,
   CENTRO,
   distanciaKm,
+  TESELAS_URL,
   ZOOM,
   type LugarBtcMap,
 } from '@/config/mapa';
@@ -70,7 +71,7 @@ function useLeaflet(
       }
       mapaRef.current = mapa;
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      L.tileLayer(TESELAS_URL, {
         subdomains: 'abcd',
         maxZoom: 20,
       }).addTo(mapa);
