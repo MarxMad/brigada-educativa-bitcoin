@@ -5,9 +5,8 @@ import { useT } from '@/i18n';
 import { SITIO_ZACATLAN } from '@/config/enlaces';
 
 /**
- * El video completo, sin recortar. En el hero va de fondo y `object-cover` le
- * corta los lados; aquí se presenta en su proporción real (2.14:1) para que se
- * vean todas las tomas: la manzana gigante, el letrero, el zócalo, la cascada.
+ * Intro UNLOCK+Bitcoin US26 (H.264, 1920×1080, 15 s). El drone de Zacatlán
+ * sigue en el hero (`/video/hero.mp4`); aquí va el intro de UNLOCK.
  */
 export default function Zacatlan() {
   const t = useT();
@@ -98,8 +97,8 @@ export default function Zacatlan() {
             <video
               ref={video}
               className="w-full h-auto block"
-              src="/video/hero.mp4"
-              poster="/video/hero-poster.jpg"
+              src="/video/intro-unlock-bitcoin-us26.mp4"
+              poster="/video/intro-unlock-bitcoin-us26-poster.jpg"
               autoPlay
               loop
               muted
