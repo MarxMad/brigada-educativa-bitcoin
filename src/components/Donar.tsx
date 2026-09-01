@@ -6,7 +6,6 @@ import { useT } from '@/i18n';
 import {
   DIRECCION_DONAR,
   NOMBRE_DESTINO,
-  RED_DONAR,
   uriDonar,
 } from '@/config/donaciones';
 
@@ -125,7 +124,7 @@ export default function Donar() {
               </div>
 
               <p className="text-center text-[#0A0806] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-4 mx-auto w-fit rounded-full bg-[#F7931A] px-3 py-1.5">
-                {t.donar.redes[RED_DONAR]}
+                {t.donar.redes.lightning}
               </p>
 
               <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">

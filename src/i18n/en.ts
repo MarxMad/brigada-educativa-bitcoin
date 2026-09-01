@@ -98,12 +98,6 @@ export const en: Diccionario = {
       'To empower the community of Zacatlán de las Manzanas through Bitcoin education, providing practical and accessible tools so that merchants, artisans, students and families can take an active part in the global digital economy, protecting their savings from inflation, cutting transaction costs and removing financial barriers, all without giving up the cultural identity and traditions that make this Pueblo Mágico what it is.',
     vision:
       'That Zacatlán de las Manzanas becomes recognized worldwide as Mexico’s first Bitcoin Pueblo Mágico and a model of social innovation, where blockchain technology and the circular economy converge to build collective well-being; where every merchant, artisan, student and family holds sovereign control over their own money; and where an organized, educated community inspires other towns across Mexico to follow its example of autonomous, inclusive and sustainable development.',
-    modeloTitulo: 'Following the model of',
-    referentes: [
-      { nombre: 'Bitcoin Beach', lugar: 'El Salvador' },
-      { nombre: 'Bitcoin Jungle', lugar: 'Costa Rica' },
-      { nombre: 'Zacatlán de las Manzanas', lugar: 'Puebla, Mexico', activo: true },
-    ],
     valoresEyebrow: 'Our values',
     valoresTitulo: 'Seven principles that hold the brigade together',
     valores: [
@@ -472,14 +466,14 @@ export const en: Diccionario = {
     titulo: 'Fund a whole brigade',
     bajada:
       'Your donation covers the cabin, the printed material and the facilitators’ work across the four weeks.',
-    escanea: 'Scan with your wallet to donate',
+    escanea: 'Scan to donate via Lightning',
     generandoQr: 'Generating the code…',
     redes: {
-      liquid: 'Liquid network · L-BTC',
-      lightning: 'Lightning network',
+      liquid: 'Lightning',
+      lightning: 'Lightning',
       onchain: 'Bitcoin on-chain',
     },
-    cta: 'Open in my wallet',
+    cta: 'Donate via Lightning',
     ayudaEscaneo:
       'If your phone camera does nothing, scan from inside the wallet: in BULL, open Send and use its scanner. A QR never picks the app — your phone does.',
     copiar: 'Copy address',

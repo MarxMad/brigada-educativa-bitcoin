@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+Creado por Oropeza Kian - Jacobo Jahaziel - Morgado Angie - Olea Scarlet - Bautista Azael 
+UVM Campus Cuernavaca
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lean Canvas — App de Accesibilidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F5F1;
+    --panel: #FFFFFF;
+    --ink: #1B1E21;
+    --ink-soft: #565B62;
+    --line: #D7D9D6;
+    --blue: #0057B8;      /* señalización de accesibilidad (ISA) */
+    --blue-soft: #E7EFFB;
+    --amber: #E4A400;     /* guía táctil / advertencia */
+    --amber-soft: #FBF1DA;
+    --green: #1E7A4C;
+    --green-soft: #E7F3EC;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:32px 20px 56px;
+  }
+  .wrap{ max-width:1360px; margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    text-align: justify;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+    padding-bottom:18px;
+    border-bottom:2px solid var(--ink);
+  }
+  .title-block h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(26px,3.4vw,38px);
+    font-weight:700;
+    margin:0 0 6px;
+    text-align: justify;
+    letter-spacing:-0.01em;
+  }
+  .title-block p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:14.5px;
+    text-align: justify;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .meta{
+    display:flex;
+    gap:10px;
+    text-align: justify;
+    flex-wrap:wrap;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    text-align: justify;
+    gap:6px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);}
+
+  /* ---------- Route rail (signature element) ---------- */
+  .route-rail{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:18px 0 22px;
+    text-align: justify;
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+  .route-rail .stop{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-shrink:0;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11.5px;
+    text-align: justify;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .route-rail .num{
+    width:20px;height:20px;
+    border-radius:50%;
+    text-align: justify;
+    background:var(--ink);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:10.5px;
+  }
+  .route-rail .seg{
+    flex:1 1 18px;
+    min-width:18px;
+    text-align: justify;
+    height:0;
+    border-top:2px dotted var(--line);
+  }
+
+  /* ---------- Canvas grid ---------- */
+  .canvas{
+    display:grid;
+    grid-template-columns: 1.05fr 1.05fr 1.3fr 1.05fr 1.15fr;
+    grid-template-rows: auto auto auto;
+    gap:12px;
+    text-align: justify;
+  }
+  .block{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 16px 14px;
+    position:relative;
+    display:flex;
+    text-align: justify;
+    flex-direction:column;
+    min-height:0;
+  }
+  .block .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-align: justify;
+    margin-bottom:10px;
+  }
+  .block .eyebrow .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11px;
+    text-align: justify;
+    font-weight:700;
+    background:var(--ink);
+    color:#fff;
+    width:20px;height:20px;
+    border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .block h2{
+    text-align: justify;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14.5px;
+    font-weight:600;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  .block .icon{ font-size:14px; opacity:.8; }
+
+  .block ul{
+    margin:0;
+    padding-left:16px;
+    font-size:12.6px;
+    line-height:1.5;
+    color:var(--ink);
+    text-align: justify;
+  }
+  .block ul li{ margin-bottom:7px; }
+  .block ul li:last-child{ margin-bottom:0; }
+  .block p.text{
+    font-size:12.6px;
+    line-height:1.55;
+    margin:0;
+    color:var(--ink);
+  }
+  .block .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    text-align: justify;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--blue);
+    background:var(--blue-soft);
+    border-radius:5px;
+    padding:2px 6px;
+    margin-right:6px;
+  }
+  .block .assump{
+    text-align: justify;
+    margin-top:10px;
+    padding-top:8px;
+    border-top:1px dashed var(--line);
+    font-size:11px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  /* grid placement — classic Lean Canvas topology */
+  .b-problema        { grid-column:1; grid-row:1 / span 2; }
+  .b-solucion         { grid-column:2; grid-row:1; }
+  .b-metricas         { grid-column:2; grid-row:2; }
+  .b-propuesta        { grid-column:3; grid-row:1 / span 2; background:var(--blue); color:#fff; border-color:var(--blue); }
+  .b-propuesta h2     { color:#fff; }
+  .b-propuesta .eyebrow .num{ background:#fff; color:var(--blue); }
+  .b-propuesta p.text { color:#EAF1FC; font-size:15px; line-height:1.6; }
+  .b-ventaja          { grid-column:4; grid-row:1; }
+  .b-canales          { grid-column:4; grid-row:2; }
+  .b-segmentos        { grid-column:5; grid-row:1 / span 2; }
+  .b-costos           { grid-column:1 / span 2; grid-row:3; background:var(--amber-soft); border-color:#EAD9A8; }
+  .b-ingresos         { grid-column:4 / span 2; grid-row:3; background:var(--green-soft); border-color:#BFE0CC; }
+  .b-costos .eyebrow .num, .b-ingresos .eyebrow .num{ background:var(--ink); }
+
+  /* usuarios vs clientes distinction inside segmentos */
+  .split-label{
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin:10px 0 5px;
+  }
+  .split-label:first-of-type{ margin-top:0; }
+
+  footer{
+    margin-top:26px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-size:11.5px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width: 1100px){
+    .canvas{ grid-template-columns: 1fr 1fr; grid-template-rows:auto; }
+    .b-problema,.b-propuesta,.b-segmentos{ grid-column:span 2 !important; grid-row:auto !important; }
+    .b-solucion{ grid-column:1; grid-row:auto; }
+    .b-metricas{ grid-column:2; grid-row:auto; }
+    .b-ventaja{ grid-column:1; grid-row:auto; }
+    .b-canales{ grid-column:2; grid-row:auto; }
+    .b-costos,.b-ingresos{ grid-column:span 2 !important; grid-row:auto !important; }
+  }
+  @media (max-width: 620px){
+    .canvas{ grid-template-columns: 1fr; }
+    .b-problema,.b-solucion,.b-metricas,.b-propuesta,.b-ventaja,.b-canales,.b-segmentos,.b-costos,.b-ingresos{
+      grid-column:1 !important; grid-row:auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <h1>Lean Canvas: Mapeo de accesibilidad en espacios públicos</h1>
+      <p>Modelo de negocio para una app que permite consultar de antemano si un lugar público es accesible, con información verificada y actualizada por la comunidad.</p>
+    </div>
+    <div class="meta">
+      <span class="pill"><span class="dot"></span>Mercado: México</span>
+      <span class="pill"><span class="dot" style="background:var(--amber)"></span>Modelo: Freemium B2C / B2B</span>
+      <span class="pill"><span class="dot" style="background:var(--green)"></span>Etapa: Idea validada</span>
+    </div>
+  </header>
+
+  <div class="route-rail" aria-hidden="true">
+    <div class="stop"><span class="num">1</span>Problema</div><div class="seg"></div>
+    <div class="stop"><span class="num">4</span>Solución</div><div class="seg"></div>
+    <div class="stop"><span class="num">3</span>Valor</div><div class="seg"></div>
+    <div class="stop"><span class="num">9</span>Ventaja</div><div class="seg"></div>
+    <div class="stop"><span class="num">2</span>Segmentos</div><div class="seg"></div>
+    <div class="stop"><span class="num">8</span>Métricas</div><div class="seg"></div>
+    <div class="stop"><span class="num">5</span>Canales</div><div class="seg"></div>
+    <div class="stop"><span class="num">7</span>Costos</div><div class="seg"></div>
+    <div class="stop"><span class="num">6</span>Ingresos</div>
+  </div>
+
+  <div class="canvas">
+
+    <!-- 1. PROBLEMA -->
+    <div class="block b-problema">
+      <div class="eyebrow"><span class="num">1</span><h2>Problema</h2></div>
+      <ul>
+        <li><strong>Prioridad 1: </strong> No hay forma de saber, antes de trasladarse, si un lugar público es realmente accesible.</li>
+        <li><strong>Prioridad 2: </strong> La información existe pero está dispersa y sin verificar (redes, boca en boca, sitios desactualizados).</li>
+        <li><strong>Prioridad 3: </strong> No existe un canal centralizado para reportar cambios u obstáculos temporales.</li>
+      </ul>
+    </div>
+
+    <!-- 4. SOLUCIÓN -->
+    <div class="block b-solucion">
+      <div class="eyebrow"><span class="num">4</span><h2>Solución</h2></div>
+      <ul>
+        <li>Mapa interactivo con fichas de accesibilidad por ubicación, filtrable por tipo de necesidad.</li>
+        <li>Verificación mixta: reportes ciudadanos + validación de administradores/moderadores.</li>
+        <li>Reportes en tiempo real (fotos, calificación, alertas de obstáculos), estilo colaborativo.</li>
+      </ul>
+    </div>
+
+    <!-- 8. MÉTRICAS -->
+    <div class="block b-metricas">
+      <div class="eyebrow"><span class="num">8</span><h2>Métricas clave</h2></div>
+      <ul>
+        <li>% de ubicaciones con info verificada (no solo reportada).</li>
+        <li>Antigüedad promedio de los reportes.</li>
+        <li>Traslados "exitosos" vs. "fallidos" reportados post-visita.</li>
+        <li>Aliados institucionales pagantes activos.</li>
+      </ul>
+    </div>
+
+    <!-- 3. PROPUESTA DE VALOR -->
+    <div class="block b-propuesta">
+      <div class="eyebrow"><span class="num">3</span><h2>Propuesta única de valor</h2></div>
+      <p class="text">"Sabe si un lugar es accesible para ti antes de salir de casa."</p>
+      <p class="text" style="margin-top:12px; font-size:12.5px; color:#DCE7FA;">Accesibilidad verificada y personalizada por tipo de discapacidad — no una etiqueta genérica de "accesible", sino datos específicos a la necesidad de cada usuario.</p>
+    </div>
+
+    <!-- 9. VENTAJA INJUSTA -->
+    <div class="block b-ventaja">
+      <div class="eyebrow"><h2>Ventaja injusta</h2></div>
+      <ul>
+        <li>Base de datos propia y geolocalizada, con efecto de red comunitario.</li>
+        <li>Convenios con gobiernos y asociaciones de discapacidad, difíciles de replicar rápido.</li>
+        <li>Taxonomía propia de accesibilidad por tipo de discapacidad.</li>
+      </ul>
+    </div>
+
+    <!-- 5. CANALES -->
+    <div class="block b-canales">
+      <div class="eyebrow"><span class="num">5</span><h2>Canales</h2></div>
+      <ul>
+        <li>Alianzas con ONG y asociaciones de discapacidad.</li>
+        <li>Convenios con gobiernos locales (portales de trámites/turismo).</li>
+        <li>App stores, redes sociales y comunidades de accesibilidad.</li>
+      </ul>
+    </div>
+
+    <!-- 2. SEGMENTOS -->
+    <div class="block b-segmentos">
+      <div class="eyebrow"><span class="num">2</span><h2>Segmentos de clientes</h2></div>
+      <div class="split-label">Usuarios finales</div>
+      <ul>
+        <li>Personas con discapacidad motriz, visual o auditiva.</li>
+        <li>Adultos mayores con movilidad reducida.</li>
+        <li>Padres con carriolas, cuidadores y familiares.</li>
+      </ul>
+      <div class="split-label">Clientes que pagan</div>
+      <ul>
+        <li>Gobiernos municipales/estatales.</li>
+        <li>Centros comerciales, hospitales, cadenas comerciales.</li>
+        <li>Desarrolladores inmobiliarios, aseguradoras, ONG.</li>
+      </ul>
+    </div>
+
+    <!-- 7. ESTRUCTURA DE COSTOS -->
+    <div class="block b-costos">
+      <div class="eyebrow"><span class="num">7</span><h2>Estructura de costos</h2></div>
+      <ul>
+        <li>Desarrollo inicial (app + backend + mapas) y mantenimiento continuo.</li>
+        <li>Servidores, hosting y APIs de mapas (ej. Mapbox/Google Maps).</li>
+        <li>Moderación y verificación de reportes (equipo humano o comunidad incentivada).</li>
+        <li>Marketing, alianzas institucionales y soporte técnico.</li>
+        <li>Cumplimiento normativo por manejo de datos sensibles.</li>
+      </ul>
+    </div>
+
+    <!-- 6. FUENTES DE INGRESOS -->
+    <div class="block b-ingresos">
+      <div class="eyebrow"><span class="num">6</span><h2>Fuentes de ingresos</h2></div>
+      <ul>
+        <li><span class="tag">Gratis</span>para usuarios finales, sin restricciones.</li>
+        <li>Suscripción B2B: sello de accesibilidad verificada para negocios/gobiernos.</li>
+        <li>Licencias/API a gobiernos para integrar el mapa en sus plataformas.</li>
+        <li>Dashboards de analítica para instituciones.</li>
+        <li>Alianzas y patrocinios de ONG/fundaciones.</li>
+      </ul>
+      <div class="assump">Supuesto: sin modelo de anuncios, para no comprometer la experiencia de un producto de accesibilidad.</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Lean Canvas · App de mapeo de accesibilidad · México</span>
+    <span>Basado en metodología de Ash Maurya (Running Lean)</span>
+  </footer>
+
+</div>
+</body>
+</html>

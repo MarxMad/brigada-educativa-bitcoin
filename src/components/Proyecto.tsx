@@ -120,7 +120,7 @@ export default function Proyecto() {
             </Reveal>
           </div>
 
-          {/* Moneda 3D con parallax + referentes */}
+          {/* Moneda 3D con parallax */}
           <div className="w-full lg:w-[420px] shrink-0">
             <div ref={coinRef} className="relative flex justify-center lg:justify-end">
               <div
@@ -138,35 +138,6 @@ export default function Proyecto() {
                 />
               </div>
             </div>
-
-            <Reveal delay={140} className="mt-10 lg:mt-14">
-              <div className="rounded-[24px] sm:rounded-[33px] bg-[rgba(17,16,15,0.35)] backdrop-blur-[20px] p-5 sm:p-8">
-                <p className="text-white text-[16px] sm:text-[20px] font-[450] leading-[20px] mb-5">
-                  {t.proyectoSec.modeloTitulo}
-                </p>
-                <ul className="flex flex-col gap-3">
-                  {t.proyectoSec.referentes.map((ref) => (
-                    <li
-                      key={ref.nombre}
-                      className={`flex items-center justify-between px-4 py-3 rounded-[12px] transition-colors ${
-                        ref.activo ? 'bg-[#F7931A]/15 border border-[#F7931A]/30' : 'bg-white/[0.04]'
-                      }`}
-                    >
-                      <span
-                        className={`text-[14px] sm:text-[15px] font-[450] ${
-                          ref.activo ? 'text-[#F7931A]' : 'text-white/90'
-                        }`}
-                      >
-                        {ref.nombre}
-                      </span>
-                      <span className="text-[12px] sm:text-[13px] font-[450] text-white/50">
-                        {ref.lugar}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
           </div>
         </div>
 

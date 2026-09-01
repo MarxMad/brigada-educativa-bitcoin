@@ -97,12 +97,6 @@ export const es = {
       'Empoderar a la comunidad de Zacatlán de las Manzanas a través de la educación Bitcoin, brindando herramientas prácticas y accesibles que permitan a comerciantes, artesanos, estudiantes y familias participar activamente en la economía digital global, protegiendo su patrimonio de la inflación, reduciendo costos de transacción y eliminando barreras financieras, todo ello sin renunciar a la identidad cultural y las tradiciones que distinguen a este Pueblo Mágico.',
     vision:
       'Que Zacatlán de las Manzanas sea reconocido mundialmente como el Primer Pueblo Mágico Bitcoin de México y un modelo de innovación social, donde la tecnología blockchain y la economía circular convergen para construir bienestar colectivo; donde cada comerciante, artesano, estudiante y familia tenga control soberano sobre su dinero; y donde la comunidad, organizada y educada, inspire a otros pueblos de México a seguir su ejemplo de desarrollo autónomo, inclusivo y sostenible.',
-    modeloTitulo: 'Siguiendo el modelo de',
-    referentes: [
-      { nombre: 'Bitcoin Beach', lugar: 'El Salvador' },
-      { nombre: 'Bitcoin Jungle', lugar: 'Costa Rica' },
-      { nombre: 'Zacatlán de las Manzanas', lugar: 'Puebla, México', activo: true },
-    ],
     valoresEyebrow: 'Nuestros valores',
     valoresTitulo: 'Siete principios que sostienen la brigada',
     valores: [
@@ -471,14 +465,14 @@ export const es = {
     titulo: 'Financia una brigada completa',
     bajada:
       'Tu donación cubre la Cabaña, el material impreso y el trabajo de los facilitadores durante las cuatro semanas.',
-    escanea: 'Escanea con tu wallet para donar',
+    escanea: 'Escanea para donar por Lightning',
     generandoQr: 'Generando el código…',
     redes: {
-      liquid: 'Red Liquid · L-BTC',
-      lightning: 'Red Lightning',
+      liquid: 'Lightning',
+      lightning: 'Lightning',
       onchain: 'Bitcoin on-chain',
     },
-    cta: 'Abrir en mi wallet',
+    cta: 'Donar por Lightning',
     ayudaEscaneo:
       'Si la cámara del teléfono no abre nada, escanea desde la wallet: en BULL entra a Enviar y usa su escáner. El QR nunca elige la app; eso lo decide tu teléfono.',
     copiar: 'Copiar dirección',
