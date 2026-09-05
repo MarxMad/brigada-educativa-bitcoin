@@ -48,10 +48,14 @@
     <meta name="geo.position" content="19.9332;-97.9605" />
     <meta name="ICBM" content="19.9332, -97.9605" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="google-site-verification" content="GOOGLE_SITE_VERIFICATION_CODE" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://db.onlinewebfonts.com" />
     <link rel="dns-prefetch" href="https://api.btcmap.org" />
     <link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin />
     <link rel="preconnect" href="https://api.btcmap.org" />
+    <link rel="alternate" type="application/rss+xml" title="Blog - Economía Circular Bitcoin Zacatlán" href="https://www.pueblobitcoin.org/blog/rss.xml" />
     <link href="https://db.onlinewebfonts.com/c/13ab13418f633c1b0516fed6e30bedbc?family=Suisse+Int%27l" rel="stylesheet">
     <script type="application/ld+json">
       {
@@ -263,7 +267,21 @@
     </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
   </body>
 </html>

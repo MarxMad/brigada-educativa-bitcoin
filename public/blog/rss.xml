@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog - Economía Circular Bitcoin Zacatlán</title>
+    <link>https://www.pueblobitcoin.org/blog</link>
+    <description>Educación, historias y guías sobre Bitcoin, Lightning Network y economía circular en Zacatlán de las Manzanas, el Primer Pueblo Mágico Bitcoin de México.</description>
+    <language>es-MX</language>
+    <lastBuildDate>Thu, 05 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://www.pueblobitcoin.org/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://www.pueblobitcoin.org/img/logo-manzana-bitcoin.png</url>
+      <title>Economía Circular Bitcoin Zacatlán</title>
+      <link>https://www.pueblobitcoin.org</link>
+    </image>
+
+    <item>
+      <title>Zacatlán: El Primer Pueblo Mágico Bitcoin de México</title>
+      <link>https://www.pueblobitcoin.org/blog/zacatlan-primer-pueblo-magico-bitcoin-mexico</link>
+      <guid isPermaLink="true">https://www.pueblobitcoin.org/blog/zacatlan-primer-pueblo-magico-bitcoin-mexico</guid>
+      <pubDate>Wed, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Descubre cómo Zacatlán de las Manzanas se está convirtiendo en el primer Pueblo Mágico de México en adoptar Bitcoin y Lightning Network. Historia, avances y futuro del proyecto de economía circular.</description>
+      <category>Bitcoin México</category>
+      <category>Pueblo Mágico</category>
+      <category>Zacatlán</category>
+      <author>Equipo Brigada Educativa Bitcoin</author>
+    </item>
+
+    <item>
+      <title>Lightning Network para Comerciantes: Guía Completa 2026</title>
+      <link>https://www.pueblobitcoin.org/blog/que-es-lightning-network-guia-comerciantes</link>
+      <guid isPermaLink="true">https://www.pueblobitcoin.org/blog/que-es-lightning-network-guia-comerciantes</guid>
+      <pubDate>Tue, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es Lightning Network, cómo funciona y por qué es perfecto para comerciantes en México. Pagos instantáneos con comisiones mínimas.</description>
+      <category>Lightning Network</category>
+      <category>Comerciantes</category>
+      <category>Educación Bitcoin</category>
+      <author>Escuela Bitcoin México</author>
+    </item>
+
+    <item>
+      <title>Ruta Universitaria Bitcoin: Educación Financiera para Jóvenes</title>
+      <link>https://www.pueblobitcoin.org/blog/ruta-universitaria-bitcoin-zacatlan-2026</link>
+      <guid isPermaLink="true">https://www.pueblobitcoin.org/blog/ruta-universitaria-bitcoin-zacatlan-2026</guid>
+      <pubDate>Mon, 02 Sep 2026 00:00:00 GMT</pubDate>
+      <description>La Ruta Universitaria Bitcoin llega a Zacatlán del 7-9 de septiembre. Descubre qué aprenderán los estudiantes sobre Bitcoin, Lightning Network y educación financiera.</description>
+      <category>Ruta Universitaria</category>
+      <category>Estudiantes</category>
+      <category>Educación Bitcoin</category>
+      <author>Brigada Educativa Bitcoin</author>
+    </item>
+
+  </channel>
+</rss>
