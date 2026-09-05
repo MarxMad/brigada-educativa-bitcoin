@@ -142,6 +142,7 @@ export default function Prensa() {
               <img
                 src="/img/cim-x-unlock-portada.jpg"
                 alt={t.prensa.pdfLabel}
+                loading="lazy"
                 className="w-full h-auto"
               />
               <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 py-4 bg-gradient-to-t from-black/85 via-black/50 to-transparent">

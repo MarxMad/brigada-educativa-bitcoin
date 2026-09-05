@@ -12,4 +12,24 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    target: 'es2015',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'leaflet': ['leaflet'],
+          'qrcode': ['qrcode'],
+          'motion': ['motion'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+    reportCompressedSize: true,
+    sourcemap: false,
+  },
+  server: {
+    host: true,
+  },
 });
