@@ -113,7 +113,7 @@ export default function Donar() {
                 {qr ? (
                   <img
                     src={qr}
-                    alt={`${t.donar.escanea} — ${DIRECCION_DONAR}`}
+                    alt={`Código QR para donación Lightning Network - ${DIRECCION_DONAR} - Apoya la Brigada Educativa Bitcoin en Zacatlán`}
                     className="w-full h-auto object-contain"
                   />
                 ) : (

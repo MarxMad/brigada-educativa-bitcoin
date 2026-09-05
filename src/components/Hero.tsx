@@ -392,7 +392,7 @@ function Nav() {
             <a href="#inicio" className="flex items-center gap-2.5 min-w-0">
               <img
                 src="/img/logo-manzana-bitcoin.png"
-                alt=""
+                alt="Logo Economía Circular Bitcoin Zacatlán - Primer Pueblo Mágico Bitcoin de México"
                 aria-hidden="true"
                 width={34}
                 height={34}

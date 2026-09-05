@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Store } from 'lucide-react';
+import { ExternalLink, Plus } from 'lucide-react';
 import type { LayerGroup, Map as LeafletMap, Marker } from 'leaflet';
 import Reveal, { CountUp } from '@/components/Reveal';
+import FormularioBTCMap from '@/components/FormularioBTCMap';
 import { useT } from '@/i18n';
 import {
   BTC_MAP,
@@ -176,6 +177,7 @@ export default function Mapa() {
   const acciones = useRef<AccionesMapa | null>(null);
   const [lugaresBtc, setLugaresBtc] = useState<LugarBtcMap[]>([]);
   const [estadoBtc, setEstadoBtc] = useState<'cargando' | 'ok' | 'error'>('cargando');
+  const [formularioAbierto, setFormularioAbierto] = useState(false);
 
   useLeaflet(
     contenedor,
@@ -251,18 +253,16 @@ export default function Mapa() {
 
           <Reveal dir="right" delay={100} className="w-full lg:w-[360px] shrink-0 flex">
             <div className="flex flex-col gap-3 sm:gap-4 w-full h-full min-h-0">
-              <a
-                href={BTC_MAP.agregar}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setFormularioAbierto(true)}
                 className="flex items-center gap-3 rounded-[14px] bg-[#F7931A] h-[44px] sm:h-[48px] px-4 transition-opacity hover:opacity-90"
               >
-                <Store className="w-[16px] h-[16px] text-[#0A0806]/70 shrink-0" />
+                <Plus className="w-[18px] h-[18px] text-[#0A0806]/70 shrink-0" />
                 <span className="min-w-0 flex-1 truncate text-[#0A0806] text-[13.5px] sm:text-[15px] font-[450] leading-none">
                   {t.mapa.btcMapSubir}
                 </span>
-                <ExternalLink className="w-[13px] h-[13px] text-[#0A0806]/50 shrink-0" />
-              </a>
+              </button>
 
               <div className="flex-1 min-h-0 rounded-[20px] sm:rounded-[24px] bg-[rgba(17,16,15,0.5)] backdrop-blur-[20px] border border-white/[0.06] p-4 sm:p-6 flex flex-col">
                 <div className="flex items-baseline justify-between gap-3 mb-2 sm:mb-3">
@@ -331,6 +331,8 @@ export default function Mapa() {
           </Reveal>
         </div>
       </div>
+
+      <FormularioBTCMap abierto={formularioAbierto} alCerrar={() => setFormularioAbierto(false)} />
     </section>
   );
 }

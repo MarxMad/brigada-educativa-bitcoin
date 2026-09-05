@@ -30,12 +30,12 @@ export default function Aliados() {
                 {lista.map((aliado) => {
                   const logo = (
                     <span className={`${TARJETA} ${aliado.relleno}`}>
-                      <img
-                        src={aliado.img}
-                        alt={copy === 0 ? aliado.nombre : ''}
-                        loading="lazy"
-                        className="h-full w-full max-h-full max-w-full object-contain object-center"
-                      />
+                  <img
+                    src={aliado.img}
+                    alt={copy === 0 ? `${aliado.nombre} - Aliado del proyecto Economía Circular Bitcoin Zacatlán` : ''}
+                    loading="lazy"
+                    className="h-full w-full max-h-full max-w-full object-contain object-center"
+                  />
                     </span>
                   );
 

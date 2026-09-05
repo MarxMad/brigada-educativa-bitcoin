@@ -1,0 +1,19 @@
+# robots.txt para Economía Circular Bitcoin Zacatlán
+# https://www.pueblobitcoin.org
+
+User-agent: *
+Allow: /
+
+# Permitir todos los crawlers en el sitio principal
+Disallow: /admin
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://www.pueblobitcoin.org/sitemap.xml
+
+# Crawl-delay para bots agresivos
+User-agent: Baiduspider
+Crawl-delay: 5
+
+User-agent: Yandex
+Crawl-delay: 3

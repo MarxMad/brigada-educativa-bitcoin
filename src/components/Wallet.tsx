@@ -30,7 +30,7 @@ export default function Wallet() {
                 >
                   <img
                     src="/img/logo-bullbitcoin.png?v=4"
-                    alt={t.wallet.logoAlt}
+                    alt="Bull Bitcoin - Wallet oficial de la Brigada Educativa Bitcoin en Zacatlán"
                     width={1600}
                     height={1298}
                     className="h-[104px] sm:h-[120px] md:h-[128px] w-auto max-w-[260px] aspect-[1600/1298] object-contain object-left"
@@ -74,7 +74,7 @@ export default function Wallet() {
                   <div className="rounded-[18px] bg-white p-3 sm:p-4 transition-transform duration-300 group-hover:scale-[1.02]">
                     <img
                       src="/img/qr-bullbitcoin.png"
-                      alt={t.wallet.qrAlt}
+                      alt="Código QR para crear cuenta en Bull Bitcoin - Wallet Lightning Network para recibir Bitcoin en Zacatlán"
                       loading="lazy"
                       className="w-full h-auto"
                     />
