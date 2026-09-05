@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { X, MapPin, Check, Copy, Store, ExternalLink } from 'lucide-react';
 import type { Map as LeafletMap, Marker } from 'leaflet';
-import { useT } from '@/i18n';
 import { CENTRO } from '@/config/mapa';
 
 type DatosNegocio = {
@@ -45,7 +44,6 @@ type FormularioBTCMapProps = {
 };
 
 export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMapProps) {
-  const t = useT();
   const [paso, setPaso] = useState<'formulario' | 'resultado'>('formulario');
   const [copiado, setCopiado] = useState(false);
   const [datos, setDatos] = useState<DatosNegocio>({

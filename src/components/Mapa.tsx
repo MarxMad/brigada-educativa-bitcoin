@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Store, Plus } from 'lucide-react';
+import { ExternalLink, Plus } from 'lucide-react';
 import type { LayerGroup, Map as LeafletMap, Marker } from 'leaflet';
 import Reveal, { CountUp } from '@/components/Reveal';
 import FormularioBTCMap from '@/components/FormularioBTCMap';
