@@ -3,6 +3,7 @@ import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
 import { blogPosts } from '@/data/blog';
 import { useT, BotonIdioma } from '@/i18n';
 import { useEffect } from 'react';
+import ScrollProgress from '@/components/ScrollProgress';
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
@@ -158,6 +159,9 @@ export default function BlogPost() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
       />
+
+      {/* Scroll Progress & Back to Top */}
+      <ScrollProgress />
 
       <div className="min-h-screen bg-[#0A0806]">
         {/* Header */}

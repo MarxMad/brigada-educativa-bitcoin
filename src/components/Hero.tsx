@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import { useT, BotonIdioma } from '@/i18n';
@@ -41,9 +41,7 @@ function Animate({ children, delay = 0, className = '', direction = 'up' }: Anim
 }
 
 /**
- * Estado en vivo de la brigada. El reloj sigue las fechas reales; el temario
- * se recorre con swipe o tocando las barras, y cada semana abre su bloque
- * en el plan operativo.
+ * Tarjeta de estado de la brigada - Versión simplificada con pestañas
  */
 function TarjetaBrigada() {
   const t = useT();
@@ -54,8 +52,6 @@ function TarjetaBrigada() {
   const inicioPreview = estado === 'enCurso' ? semanaActual - 1 : 0;
   const [preview, setPreview] = useState(inicioPreview);
   const semanaFoco = semanas[preview] ?? semanas[0];
-  const pista = useRef<HTMLDivElement>(null);
-  const gesto = useRef({ x: 0, activo: false, arrastre: false, capturado: false, indice: inicioPreview });
 
   const etiquetaEstado =
     estado === 'terminada'
@@ -77,58 +73,6 @@ function TarjetaBrigada() {
           { valor: horas, label: t.contacto.unidades.horas },
           { valor: minutos, label: t.contacto.unidades.minutos },
         ];
-
-  const irPreview = (i: number) => {
-    const siguiente = Math.max(0, Math.min(semanas.length - 1, i));
-    gesto.current.indice = siguiente;
-    setPreview(siguiente);
-  };
-
-  const pintarPista = (indice: number, dx: number, animar: boolean) => {
-    const el = pista.current;
-    if (!el) return;
-    el.style.transition = animar ? 'transform 280ms cubic-bezier(0.16, 1, 0.3, 1)' : 'none';
-    el.style.transform = `translateX(calc(${-indice * 100}% + ${dx}px))`;
-  };
-
-  useEffect(() => {
-    pintarPista(preview, 0, true);
-  }, [preview]);
-
-  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    gesto.current = { x: e.clientX, activo: true, arrastre: false, capturado: false, indice: preview };
-    pintarPista(preview, 0, false);
-  };
-  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!gesto.current.activo) return;
-    const dx = e.clientX - gesto.current.x;
-    if (!gesto.current.capturado && Math.abs(dx) > 12) {
-      e.currentTarget.setPointerCapture(e.pointerId);
-      gesto.current.capturado = true;
-    }
-    const enBorde =
-      (gesto.current.indice === 0 && dx > 0) ||
-      (gesto.current.indice === semanas.length - 1 && dx < 0);
-    pintarPista(gesto.current.indice, enBorde ? dx * 0.28 : dx, false);
-  };
-  const onPointerUp = (e: PointerEvent<HTMLDivElement>) => {
-    if (!gesto.current.activo) return;
-    if (gesto.current.capturado && e.currentTarget.hasPointerCapture(e.pointerId)) {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    }
-    const dx = e.clientX - gesto.current.x;
-    gesto.current.activo = false;
-    const huboSwipe = Math.abs(dx) >= 40;
-    gesto.current.arrastre = huboSwipe;
-    if (!huboSwipe) {
-      pintarPista(gesto.current.indice, 0, true);
-      return;
-    }
-    irPreview(gesto.current.indice + (dx < 0 ? 1 : -1));
-    window.setTimeout(() => {
-      gesto.current.arrastre = false;
-    }, 0);
-  };
 
   return (
     <Animate delay={900} direction="scale" className="w-full max-w-[420px] mx-auto lg:mx-0">
@@ -175,68 +119,74 @@ function TarjetaBrigada() {
           </p>
         )}
 
+        {/* Pestañas de navegación - Versión simplificada */}
         {estado !== 'terminada' && (
           <div
-            className="w-full overflow-hidden touch-pan-y select-none mb-5 cursor-grab active:cursor-grabbing"
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={() => {
-              gesto.current.activo = false;
-              gesto.current.arrastre = false;
-              pintarPista(gesto.current.indice, 0, true);
-            }}
-            onDragStart={(e) => e.preventDefault()}
+            role="tablist"
+            aria-label={t.ruta.semanasNav}
+            className="flex gap-2 mb-5"
           >
-            <div className="w-full overflow-hidden rounded-[16px]">
-              <div ref={pista} className="flex w-full" style={{ transform: `translateX(-${preview * 100}%)` }}>
-                {semanas.map((semana, i) => {
-                  const dia = semana.bloques[0];
-                  const etiqueta =
-                    i === 0 && estado === 'antes'
-                      ? t.hero.primerDia
-                      : `${t.ruta.semanaLabel} ${semana.numero}`;
-                  return (
-                    <a
-                      key={semana.id}
-                      href={`#ruta-${semana.id}`}
-                      aria-label={`${t.hero.verTemario}: ${semana.nombre}`}
-                      draggable={false}
-                      onClick={(e) => {
-                        if (gesto.current.arrastre) {
-                          e.preventDefault();
-                          gesto.current.arrastre = false;
-                        }
-                      }}
-                      className="block w-full min-w-0 shrink-0 grow-0 basis-full rounded-[16px] bg-white/[0.05] border border-white/[0.07] p-4 sm:p-[18px] min-h-[198px] hover:border-[#F7931A]/35 transition-colors"
-                    >
-                      <p className="text-[#F7931A] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
-                        {etiqueta}
-                        {dia ? <span className="text-white/35"> · {dia.dias}</span> : null}
-                      </p>
-                      <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.25] mb-3">
-                        {dia?.titulo ?? semana.nombre}
-                      </p>
-                      <ul className="flex flex-col gap-2 mb-4">
-                        {(dia?.puntos ?? []).slice(0, 2).map((punto) => (
-                          <li key={punto} className="flex gap-2.5">
-                            <span className="w-[4px] h-[4px] mt-[7px] shrink-0 rounded-full bg-[#F7931A]" />
-                            <span className="text-white/60 text-[13px] font-[450] leading-[1.4]">{punto}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <span className="inline-flex items-center gap-1.5 text-[#E8B45A] text-[13px] font-[450] leading-none">
-                        {t.hero.verTemario}
-                        <ArrowRight className="w-[13px] h-[13px]" />
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-            <p className="mt-2.5 text-center text-white/30 text-[11px] font-[450] leading-none">
-              {t.hero.desliza}
-            </p>
+            {semanas.map((s, i) => {
+              const enFoco = i === preview;
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={enFoco}
+                  aria-label={`${t.ruta.semanaLabel} ${s.numero}`}
+                  onClick={() => setPreview(i)}
+                  className={`h-10 px-3 rounded-lg text-[13px] font-[450] leading-none transition-all duration-300 ${
+                    enFoco
+                      ? 'bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806]'
+                      : 'bg-white/[0.08] text-white/60 hover:bg-white/15 hover:text-white/80'
+                  }`}
+                >
+                  {t.hero.semanaCorta} {s.numero}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Contenido de la semana seleccionada */}
+        {estado !== 'terminada' && (
+          <div className="mb-5">
+            {(() => {
+              const semana = semanas[preview];
+              const dia = semana.bloques[0];
+              const etiqueta =
+                preview === 0 && estado === 'antes'
+                  ? t.hero.primerDia
+                  : `${t.ruta.semanaLabel} ${semana.numero}`;
+              
+              return (
+                <a
+                  href={`#ruta-${semana.id}`}
+                  className="block w-full rounded-[16px] bg-white/[0.05] border border-white/[0.07] p-4 sm:p-[18px] hover:border-[#F7931A]/35 transition-colors"
+                >
+                  <p className="text-[#F7931A] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-2.5">
+                    {etiqueta}
+                    {dia ? <span className="text-white/35"> · {dia.dias}</span> : null}
+                  </p>
+                  <p className="text-white text-[16px] sm:text-[18px] font-[450] leading-[1.25] mb-3">
+                    {dia?.titulo ?? semana.nombre}
+                  </p>
+                  <ul className="flex flex-col gap-2 mb-4">
+                    {(dia?.puntos ?? []).slice(0, 2).map((punto) => (
+                      <li key={punto} className="flex gap-2.5">
+                        <span className="w-[4px] h-[4px] mt-[7px] shrink-0 rounded-full bg-[#F7931A]" />
+                        <span className="text-white/60 text-[13px] font-[450] leading-[1.4]">{punto}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="inline-flex items-center gap-1.5 text-[#E8B45A] text-[13px] font-[450] leading-none">
+                    {t.hero.verTemario}
+                    <ArrowRight className="w-[13px] h-[13px]" />
+                  </span>
+                </a>
+              );
+            })()}
           </div>
         )}
 
@@ -244,35 +194,17 @@ function TarjetaBrigada() {
           <p className="text-white/60 text-[14px] font-[450] leading-[1.4] mb-5">{semanaFoco.meta}</p>
         )}
 
-        <div
-          role="tablist"
-          aria-label={t.ruta.semanasNav}
-          className="flex gap-[5px] mb-3"
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowRight') {
-              e.preventDefault();
-              irPreview(preview + 1);
-            }
-            if (e.key === 'ArrowLeft') {
-              e.preventDefault();
-              irPreview(preview - 1);
-            }
-          }}
-        >
+        {/* Indicadores de progreso */}
+        <div className="flex gap-[5px] mb-3">
           {semanas.map((s, i) => {
             const enFoco = i === preview;
             return (
-              <button
+              <div
                 key={s.id}
-                type="button"
-                role="tab"
-                aria-selected={enFoco}
-                aria-label={`${t.ruta.semanaLabel} ${s.numero}`}
-                onClick={() => irPreview(i)}
                 className={`h-[5px] flex-1 rounded-full transition-colors duration-300 ${
                   enFoco
                     ? 'bg-gradient-to-r from-[#F7931A] to-[#E8B45A]'
-                    : 'bg-white/[0.12] hover:bg-white/25'
+                    : 'bg-white/[0.12]'
                 }`}
               />
             );
@@ -330,8 +262,8 @@ export default function Hero() {
               </Animate>
 
               <Animate delay={500} direction="up">
-                <p className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] font-[450] leading-[1.3] max-w-[370px] mb-7 sm:mb-10">
-{t.hero.bajada}
+                <p className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] font-[450] leading-[1.3] max-w-[480px] mb-7 sm:mb-10">
+                  {t.hero.bajada}
                 </p>
               </Animate>
 
