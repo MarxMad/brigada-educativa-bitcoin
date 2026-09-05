@@ -22,7 +22,7 @@ export default function Footer() {
             <a href="#inicio" className="flex items-center gap-2.5 mb-5">
               <img
                 src="/img/logo-manzana-bitcoin.png"
-                alt=""
+                alt="Logo Economía Circular Bitcoin Zacatlán - Primer Pueblo Mágico Bitcoin de México"
                 aria-hidden="true"
                 width={30}
                 height={30}

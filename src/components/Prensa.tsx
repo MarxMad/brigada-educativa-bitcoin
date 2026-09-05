@@ -9,9 +9,9 @@ export default function Prensa() {
 
   return (
     <section id="prensa" className="relative bg-[#0A0806] overflow-hidden border-t border-white/[0.06]">
-      <img
+        <img
         src="/img/btc-network.png"
-        alt=""
+        alt="Red Bitcoin Lightning Network - Tecnología blockchain para pagos instantáneos en Zacatlán"
         aria-hidden="true"
         loading="lazy"
         className="pointer-events-none absolute -right-24 top-24 hidden w-[420px] max-w-[60vw] opacity-[0.16] blur-[1px] animate-float-slow select-none lg:block"
@@ -141,7 +141,7 @@ export default function Prensa() {
             >
               <img
                 src="/img/cim-x-unlock-portada.jpg"
-                alt={t.prensa.pdfLabel}
+                alt="Crypto India Magazine - Artículo sobre el Primer Pueblo Mágico Bitcoin de México en Zacatlán"
                 loading="lazy"
                 className="w-full h-auto"
               />

@@ -77,7 +77,7 @@ export default function Zacatlan() {
           <figure className="relative mb-8 sm:mb-10 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#F7931A]/25 bg-[#11100F] shadow-[0_24px_80px_-32px_rgba(247,147,26,0.45)]">
             <img
               src="/img/manzana-bitcoin.jpg"
-              alt={t.zacatlan.mosaicoAlt}
+              alt="Mosaico de manzana con símbolo Bitcoin - Arte que representa la economía circular Bitcoin en Zacatlán Pueblo Mágico"
               width={1024}
               height={558}
               loading="lazy"

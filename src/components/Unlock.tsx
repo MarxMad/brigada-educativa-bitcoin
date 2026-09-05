@@ -35,7 +35,7 @@ export default function Unlock() {
                 <span className="box-border inline-flex h-32 w-[240px] sm:h-40 sm:w-[280px] items-center justify-center overflow-hidden bg-white rounded-[16px] px-5 py-6 sm:px-6 sm:py-7">
                   <img
                     src="/img/logo-unlock-summit.png"
-                    alt={t.unlock.logoAlt}
+                    alt="UNLOCK Summit 4ta Edición 2026 - Evento Bitcoin en Zacatlán de las Manzanas"
                     loading="lazy"
                     className="h-full w-full max-h-full max-w-full object-contain object-center"
                   />

@@ -8,8 +8,8 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-# Sitemaps (agregar cuando esté disponible)
-# Sitemap: https://www.pueblobitcoin.org/sitemap.xml
+# Sitemaps
+Sitemap: https://www.pueblobitcoin.org/sitemap.xml
 
 # Crawl-delay para bots agresivos
 User-agent: Baiduspider
