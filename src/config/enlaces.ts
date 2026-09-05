@@ -6,10 +6,6 @@ export const CALENDARIO_LUMA_EMBED =
 export const SITIO_ZACATLAN = 'https://zacatlan.gob.mx/';
 export const TELEGRAM_STEPH = 'https://t.me/STEPHSERRANO';
 export const CORREO_ESCUELA = 'escuela.bitcoin.mexico@gmail.com';
-/** Número de WhatsApp para contacto directo (formato internacional sin +) */
-export const WHATSAPP_NUMERO = '525512345678'; // Reemplazar con número real
-export const WHATSAPP_MENSAJE = 'Hola! Me interesa saber más sobre el proyecto de Bitcoin en Zacatlán';
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(WHATSAPP_MENSAJE)}`;
 /** Registro de wallet Bull Bitcoin con el referral de Steph Serrano. */
 export const WALLET_BULLBITCOIN =
   'https://accounts.bullbitcoin.com/es/registration?referral_code=stephsatoshi';

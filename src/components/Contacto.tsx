@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { CORREO_ESCUELA, WHATSAPP_LINK } from '@/config/enlaces';
+import { CORREO_ESCUELA, TELEGRAM_STEPH } from '@/config/enlaces';
 
 import { INICIO_BRIGADA } from '@/components/useCuentaRegresiva';
 
@@ -123,13 +123,13 @@ export default function Contacto() {
               </a>
 
               <a
-                href={WHATSAPP_LINK}
+                href={TELEGRAM_STEPH}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mb-7 inline-flex items-center gap-2.5 rounded-[12px] bg-gradient-to-r from-[#25D366] to-[#128C7E] px-4 py-3 text-white text-[14px] sm:text-[15px] font-[450] leading-none hover:opacity-90 transition-opacity shadow-lg"
+                className="relative mb-7 inline-flex items-center gap-2.5 rounded-[12px] bg-gradient-to-r from-[#229ED9] to-[#0088CC] px-4 py-3 text-white text-[14px] sm:text-[15px] font-[450] leading-none hover:opacity-90 transition-opacity shadow-lg"
               >
-                <MessageCircle className="w-[16px] h-[16px] shrink-0" aria-hidden="true" />
-                Chatea con nosotros en WhatsApp
+                <Send className="w-[16px] h-[16px] shrink-0" aria-hidden="true" />
+                Chatea con nosotros en Telegram
               </a>
 
               <div className="relative">
