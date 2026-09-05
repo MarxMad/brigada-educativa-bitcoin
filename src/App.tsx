@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'sonner';
 import { ProveedorMotion } from '@/components/Reveal';
 import { ProveedorIdioma } from '@/i18n';
 import Hero from '@/components/Hero';
@@ -47,6 +48,17 @@ function HomePage() {
 function App() {
   return (
     <ProveedorIdioma>
+      <Toaster 
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: 'rgba(10, 8, 6, 0.95)',
+            color: 'white',
+            border: '1px solid rgba(247, 147, 26, 0.3)',
+            backdropFilter: 'blur(12px)',
+          },
+        }}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogListing />} />
