@@ -38,7 +38,7 @@ export const es = {
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'Proyecto de economía circular en Zacatlán de las Manzanas. La Brigada Educativa Bitcoin es la fase de activación: arranca el 7 de septiembre con la Ruta Universitaria y UNLOCK Summit 2026.',
+      'La Brigada Educativa Bitcoin arranca el 7 de septiembre con la Ruta Universitaria y UNLOCK Summit 2026.',
     ctaPrimario: 'Ver la ruta',
     ctaSecundario: 'Suma tu marca',
     arrancaEn: 'Arranca en',

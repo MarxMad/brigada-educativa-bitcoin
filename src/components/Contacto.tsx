@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Mail } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { CORREO_ESCUELA } from '@/config/enlaces';
+import { CORREO_ESCUELA, TELEGRAM_STEPH } from '@/config/enlaces';
 
 import { INICIO_BRIGADA } from '@/components/useCuentaRegresiva';
 
@@ -115,11 +115,21 @@ export default function Contacto() {
 
               <a
                 href={`mailto:${CORREO_ESCUELA}`}
-                className="relative mb-7 inline-flex items-center gap-2.5 rounded-[12px] bg-white/[0.06] border border-white/[0.08] px-3.5 py-2.5 text-white/85 text-[14px] sm:text-[15px] font-[450] leading-none hover:border-[#F7931A]/40 hover:text-white transition-colors"
+                className="relative mb-4 inline-flex items-center gap-2.5 rounded-[12px] bg-white/[0.06] border border-white/[0.08] px-3.5 py-2.5 text-white/85 text-[14px] sm:text-[15px] font-[450] leading-none hover:border-[#F7931A]/40 hover:text-white transition-colors"
               >
                 <Mail className="w-[15px] h-[15px] text-[#F7931A] shrink-0" aria-hidden="true" />
                 <span className="sr-only">{t.contacto.correoLabel}: </span>
                 {CORREO_ESCUELA}
+              </a>
+
+              <a
+                href={TELEGRAM_STEPH}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mb-7 inline-flex items-center gap-2.5 rounded-[12px] bg-gradient-to-r from-[#229ED9] to-[#0088CC] px-4 py-3 text-white text-[14px] sm:text-[15px] font-[450] leading-none hover:opacity-90 transition-opacity shadow-lg"
+              >
+                <Send className="w-[16px] h-[16px] shrink-0" aria-hidden="true" />
+                Chatea con nosotros en Telegram
               </a>
 
               <div className="relative">

@@ -39,7 +39,7 @@ export const en: Diccionario = {
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'A circular-economy project in Zacatlán de las Manzanas. The Bitcoin Education Brigade is the activation phase: it starts on September 7 with the University Route and UNLOCK Summit 2026.',
+      'The Bitcoin Education Brigade starts on September 7 with the University Route and UNLOCK Summit 2026.',
     ctaPrimario: 'See the plan',
     ctaSecundario: 'Become a sponsor',
     arrancaEn: 'Starts in',

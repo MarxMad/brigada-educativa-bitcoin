@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, MapPin, Check, Copy, Store, ExternalLink } from 'lucide-react';
+import { X, MapPin, Check, Copy, Store, ExternalLink, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 import type { Map as LeafletMap, Marker } from 'leaflet';
 import { CENTRO } from '@/config/mapa';
 
@@ -45,7 +46,7 @@ type FormularioBTCMapProps = {
 
 export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMapProps) {
   const [paso, setPaso] = useState<'formulario' | 'resultado'>('formulario');
-  const [copiado, setCopiado] = useState(false);
+  const [generando, setGenerando] = useState(false);
   const [datos, setDatos] = useState<DatosNegocio>({
     nombre: '',
     categoria: '',
@@ -150,16 +151,32 @@ export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMap
     }
   }, [datos.lat, datos.lon]);
 
-  const manejarEnvio = (e: React.FormEvent) => {
+  const manejarEnvio = async (e: React.FormEvent) => {
     e.preventDefault();
+    setGenerando(true);
+    
+    // Simular generación de datos (para mostrar loading state)
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
     setPaso('resultado');
+    setGenerando(false);
+    toast.success('JSON generado exitosamente', {
+      description: 'Los datos están listos para copiar',
+    });
   };
 
-  const copiarDatos = () => {
+  const copiarDatos = async () => {
     const texto = generarTextoResultado();
-    navigator.clipboard.writeText(texto);
-    setCopiado(true);
-    setTimeout(() => setCopiado(false), 2000);
+    try {
+      await navigator.clipboard.writeText(texto);
+      toast.success('¡Copiado al portapapeles!', {
+        description: 'Ahora puedes enviarlo para revisión',
+      });
+    } catch (err) {
+      toast.error('Error al copiar', {
+        description: 'Intenta seleccionar y copiar manualmente',
+      });
+    }
   };
 
   const generarTextoResultado = () => {
@@ -490,9 +507,17 @@ export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMap
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 h-[50px] rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] hover:opacity-90 transition-opacity"
+                  disabled={generando}
+                  className="flex-1 h-[50px] rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Generar datos
+                  {generando ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Generando...
+                    </>
+                  ) : (
+                    'Generar datos'
+                  )}
                 </button>
               </div>
             </form>
@@ -516,17 +541,8 @@ export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMap
                     onClick={copiarDatos}
                     className="inline-flex items-center gap-2 h-[36px] px-4 rounded-[10px] bg-[#F7931A]/15 text-[#F7931A] text-[13px] font-[450] hover:bg-[#F7931A]/25 transition-colors"
                   >
-                    {copiado ? (
-                      <>
-                        <Check className="w-4 h-4" />
-                        Copiado
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-4 h-4" />
-                        Copiar
-                      </>
-                    )}
+                    <Copy className="w-4 h-4" />
+                    Copiar
                   </button>
                 </div>
                 <pre className="p-4 rounded-[12px] bg-[#050403] border border-white/10 text-[#E8B45A] text-[13px] font-mono leading-[1.6] overflow-x-auto max-h-[400px] overflow-y-auto">

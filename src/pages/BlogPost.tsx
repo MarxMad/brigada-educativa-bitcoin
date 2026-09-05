@@ -1,8 +1,10 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
+import { toast } from 'sonner';
 import { blogPosts } from '@/data/blog';
 import { useT, BotonIdioma } from '@/i18n';
 import { useEffect } from 'react';
+import ScrollProgress from '@/components/ScrollProgress';
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
@@ -68,12 +70,18 @@ export default function BlogPost() {
           url,
         });
       } catch (err) {
-        // Usuario canceló o error
+        // Usuario canceló o error - no mostrar toast en este caso
       }
     } else {
       // Fallback: copiar al portapapeles
-      await navigator.clipboard.writeText(url);
-      alert('Enlace copiado al portapapeles');
+      try {
+        await navigator.clipboard.writeText(url);
+        toast.success('¡Enlace copiado!', {
+          description: 'Ahora puedes compartirlo donde quieras',
+        });
+      } catch (err) {
+        toast.error('Error al copiar enlace');
+      }
     }
   };
 
@@ -158,6 +166,9 @@ export default function BlogPost() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
       />
+
+      {/* Scroll Progress & Back to Top */}
+      <ScrollProgress />
 
       <div className="min-h-screen bg-[#0A0806]">
         {/* Header */}
