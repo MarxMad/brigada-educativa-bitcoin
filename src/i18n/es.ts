@@ -19,6 +19,7 @@ export const es = {
     ruta: 'Ruta',
     mapa: 'Mapa',
     metas: 'Metas',
+    blog: 'Blog',
     prensa: 'Prensa',
     unlock: 'UNLOCK',
     aliados: 'Aliados',

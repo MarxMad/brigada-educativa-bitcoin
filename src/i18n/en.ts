@@ -20,6 +20,7 @@ export const en: Diccionario = {
     ruta: 'Plan',
     mapa: 'Map',
     metas: 'Goals',
+    blog: 'Blog',
     prensa: 'Press',
     unlock: 'UNLOCK',
     aliados: 'Partners',
