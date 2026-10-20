@@ -1,40 +1,11 @@
-import { useEffect, useState } from 'react';
 import { Mail } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 import { CORREO_ESCUELA } from '@/config/enlaces';
 
-import { INICIO_BRIGADA } from '@/components/useCuentaRegresiva';
-
-function useCountdown(target: number) {
-  const [now, setNow] = useState(() => Date.now());
-
-  useEffect(() => {
-    const id = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(id);
-  }, []);
-
-  const diff = Math.max(target - now, 0);
-  return {
-    dias: Math.floor(diff / 86_400_000),
-    horas: Math.floor((diff / 3_600_000) % 24),
-    minutos: Math.floor((diff / 60_000) % 60),
-    segundos: Math.floor((diff / 1000) % 60),
-    empezo: diff === 0,
-  };
-}
-
 export default function Contacto() {
   const t = useT();
-  const { dias, horas, minutos, segundos, empezo } = useCountdown(INICIO_BRIGADA);
-
-  const unidades = [
-    { valor: dias, label: t.contacto.unidades.dias },
-    { valor: horas, label: t.contacto.unidades.horas },
-    { valor: minutos, label: t.contacto.unidades.minutos },
-    { valor: segundos, label: t.contacto.unidades.segundos },
-  ];
 
   return (
     <section id="contacto" className="relative bg-[#0A0806] overflow-hidden border-t border-white/[0.06]">
@@ -45,27 +16,6 @@ export default function Contacto() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0806] via-[#0A0806]/80 to-[#0A0806]" />
 
       <div className="relative z-10 w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-24 sm:py-32 md:py-40">
-        {/* Cuenta regresiva */}
-        <Reveal>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10 mb-16 sm:mb-20">
-            <p className="text-white/50 text-[13px] font-[450] leading-[1.4] uppercase tracking-[0.18em] shrink-0">
-              {empezo ? t.contacto.enMarcha : t.contacto.arrancaEn}
-            </p>
-            <div className="flex items-end gap-3 sm:gap-5">
-              {unidades.map((u) => (
-                <div key={u.label} className="flex items-end gap-2 sm:gap-3">
-                  <span className="texto-oro text-[40px] sm:text-[62px] font-normal leading-[0.8] tnum">
-                    {String(u.valor).padStart(2, '0')}
-                  </span>
-                  <span className="text-white/40 text-[12px] sm:text-[14px] font-[450] leading-none pb-[3px] sm:pb-[6px]">
-                    {u.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
           <div className="flex-1 max-w-[720px]">
             <Reveal>
@@ -130,7 +80,7 @@ export default function Contacto() {
                     en la tarjeta ancha del desktop y en el celular. */}
                 <div className="mx-auto w-full max-w-[300px] aspect-square flex items-center justify-center rounded-[16px] bg-white p-4 sm:p-5">
                   <img
-                    src="/img/qr-telegram-escuela.png"
+                    src="/img/qr-telegram-escuela.jpg"
                     alt={t.contacto.qrGrupoLabel}
                     loading="lazy"
                     className="w-full h-full object-contain"

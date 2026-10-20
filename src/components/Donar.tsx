@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Check, Copy, Zap } from 'lucide-react';
 import QRCode from 'qrcode';
-import Reveal, { Tarjeta } from '@/components/Reveal';
+import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 import {
   DIRECCION_DONAR,
@@ -53,52 +53,16 @@ export default function Donar() {
       <div className="cinta-brigada h-3 w-full" aria-hidden="true" />
 
       <div className="relative w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-16 sm:py-20 md:py-24">
-        <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
           <div className="flex-1 min-w-0">
             <Reveal>
-              <p className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-[450] leading-none text-[#0A0806]/70 uppercase tracking-[0.18em] mb-5">
-                <Zap className="w-[13px] h-[13px]" />
-                {t.donar.eyebrow}
-              </p>
-            </Reveal>
-            <Reveal delay={70}>
-              <h2 className="text-[#0A0806] text-[32px] sm:text-[48px] md:text-[58px] font-normal leading-[0.95] mb-5 max-w-[720px]">
+              <h2 className="text-[#0A0806] text-[32px] sm:text-[46px] md:text-[54px] font-normal leading-[0.98] mb-5 max-w-[760px]">
                 {t.donar.titulo}
               </h2>
             </Reveal>
-            <Reveal delay={120}>
-              <p className="text-[#0A0806]/75 text-[16px] sm:text-[18px] font-[450] leading-[1.45] max-w-[560px] mb-8">
+            <Reveal delay={80}>
+              <p className="text-[#0A0806]/75 text-[16px] sm:text-[18px] font-[450] leading-[1.45] max-w-[520px]">
                 {t.donar.bajada}
-              </p>
-            </Reveal>
-
-            <p className="text-[#0A0806] text-[14px] font-[450] leading-none uppercase tracking-[0.14em] mb-4">
-              {t.donar.destinoTitulo}
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {t.donar.destino.map((d, i) => (
-                <Tarjeta
-                  key={d.concepto}
-                  delay={160 + i * 60}
-                  levanta={4}
-                  className="rounded-[16px] bg-[#0A0806]/10 px-4 py-4 sm:px-5 sm:py-5"
-                >
-                  <span className="block text-[#0A0806]/45 text-[11px] font-[450] leading-none tnum mb-2">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="block text-[#0A0806] text-[15px] font-[450] leading-[1.25] mb-1">
-                    {d.concepto}
-                  </span>
-                  <span className="block text-[#0A0806]/65 text-[13px] font-[450] leading-[1.4]">
-                    {d.detalle}
-                  </span>
-                </Tarjeta>
-              ))}
-            </div>
-
-            <Reveal delay={420}>
-              <p className="mt-6 text-[#0A0806]/60 text-[13.5px] font-[450] leading-[1.45] max-w-[520px]">
-                {t.donar.nota}
               </p>
             </Reveal>
           </div>

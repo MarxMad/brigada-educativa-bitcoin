@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Calendar, ChevronLeft, ChevronRight, ExternalLink, Target } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Target } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { CALENDARIO_LUMA, CALENDARIO_LUMA_EMBED, RUTA_UNIVERSITARIA } from '@/config/enlaces';
 
 export default function Ruta() {
   const t = useT();
@@ -25,7 +24,7 @@ export default function Ruta() {
   useEffect(() => {
     const aplicarHash = () => {
       const hash = window.location.hash.replace('#', '');
-      const idx = ['s1', 's2', 's3', 's4'].indexOf(hash.replace('ruta-', ''));
+      const idx = ['f1', 'f2', 'f3'].indexOf(hash.replace('ruta-', ''));
       if (idx >= 0) {
         setSemanaIdx(idx);
         setDiaIdx(0);
@@ -102,7 +101,7 @@ export default function Ruta() {
           <div
             role="tablist"
             aria-label={t.ruta.semanasNav}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 sm:mb-10"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-8 sm:mb-10"
           >
             {SEMANAS.map((s, i) => {
               const isActive = i === semanaIdx;
@@ -173,39 +172,35 @@ export default function Ruta() {
               <p className="text-white/65 text-[15px] sm:text-[16px] font-[450] leading-[1.5] max-w-[720px]">
                 {semana.resumen}
               </p>
-              {semana.id === 's1' && (
+              {(semana.fotos.length > 0 || semana.reporteUrl) && (
                 <div className="mt-5">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  {semana.fotos.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                      {semana.fotos.map((foto) => (
+                        <img
+                          key={foto.src}
+                          src={foto.src}
+                          alt={foto.alt}
+                          width={1600}
+                          height={1067}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-[220px] sm:h-[280px] object-cover rounded-[16px] border border-white/[0.08]"
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {semana.reporteUrl && (
                     <a
-                      href={RUTA_UNIVERSITARIA}
+                      href={semana.reporteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 h-[40px] px-4 rounded-[11px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[13px] font-[450] leading-none"
                     >
-                      {t.ruta.verRutaUniversitaria}
+                      {semana.reporteCta}
                       <ExternalLink className="w-[12px] h-[12px]" />
                     </a>
-                    <a
-                      href={CALENDARIO_LUMA}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 h-[40px] px-4 rounded-[11px] border border-white/15 text-white text-[13px] font-[450] leading-none hover:border-[#F7931A]/50"
-                    >
-                      <Calendar className="w-[13px] h-[13px]" />
-                      {t.ruta.verCalendario}
-                    </a>
-                  </div>
-                  <p className="text-white/40 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-3">
-                    {t.ruta.calendarioTitulo}
-                  </p>
-                  <div className="rounded-[16px] overflow-hidden border border-white/[0.08] bg-[#11100F]">
-                    <iframe
-                      src={CALENDARIO_LUMA_EMBED}
-                      title={t.ruta.calendarioTitulo}
-                      className="w-full h-[420px] sm:h-[450px]"
-                      allowFullScreen
-                    />
-                  </div>
+                  )}
                 </div>
               )}
             </div>

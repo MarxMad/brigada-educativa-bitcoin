@@ -1,7 +1,7 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, KeyRound, Smartphone, UserPlus } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import { WALLET_BULLBITCOIN } from '@/config/enlaces';
+import { LIBRO_BITCOIN_COACH, WALLET_BULLBITCOIN } from '@/config/enlaces';
 
 export default function Wallet() {
   const t = useT();
@@ -20,33 +20,143 @@ export default function Wallet() {
               aria-hidden="true"
             />
 
-            <div className="relative flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
-              <div className="flex-1 min-w-0">
+            <div className="relative grid items-start gap-12 lg:grid-cols-2 lg:gap-0">
+              <div className="flex flex-col items-center text-center lg:items-start lg:border-r lg:border-white/10 lg:pr-12 lg:text-left">
+                <a
+                  href={LIBRO_BITCOIN_COACH}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-6 inline-flex h-[72px] items-center rounded-[16px] bg-white px-5 transition-opacity hover:opacity-90"
+                >
+                  <img
+                    src="/img/logo-investor-house-wordmark.png"
+                    alt={t.wallet.libroMarca}
+                    width={336}
+                    height={78}
+                    className="h-[44px] w-auto object-contain"
+                  />
+                </a>
+
+                <a
+                  href={LIBRO_BITCOIN_COACH}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mb-6 block w-full max-w-[480px] overflow-hidden rounded-[18px] border border-[#F7931A]/25 shadow-[0_24px_50px_-28px_rgba(247,147,26,0.55)]"
+                >
+                  <img
+                    src="/img/bitcoin-coach-vistas.jpg?v=2"
+                    alt={t.wallet.libroVistasAlt}
+                    width={960}
+                    height={506}
+                    className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </a>
+
+                <div className="flex w-full max-w-[480px] flex-col items-center gap-6 lg:max-w-none lg:flex-row lg:items-start">
+                  <a
+                    href={LIBRO_BITCOIN_COACH}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group w-[168px] shrink-0 sm:w-[180px]"
+                  >
+                    <img
+                      src="/img/bitcoin-coach.jpg"
+                      alt={t.wallet.libroAlt}
+                      width={560}
+                      height={836}
+                      className="h-auto w-full rounded-[8px] shadow-[0_22px_40px_-18px_rgba(0,0,0,0.75)] ring-1 ring-white/10 transition-transform duration-300 group-hover:-translate-y-1"
+                    />
+                  </a>
+
+                  <div className="flex min-w-0 flex-col items-center lg:items-start">
+                    <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-4">
+                      {t.wallet.libroEyebrow}
+                    </p>
+                    <h3 className="text-white text-[28px] sm:text-[34px] font-normal leading-[1] mb-4">
+                      {t.wallet.libroTitulo}
+                    </h3>
+                    <p className="text-white/75 text-[15px] sm:text-[16px] font-[450] leading-[1.5] mb-5">
+                      {t.wallet.libroBajada}
+                    </p>
+                    <ul className="mb-6 w-fit space-y-2.5 text-left">
+                      {t.wallet.libroPuntos.map((punto) => (
+                        <li
+                          key={punto}
+                          className="flex gap-2.5 text-white/70 text-[14px] sm:text-[15px] font-[450] leading-[1.4]"
+                        >
+                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#F7931A]" aria-hidden="true" />
+                          {punto}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={LIBRO_BITCOIN_COACH}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 h-[48px] sm:h-[52px] px-6 sm:px-7 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] sm:text-[16px] font-[450] leading-none shadow-[0_12px_32px_-8px_rgba(247,147,26,0.75)] transition-opacity hover:opacity-90"
+                    >
+                      {t.wallet.libroCta}
+                      <ArrowUpRight className="w-[15px] h-[15px]" aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center text-center lg:items-start lg:pl-12 lg:text-left">
                 <a
                   href={WALLET_BULLBITCOIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex mb-7 overflow-visible transition-opacity hover:opacity-80"
+                  className="mb-6 inline-flex overflow-visible transition-opacity hover:opacity-80"
                 >
                   <img
                     src="/img/logo-bullbitcoin.png?v=4"
                     alt="Bull Bitcoin - Wallet oficial de la Brigada Educativa Bitcoin en Zacatlán"
                     width={1600}
                     height={1298}
-                    className="h-[104px] sm:h-[120px] md:h-[128px] w-auto max-w-[260px] aspect-[1600/1298] object-contain object-left"
+                    className="h-[104px] sm:h-[112px] w-auto max-w-[240px] aspect-[1600/1298] object-contain"
                   />
                 </a>
+
+                <div className="mb-6 w-full max-w-[480px] overflow-hidden rounded-[18px] border border-[#F7931A]/25 bg-[#141210] text-left shadow-[0_24px_50px_-28px_rgba(247,147,26,0.45)]">
+                  <p className="border-b border-white/10 px-5 py-4 text-[12px] font-[450] uppercase tracking-[0.18em] text-[#F7931A]">
+                    {t.wallet.panelTitulo}
+                  </p>
+                  <ol>
+                    {t.wallet.pasos.map((paso, i) => {
+                      const Icono = [UserPlus, Smartphone, KeyRound][i];
+                      return (
+                        <li
+                          key={paso.titulo}
+                          className="flex items-start gap-4 border-b border-white/10 px-5 py-4 last:border-b-0"
+                        >
+                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F7931A]/15 text-[#F7931A]">
+                            <Icono className="h-[18px] w-[18px]" aria-hidden="true" />
+                          </span>
+                          <span>
+                            <span className="block text-[16px] font-[450] leading-tight text-white">
+                              {paso.titulo}
+                            </span>
+                            <span className="mt-1 block text-[14px] font-[450] leading-[1.4] text-white/60">
+                              {paso.texto}
+                            </span>
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
 
                 <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
                   {t.wallet.eyebrow}
                 </p>
 
-                <h2 className="text-white text-[32px] sm:text-[46px] md:text-[56px] font-normal leading-[0.95] mb-6 max-w-[640px]">
+                <h2 className="text-white text-[32px] sm:text-[44px] lg:text-[52px] font-normal leading-[0.95] mb-6 max-w-[520px]">
                   {t.wallet.tituloA}{' '}
                   <span className="texto-oro">{t.wallet.tituloDestacado}</span>
                 </h2>
 
-                <p className="text-white/75 text-[16px] sm:text-[18px] font-[450] leading-[1.5] max-w-[520px] mb-8">
+                <p className="text-white/75 text-[16px] sm:text-[18px] font-[450] leading-[1.5] max-w-[460px] mb-8">
                   {t.wallet.bajada}
                 </p>
 
@@ -54,34 +164,10 @@ export default function Wallet() {
                   href={WALLET_BULLBITCOIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 h-[46px] sm:h-[51px] px-5 sm:px-[27px] rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[14px] sm:text-[15.5px] font-[450] leading-[15.5px] shadow-[0_10px_30px_-8px_rgba(247,147,26,0.65)] transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 h-[46px] sm:h-[51px] px-5 sm:px-[27px] rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[14px] sm:text-[15.5px] font-[450] leading-[15.5px] shadow-[0_10px_30px_-8px_rgba(247,147,26,0.65)] transition-opacity hover:opacity-90 w-fit"
                 >
                   {t.wallet.cta}
                   <ArrowUpRight className="w-[16px] h-[16px]" aria-hidden="true" />
-                </a>
-              </div>
-
-              <div className="w-full lg:w-[320px] shrink-0">
-                <a
-                  href={WALLET_BULLBITCOIN}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col min-w-0 group"
-                >
-                  <p className="text-white/70 text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-3">
-                    {t.wallet.qrLabel}
-                  </p>
-                  <div className="rounded-[18px] bg-white p-3 sm:p-4 transition-transform duration-300 group-hover:scale-[1.02]">
-                    <img
-                      src="/img/qr-bullbitcoin.png"
-                      alt="Código QR para crear cuenta en Bull Bitcoin - Wallet Lightning Network para recibir Bitcoin en Zacatlán"
-                      loading="lazy"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <p className="mt-3 text-white/50 text-[13px] font-[450] leading-[1.4]">
-                    {t.wallet.qrTexto}
-                  </p>
                 </a>
               </div>
             </div>

@@ -51,7 +51,7 @@ function TarjetaBrigada() {
     useCuentaRegresiva();
 
   const semanas = t.ruta.semanas;
-  const inicioPreview = estado === 'enCurso' ? semanaActual - 1 : 0;
+  const inicioPreview = estado === 'antes' ? 0 : Math.min(semanaActual, semanas.length) - 1;
   const [preview, setPreview] = useState(inicioPreview);
   const semanaFoco = semanas[preview] ?? semanas[0];
   const pista = useRef<HTMLDivElement>(null);
@@ -171,7 +171,7 @@ function TarjetaBrigada() {
             <span className="texto-oro text-[36px] sm:text-[48px] font-normal leading-[0.85] tnum">
               {t.hero.semanaCorta} {semanaActual}
             </span>
-            <span className="text-white/25 text-[22px] sm:text-[28px] font-[450] leading-none"> / 4</span>
+            <span className="text-white/25 text-[22px] sm:text-[28px] font-[450] leading-none"> / {semanas.length}</span>
           </p>
         )}
 
@@ -370,7 +370,7 @@ function Nav() {
     { label: t.nav.proyecto, href: '#proyecto' },
     { label: t.nav.ruta, href: '#ruta' },
     { label: t.nav.mapa, href: '#mapa' },
-    { label: t.nav.blog, href: '/blog' },
+    // { label: t.nav.blog, href: '/blog' }, // vuelve cuando se reactive el blog
     // { label: t.nav.metas, href: '#metas' }, // vuelve cuando se reactive <Metas />
     { label: t.nav.prensa, href: '#prensa' },
   ];

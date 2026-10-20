@@ -1,5 +1,6 @@
 import { ArrowUpRight, Download } from 'lucide-react';
 import Reveal, { Tarjeta } from '@/components/Reveal';
+import VideoFondo from '@/components/VideoFondo';
 import { useT } from '@/i18n';
 
 const PDF_REVISTA = '/docs/cim-x-unlock-2026.pdf';
@@ -9,38 +10,41 @@ export default function Prensa() {
 
   return (
     <section id="prensa" className="relative bg-[#0A0806] overflow-hidden border-t border-white/[0.06]">
-        <img
-        src="/img/btc-network.png"
-        alt="Red Bitcoin Lightning Network - Tecnología blockchain para pagos instantáneos en Zacatlán"
-        aria-hidden="true"
-        loading="lazy"
-        className="pointer-events-none absolute -right-24 top-24 hidden w-[420px] max-w-[60vw] opacity-[0.16] blur-[1px] animate-float-slow select-none lg:block"
-      />
       <div
         className="absolute -top-20 left-1/3 w-[480px] h-[320px] max-w-[80vw] rounded-full bg-[#F7931A]/[0.06] blur-[100px] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative z-10 w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] py-24 sm:py-32 md:py-40">
-        <div className="max-w-[760px] mb-10 sm:mb-14">
-          <Reveal>
-            <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
-              {t.prensa.eyebrow}
-            </p>
-          </Reveal>
+        <div className="relative mb-4 flex flex-col sm:mb-8 lg:mb-14 lg:flex-row lg:items-center lg:gap-14">
+          <div className="relative z-10 max-w-[760px]">
+            <Reveal>
+              <p className="text-[12px] sm:text-[13px] font-[450] leading-none text-[#F7931A] uppercase tracking-[0.18em] mb-6">
+                {t.prensa.eyebrow}
+              </p>
+            </Reveal>
 
-          <Reveal delay={80}>
-            <h2 className="text-white text-[32px] sm:text-[46px] md:text-[58px] font-normal leading-[0.98] mb-6 sm:mb-8">
-              {t.prensa.tituloA}{' '}
-              <span className="texto-oro">{t.prensa.tituloDestacado}</span>
-            </h2>
-          </Reveal>
+            <Reveal delay={80}>
+              <h2 className="text-white text-[32px] sm:text-[46px] md:text-[58px] font-normal leading-[0.98] mb-6 sm:mb-8">
+                {t.prensa.tituloA}{' '}
+                <span className="texto-oro">{t.prensa.tituloDestacado}</span>
+              </h2>
+            </Reveal>
 
-          <Reveal delay={140}>
-            <p className="text-white/75 text-[16px] sm:text-[19px] font-[450] leading-[1.5]">
-              {t.prensa.intro}
-            </p>
-          </Reveal>
+            <Reveal delay={140}>
+              <p className="text-white/75 text-[16px] sm:text-[19px] font-[450] leading-[1.5]">
+                {t.prensa.intro}
+              </p>
+            </Reveal>
+          </div>
+
+          {/* En celular el clip es un medallón centrado, sin caja.
+              En escritorio vuelve a la columna de la derecha. */}
+          <VideoFondo
+            src="/video/manzana-prensa.mp4"
+            poster="/video/manzana-prensa-poster.jpg"
+            className="mx-auto mt-1 h-[260px] w-[260px] self-center object-cover object-center [mask-image:radial-gradient(circle,#000_42%,transparent_74%)] lg:mx-0 lg:mt-0 lg:h-[460px] lg:w-auto lg:self-auto lg:object-contain lg:[mask-image:radial-gradient(ellipse_at_center,#000_58%,transparent_90%)]"
+          />
         </div>
 
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-stretch mb-8 lg:mb-10">

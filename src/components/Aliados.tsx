@@ -4,6 +4,12 @@ import { useT } from '@/i18n';
 const TARJETA =
   'box-border inline-flex h-32 w-[240px] min-h-32 min-w-[240px] sm:h-40 sm:w-[280px] sm:min-h-40 sm:min-w-[280px] md:h-48 md:w-[320px] md:min-h-48 md:min-w-[320px] shrink-0 items-center justify-center overflow-hidden bg-white rounded-[16px]';
 
+/** El archivo trae mucho margen transparente. Se escala el dibujo, no la tarjeta. */
+const ESCALA_LOGO: Record<string, string> = {
+  '/img/logo-escuela-bitcoin.png': 'scale-125',
+  '/img/logo-investor-house.png': 'scale-150',
+};
+
 export default function Aliados() {
   const t = useT();
   const lista = t.aliados.lista;
@@ -34,7 +40,7 @@ export default function Aliados() {
                     src={aliado.img}
                     alt={copy === 0 ? `${aliado.nombre} - Aliado del proyecto Economía Circular Bitcoin Zacatlán` : ''}
                     loading="lazy"
-                    className="h-full w-full max-h-full max-w-full object-contain object-center"
+                    className={`h-full w-full max-h-full max-w-full object-contain object-center ${ESCALA_LOGO[aliado.img] ?? ''}`}
                   />
                     </span>
                   );

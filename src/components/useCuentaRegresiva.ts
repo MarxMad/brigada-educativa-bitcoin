@@ -51,7 +51,7 @@ function fechaClaveMexico(ms: number): string {
 }
 
 function semanaEn(ms: number): number {
-  return Math.min(Math.max(Math.floor((ms - INICIO_BRIGADA) / (7 * 86_400_000)) + 1, 1), 4);
+  return Math.min(Math.max(Math.floor((ms - INICIO_BRIGADA) / (7 * 86_400_000)) + 1, 1), 3);
 }
 
 function bloqueEn(ms: number): { semana: number; bloqueIdx: number } | null {
