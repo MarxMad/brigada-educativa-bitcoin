@@ -44,17 +44,17 @@ export const RADIO_BTC_MAP_KM = 60;
 /**
  * Teselas del mapa.
  *
- * CARTO dejó de servir su basemap de forma anónima: sin llave estampa la marca
- * de agua «API KEY REQUIRED» sobre cada tesela. La llave es gratuita hasta
- * 5 millones de teselas al mes, no requiere cuenta y llega por correo en un
- * minuto desde https://carto.com/basemaps/apikey — se guarda en `VITE_CARTO_KEY`
- * (en `.env.local` para desarrollo y en las variables del proyecto de Vercel).
+ * CARTO dejó de servir su basemap oscuro sin llave y estampa «API KEY REQUIRED».
+ * Esri Canvas Dark Gray no pide llave: la base trae el relieve y las calles,
+ * y la capa de etiquetas (PNG transparente) pone los nombres de los pueblos.
+ * El servicio publica hasta el zoom 16; más cerca, Leaflet reescala la tesela.
  */
-const CARTO_KEY = import.meta.env.VITE_CARTO_KEY?.trim() ?? '';
+export const TESELAS = [
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+] as const;
 
-export const TESELAS_URL =
-  `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png` +
-  (CARTO_KEY ? `?key=${CARTO_KEY}` : '');
+export const TESELAS_MAX_ZOOM = 16;
 
 export const BTC_MAP = {
   search: 'https://api.btcmap.org/v4/places/search/',

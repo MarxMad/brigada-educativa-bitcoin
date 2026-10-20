@@ -314,7 +314,7 @@ export const es = {
     btcMapAKm: 'km',
     comoRegistrarse: '¿Tienes un comercio en Zacatlán?',
     comoRegistrarseTexto: 'Escríbenos y te visitamos para capacitarte y registrarte en el mapa.',
-    atribucion: 'Mapa © OpenStreetMap · Teselas © CARTO · Comercios © BTC Map',
+    atribucion: 'Mapa © Esri, HERE, Garmin, OpenStreetMap · Comercios © BTC Map',
   },
 
   metas: {

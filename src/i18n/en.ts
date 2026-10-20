@@ -315,7 +315,7 @@ export const en: Diccionario = {
     btcMapAKm: 'km',
     comoRegistrarse: 'Run a business in Zacatlán?',
     comoRegistrarseTexto: 'Write to us and we’ll come by to train you and add you to the map.',
-    atribucion: 'Map © OpenStreetMap · Tiles © CARTO · Merchants © BTC Map',
+    atribucion: 'Map © Esri, HERE, Garmin, OpenStreetMap · Merchants © BTC Map',
   },
 
   metas: {

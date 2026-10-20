@@ -276,10 +276,9 @@ body {
   background: #11100F;
   font-family: inherit;
 }
-/* El basemap oscuro de CARTO queda casi negro sobre nuestro fondo:
-   le subimos brillo y le damos un tinte cálido para que las calles se lean. */
+/* El canvas oscuro de Esri ya trae calles; solo se le da un tinte cálido. */
 .leaflet-tile {
-  filter: brightness(1.55) contrast(1.12) sepia(0.22) hue-rotate(-8deg) saturate(1.25);
+  filter: brightness(1.18) contrast(1.08) sepia(0.16) hue-rotate(-8deg) saturate(1.1);
 }
 .leaflet-tooltip {
   background: rgba(10, 8, 6, 0.94);

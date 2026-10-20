@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { X, MapPin, Check, Copy, Store, ExternalLink } from 'lucide-react';
 import type { Map as LeafletMap, Marker } from 'leaflet';
-import { CENTRO } from '@/config/mapa';
+import { CENTRO, TESELAS, TESELAS_MAX_ZOOM } from '@/config/mapa';
 
 type DatosNegocio = {
   nombre: string;
@@ -93,10 +93,9 @@ export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMap
       }
       mapaRef.current = mapa;
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
-        maxZoom: 20,
-      }).addTo(mapa);
+      for (const url of TESELAS) {
+        L.tileLayer(url, { maxZoom: 20, maxNativeZoom: TESELAS_MAX_ZOOM }).addTo(mapa);
+      }
 
       const icono = L.divIcon({
         className: '',

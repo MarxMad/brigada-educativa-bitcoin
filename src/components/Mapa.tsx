@@ -9,7 +9,8 @@ import {
   buscarLugaresBtcMap,
   CENTRO,
   distanciaKm,
-  TESELAS_URL,
+  TESELAS,
+  TESELAS_MAX_ZOOM,
   ZOOM,
   type LugarBtcMap,
 } from '@/config/mapa';
@@ -72,10 +73,9 @@ function useLeaflet(
       }
       mapaRef.current = mapa;
 
-      L.tileLayer(TESELAS_URL, {
-        subdomains: 'abcd',
-        maxZoom: 20,
-      }).addTo(mapa);
+      for (const url of TESELAS) {
+        L.tileLayer(url, { maxZoom: 20, maxNativeZoom: TESELAS_MAX_ZOOM }).addTo(mapa);
+      }
 
       const capaBtc = L.layerGroup().addTo(mapa);
       capaBtcRef.current = capaBtc;
