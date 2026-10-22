@@ -93,7 +93,7 @@ export const es = {
     tabsLabel: 'Misión, objetivo y visión',
     tabs: { mision: 'Misión', objetivo: 'Objetivo', vision: 'Visión' },
     mision:
-      'Impulsar una Economía Circular implementando un programa intensivo de educación financiera Bitcoin en Zacatlán de las Manzanas que, en un período de 4 semanas, capacite a comerciantes, artesanos, estudiantes y familias en el uso de Bitcoin y Lightning Network, activando el primer circuito económico Bitcoin del Pueblo Mágico de la Sierra Norte de Puebla y sentando las bases para su consolidación como destino Bitcoin friendly.',
+      'Impulsamos una economía circular con educación financiera Bitcoin en Zacatlán de las Manzanas. Capacitamos a comerciantes, artesanos y estudiantes en el uso de Bitcoin y Lightning Network, activamos el primer circuito económico Bitcoin del Pueblo Mágico de la Sierra Norte de Puebla y lo ponemos en diálogo con otras economías circulares de LATAM.',
     objetivo:
       'Empoderar a la comunidad de Zacatlán de las Manzanas a través de la educación Bitcoin, brindando herramientas prácticas y accesibles que permitan a comerciantes, artesanos, estudiantes y familias participar activamente en la economía digital global, protegiendo su patrimonio de la inflación, reduciendo costos de transacción y eliminando barreras financieras, todo ello sin renunciar a la identidad cultural y las tradiciones que distinguen a este Pueblo Mágico.',
     vision:
@@ -411,7 +411,7 @@ export const es = {
     lista: [
       { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png?v=2', relleno: 'p-1.5 sm:p-2' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', relleno: 'p-1 sm:p-1.5' },
-      { nombre: 'UNLOCK Summit 4ta Edición', img: '/img/logo-unlock-summit.png', relleno: 'px-5 py-6 sm:px-6 sm:py-7' },
+      { nombre: 'UNLOCK', img: '/img/logo-unlock.png', relleno: 'px-4 py-7 sm:px-5 sm:py-8' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', relleno: 'p-4 sm:p-5' },
       {
         nombre: 'Bull Bitcoin',
@@ -485,16 +485,19 @@ export const es = {
     eyebrow: 'Cada satoshi cuenta',
     titulo: 'Financia la educación en Bitcoin de Escuela Bitcoin México',
     bajada: 'Tu donación permite que lleguemos a más comunidades de México.',
-    escanea: 'Escanea para donar por Lightning',
+    escanea: 'Deposita BTC en Bitget',
+    red: 'BTC',
+    qrLightning: 'Donar por Lightning',
+    qrLightningAlt: 'Código QR para donar por Lightning a la Brigada Educativa Bitcoin',
     generandoQr: 'Generando el código…',
     redes: {
       liquid: 'Lightning',
       lightning: 'Lightning',
       onchain: 'Bitcoin on chain',
     },
-    cta: 'Donar por Lightning',
+    cta: 'Donar BTC',
     ayudaEscaneo:
-      'Si la cámara del teléfono no abre nada, escanea desde la wallet: en BULL entra a Enviar y usa su escáner. El QR nunca elige la app; eso lo decide tu teléfono.',
+      'No deposites ningún activo que no sea BTC a esta dirección. Monto mínimo: 0.00001 BTC.',
     copiar: 'Copiar dirección',
     copiado: 'Copiado',
     destinoTitulo: 'A dónde va cada satoshi',
@@ -530,8 +533,8 @@ export const es = {
   },
 
   footer: {
-    descripcion: (inicio: string, fin: string) =>
-      `Economía Circular edición: Zacatlán de las Manzanas, Sierra Norte de Puebla. Del ${inicio} al ${fin}.`,
+    descripcion:
+      'Economía Circular edición: Zacatlán de las Manzanas, Sierra Norte de Puebla.',
     lema: 'Proceso abierto, medible y auditable por la comunidad.',
   },
 };

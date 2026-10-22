@@ -79,42 +79,61 @@ export default function Proyecto() {
               <div
                 role="tablist"
                 aria-label={t.proyectoSec.tabsLabel}
-                className="inline-flex p-[3px] bg-[rgba(0,0,0,0.35)] rounded-[13px] backdrop-blur-[17px] gap-[5px] mb-7"
+                className="grid grid-cols-3 gap-2 sm:gap-3 mb-4"
               >
                 {TABS.map((tab, i) => (
                   <button
                     key={tab.id}
+                    id={`tab-${tab.id}`}
                     type="button"
                     role="tab"
                     aria-selected={active === i}
+                    aria-controls={`panel-${tab.id}`}
                     onClick={() => setActive(i)}
-                    className={`h-[42px] px-4 sm:px-6 rounded-[11px] text-[13px] sm:text-[14px] font-[450] leading-[14px] transition-colors ${
+                    className={`group flex flex-col items-start gap-1 rounded-[16px] sm:rounded-[18px] px-3 py-3 sm:px-4 sm:py-3.5 text-left transition-all duration-300 ${
                       active === i
-                        ? 'bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806]'
-                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                        ? 'bg-gradient-to-br from-[#F7931A] to-[#E8B45A] text-[#0A0806] shadow-[0_14px_36px_-16px_rgba(247,147,26,0.85)]'
+                        : 'bg-white/[0.04] border border-white/[0.08] text-white/60 hover:border-[#F7931A]/40 hover:text-white'
                     }`}
                   >
-                    {tab.label}
+                    <span className={`text-[11px] font-[450] leading-none tracking-[0.16em] tnum ${active === i ? 'text-[#0A0806]/55' : 'text-[#F7931A]'}`}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[13px] sm:text-[15px] font-[450] leading-none">
+                      {tab.label}
+                    </span>
                   </button>
                 ))}
               </div>
             </Reveal>
 
             <Reveal delay={220}>
-              <div className="relative min-h-[220px] sm:min-h-[190px]">
+              <div className="borde-oro relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-[rgba(17,16,15,0.55)] backdrop-blur-[20px]">
                 {TABS.map((tab, i) => (
-                  <p
+                  <div
                     key={tab.id}
+                    id={`panel-${tab.id}`}
                     role="tabpanel"
+                    aria-labelledby={`tab-${tab.id}`}
                     aria-hidden={active !== i}
-                    className={`text-white/80 text-[16px] sm:text-[19px] md:text-[21px] font-[450] leading-[1.5] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    className={`px-6 py-7 sm:px-8 sm:py-9 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                       active === i
                         ? 'opacity-100 translate-y-0 relative'
                         : 'opacity-0 translate-y-3 absolute inset-0 pointer-events-none'
                     }`}
                   >
-                    {tab.texto}
-                  </p>
+                    <div className="flex items-end justify-between gap-4 mb-4">
+                      <p className="texto-oro text-[12px] sm:text-[13px] font-[450] leading-none uppercase tracking-[0.18em]">
+                        {tab.label}
+                      </p>
+                      <span className="text-[40px] sm:text-[52px] font-normal leading-none tnum text-white/[0.12] select-none" aria-hidden="true">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <p className="max-w-[62ch] text-white/85 text-[16px] sm:text-[18px] md:text-[19px] font-[450] leading-[1.55]">
+                      {tab.texto}
+                    </p>
+                  </div>
                 ))}
               </div>
             </Reveal>

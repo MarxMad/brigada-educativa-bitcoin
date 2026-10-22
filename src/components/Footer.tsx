@@ -39,7 +39,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-white/50 text-[14px] font-[450] leading-[1.5]">
-              {t.footer.descripcion(t.proyecto.inicio, t.proyecto.fin)}
+              {t.footer.descripcion}
             </p>
           </div>
 

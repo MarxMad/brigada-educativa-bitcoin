@@ -1,12 +1,10 @@
 /**
  * Destino de las donaciones de la brigada.
  *
- * Fuente única de verdad: el QR, el texto que se copia y el botón salen todos
- * de `DIRECCION_DONAR`. Antes el QR era un PNG estático (`public/img/qr-donar.png`)
- * que apuntaba a OTRA dirección —una on-chain `bc1q…` con una sesión Payjoin
- * BIP77 ya caducada— así que escanear y copiar llevaban a destinos distintos.
- * Ahora el QR se dibuja en el cliente con `qrcode` a partir de este mismo valor
- * y es imposible que se desincronicen.
+ * `DIRECCION_DONAR` es el destino Lightning. Su QR vive, pequeño, en Bull Bitcoin.
+ * El QR grande de la sección de donar es el depósito BTC de Bitget
+ * (`DIRECCION_BITGET` y `public/img/qr-bitget-btc.png`). Copiar y el botón
+ * usan esa misma dirección.
  *
  * Para cambiar de red basta con tocar `RED_DONAR` y `DIRECCION_DONAR`.
  */
@@ -23,9 +21,12 @@ export type RedDonar = 'liquid' | 'lightning' | 'onchain';
  */
 export const RED_DONAR: RedDonar = 'liquid';
 
-/** Dirección que recibe. Debe corresponder a la red de `RED_DONAR`. */
+/** Dirección Lightning que recibe. Debe corresponder a la red de `RED_DONAR`. */
 export const DIRECCION_DONAR =
   'lq1qqtfv3ly55ftaw03j6fgd8d0gt3mnswkzrv5sujzgn4wpfgncvf23r4qk509fj6mn0vf5vl9k68r4cvxz6rnt2vssaggalm8da';
+
+/** Depósito on chain en Bitget. El QR de la sección de donar sale de esta dirección. */
+export const DIRECCION_BITGET = '1JmYC8hZ1jr9o9GZZpTGgWYmJu21r7cpu5';
 
 /** Se muestra bajo el QR. Puramente informativo. */
 export const NOMBRE_DESTINO = 'Brigada Educativa Bitcoin';
@@ -45,3 +46,5 @@ const ESQUEMA: Record<RedDonar, string> = {
  * fallan en vez de caer al pago normal.
  */
 export const uriDonar = () => `${ESQUEMA[RED_DONAR]}${DIRECCION_DONAR.trim()}`;
+
+export const uriBitget = () => `bitcoin:${DIRECCION_BITGET.trim()}`;

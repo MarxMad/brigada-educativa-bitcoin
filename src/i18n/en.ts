@@ -94,7 +94,7 @@ export const en: Diccionario = {
     tabsLabel: 'Mission, objective and vision',
     tabs: { mision: 'Mission', objetivo: 'Objective', vision: 'Vision' },
     mision:
-      'To drive a Circular Economy by running an intensive Bitcoin financial education program in Zacatlán de las Manzanas that, over four weeks, trains merchants, artisans, students and families in the use of Bitcoin and the Lightning Network, switching on the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla and laying the groundwork for it to become a Bitcoin friendly destination.',
+      'We drive a circular economy through Bitcoin financial education in Zacatlán de las Manzanas. We train merchants, artisans and students to use Bitcoin and the Lightning Network, we run the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla, and we place it in dialogue with other circular economies across LATAM.',
     objetivo:
       'To empower the community of Zacatlán de las Manzanas through Bitcoin education, providing practical and accessible tools so that merchants, artisans, students and families can take an active part in the global digital economy, protecting their savings from inflation, cutting transaction costs and removing financial barriers, all without giving up the cultural identity and traditions that make this Pueblo Mágico what it is.',
     vision:
@@ -412,7 +412,7 @@ export const en: Diccionario = {
     lista: [
       { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png?v=2', relleno: 'p-1.5 sm:p-2' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', relleno: 'p-1 sm:p-1.5' },
-      { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', relleno: 'px-5 py-6 sm:px-6 sm:py-7' },
+      { nombre: 'UNLOCK', img: '/img/logo-unlock.png', relleno: 'px-4 py-7 sm:px-5 sm:py-8' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', relleno: 'p-4 sm:p-5' },
       {
         nombre: 'Bull Bitcoin',
@@ -486,16 +486,19 @@ export const en: Diccionario = {
     eyebrow: 'Every satoshi counts',
     titulo: 'Fund Bitcoin education for Escuela Bitcoin México',
     bajada: 'Your donation lets us reach more communities across Mexico.',
-    escanea: 'Scan to donate via Lightning',
+    escanea: 'Deposit BTC on Bitget',
+    red: 'BTC',
+    qrLightning: 'Donate via Lightning',
+    qrLightningAlt: 'QR code to donate via Lightning to the Bitcoin Education Brigade',
     generandoQr: 'Generating the code…',
     redes: {
       liquid: 'Lightning',
       lightning: 'Lightning',
       onchain: 'Bitcoin on chain',
     },
-    cta: 'Donate via Lightning',
+    cta: 'Donate BTC',
     ayudaEscaneo:
-      'If your phone camera does nothing, scan from inside the wallet: in BULL, open Send and use its scanner. A QR never picks the app — your phone does.',
+      'Do not deposit any asset other than BTC to this address. Minimum amount: 0.00001 BTC.',
     copiar: 'Copy address',
     copiado: 'Copied',
     destinoTitulo: 'Where every satoshi goes',
@@ -531,8 +534,8 @@ export const en: Diccionario = {
   },
 
   footer: {
-    descripcion: (inicio: string, fin: string) =>
-      `Circular Economy edition: Zacatlán de las Manzanas, Sierra Norte de Puebla. From ${inicio} to ${fin}.`,
+    descripcion:
+      'Circular Economy edition: Zacatlán de las Manzanas, Sierra Norte de Puebla.',
     lema: 'An open process, measurable and auditable by the community.',
   },
 };

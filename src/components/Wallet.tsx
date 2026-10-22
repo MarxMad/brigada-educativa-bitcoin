@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ChevronLeft, ChevronRight, KeyRound, Smartphone, UserPlus } from 'lucide-react';
+import QRCode from 'qrcode';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 import { LIBRO_BITCOIN_COACH, WALLET_BULLBITCOIN } from '@/config/enlaces';
+import { uriDonar } from '@/config/donaciones';
 
 function CarruselLibro() {
   const t = useT();
@@ -106,6 +108,26 @@ function CarruselLibro() {
 
 export default function Wallet() {
   const t = useT();
+  const [qrDonar, setQrDonar] = useState('');
+
+  useEffect(() => {
+    let vivo = true;
+    QRCode.toDataURL(uriDonar(), {
+      errorCorrectionLevel: 'M',
+      margin: 1,
+      scale: 6,
+      color: { dark: '#0A0806', light: '#FFFFFF' },
+    })
+      .then((src) => {
+        if (vivo) setQrDonar(src);
+      })
+      .catch(() => {
+        // Sin QR queda el enlace de la cuenta.
+      });
+    return () => {
+      vivo = false;
+    };
+  }, []);
 
   return (
     <section id="wallet" className="relative bg-[#0A0806] overflow-hidden border-t border-white/[0.06]">
@@ -248,6 +270,24 @@ export default function Wallet() {
                   {t.wallet.cta}
                   <ArrowUpRight className="w-[16px] h-[16px]" aria-hidden="true" />
                 </a>
+
+                {qrDonar ? (
+                  <a
+                    href={uriDonar()}
+                    className="mt-8 inline-flex items-center gap-3 self-center rounded-[14px] bg-white/[0.04] p-2 pr-4 text-left transition-opacity hover:opacity-80 lg:self-start"
+                  >
+                    <img
+                      src={qrDonar}
+                      alt={t.donar.qrLightningAlt}
+                      width={88}
+                      height={88}
+                      className="h-[88px] w-[88px] shrink-0 rounded-[10px] bg-white p-1.5"
+                    />
+                    <span className="max-w-[120px] text-[13px] font-[450] leading-[1.35] text-white/75">
+                      {t.donar.qrLightning}
+                    </span>
+                  </a>
+                ) : null}
               </div>
             </div>
           </div>

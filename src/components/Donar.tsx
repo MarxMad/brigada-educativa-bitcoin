@@ -1,46 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Check, Copy, Zap } from 'lucide-react';
-import QRCode from 'qrcode';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
-import {
-  DIRECCION_DONAR,
-  NOMBRE_DESTINO,
-  uriDonar,
-} from '@/config/donaciones';
+import { DIRECCION_BITGET, NOMBRE_DESTINO, uriBitget } from '@/config/donaciones';
 
-const URI_DONAR = uriDonar();
+const URI_BITGET = uriBitget();
 
 export default function Donar() {
   const t = useT();
   const [copiado, setCopiado] = useState(false);
-  const [qr, setQr] = useState('');
-
-  // El QR se dibuja del mismo URI que usa el botón: no puede apuntar a otro lado.
-  useEffect(() => {
-    let vivo = true;
-
-    QRCode.toDataURL(URI_DONAR, {
-      errorCorrectionLevel: 'M',
-      margin: 1,
-      scale: 8,
-      color: { dark: '#0A0806', light: '#FFFFFF' },
-    })
-      .then((src) => {
-        if (vivo) setQr(src);
-      })
-      .catch(() => {
-        // Sin QR quedan la dirección escrita y el botón, que llevan al mismo sitio.
-      });
-
-    return () => {
-      vivo = false;
-    };
-  }, []);
 
   const copiar = async () => {
     try {
-      await navigator.clipboard.writeText(DIRECCION_DONAR);
+      await navigator.clipboard.writeText(DIRECCION_BITGET);
       setCopiado(true);
       window.setTimeout(() => setCopiado(false), 2000);
     } catch {
@@ -73,34 +45,30 @@ export default function Donar() {
                 {t.donar.escanea}
               </p>
 
-              <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-4 min-h-[236px] sm:min-h-[276px] flex items-center justify-center">
-                {qr ? (
-                  <img
-                    src={qr}
-                    alt={`Código QR para donación Lightning Network. ${DIRECCION_DONAR}. Apoya la Brigada Educativa Bitcoin en Zacatlán`}
-                    className="w-full h-auto object-contain"
-                  />
-                ) : (
-                  <span className="text-[#0A0806]/30 text-[13px] font-[450]">
-                    {t.donar.generandoQr}
-                  </span>
-                )}
+              <div className="rounded-[18px] bg-white p-3 sm:p-4 mb-4 flex items-center justify-center">
+                <img
+                  src="/img/qr-bitget-btc.png"
+                  alt={`${t.donar.escanea}. ${DIRECCION_BITGET}. ${NOMBRE_DESTINO}`}
+                  width={345}
+                  height={345}
+                  className="w-full h-auto object-contain"
+                />
               </div>
 
               <p className="text-center text-[#0A0806] text-[11px] font-[450] leading-none uppercase tracking-[0.14em] mb-4 mx-auto w-fit rounded-full bg-[#F7931A] px-3 py-1.5">
-                {t.donar.redes.lightning}
+                {t.donar.red}
               </p>
 
               <p className="text-center text-white/40 text-[12px] font-[450] leading-none mb-2">
-                {NOMBRE_DESTINO}
+                Bitget
               </p>
               <p className="text-center text-white text-[13px] sm:text-[14px] font-[450] leading-[1.45] mb-5 break-all select-all">
-                {DIRECCION_DONAR}
+                {DIRECCION_BITGET}
               </p>
 
               <div className="flex flex-col gap-2.5">
                 <a
-                  href={URI_DONAR}
+                  href={URI_BITGET}
                   className="w-full h-[48px] inline-flex items-center justify-center gap-2 rounded-[12px] bg-gradient-to-r from-[#F7931A] to-[#E8B45A] text-[#0A0806] text-[15px] font-[450] transition-opacity hover:opacity-90"
                 >
                   <Zap className="w-[15px] h-[15px]" />
