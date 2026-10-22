@@ -362,7 +362,7 @@ export default function FormularioBTCMap({ abierto, alCerrar }: FormularioBTCMap
                         }
                         className="w-4 h-4 rounded accent-[#F7931A]"
                       />
-                      <span className="text-white/80 text-[14px] font-[450]">Bitcoin on-chain</span>
+                      <span className="text-white/80 text-[14px] font-[450]">Bitcoin on chain</span>
                     </label>
                   </div>
                 </div>

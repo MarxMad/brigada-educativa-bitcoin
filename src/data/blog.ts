@@ -77,7 +77,7 @@ Si tienes un negocio en Zacatlán o simplemente quieres aprender sobre Bitcoin:
 Zacatlán no es el final, es el principio. El modelo que estamos documentando será replicable en otros Pueblos Mágicos de México. Imagina:
 
 - Tulum aceptando Bitcoin en la playa
-- San Miguel de Allende con galerías Bitcoin-friendly
+- San Miguel de Allende con galerías Bitcoin friendly
 - Bacalar con hoteles que reciben Lightning
 
 **Zacatlán está mostrando el camino**. La tecnología blockchain no está peleada con la tradición, está al servicio de ella.
@@ -89,7 +89,7 @@ Zacatlán no es el final, es el principio. El modelo que estamos documentando se
     author: 'Equipo Brigada Educativa Bitcoin',
     date: '2026-09-04',
     image: '/img/manzana-bitcoin.jpg',
-    imageAlt: 'Manzana con símbolo Bitcoin - Economía Circular Bitcoin Zacatlán',
+    imageAlt: 'Manzana con símbolo Bitcoin. Economía Circular Bitcoin Zacatlán',
     tags: ['Bitcoin México', 'Pueblo Mágico', 'Zacatlán', 'Lightning Network', 'Turismo Bitcoin'],
     readTime: 5,
     featured: true,
@@ -210,7 +210,7 @@ Lightning Network no es el futuro, **es el presente**. La Brigada Educativa Bitc
     author: 'Escuela Bitcoin México',
     date: '2026-09-03',
     image: '/img/btc-network.png',
-    imageAlt: 'Red Lightning Network - Pagos Bitcoin instantáneos',
+    imageAlt: 'Red Lightning Network. Pagos Bitcoin instantáneos',
     tags: ['Lightning Network', 'Comerciantes', 'Educación Bitcoin', 'México', 'Pagos'],
     readTime: 6,
     featured: true,
@@ -321,7 +321,7 @@ Los estudiantes que participen tendrán acceso a:
 - Material educativo adicional
 - Red de contactos en el ecosistema Bitcoin México
 
-## El Futuro es Bitcoin-Native
+## El Futuro es Bitcoin native
 
 Los jóvenes de hoy crecerán en un mundo donde:
 - Bitcoin será tan común como el email
@@ -329,7 +329,7 @@ Los jóvenes de hoy crecerán en un mundo donde:
 - La descentralización será la norma
 - La educación financiera será indispensable
 
-**Zacatlán está formando a la primera generación de jóvenes Bitcoin-native en un Pueblo Mágico.**
+**Zacatlán está formando a la primera generación de jóvenes Bitcoin native en un Pueblo Mágico.**
 
 ---
 
@@ -338,7 +338,7 @@ Los jóvenes de hoy crecerán en un mundo donde:
     author: 'Brigada Educativa Bitcoin',
     date: '2026-09-02',
     image: '/img/logo-escuela-bitcoin.png',
-    imageAlt: 'Escuela Bitcoin México - Educación financiera universitaria',
+    imageAlt: 'Escuela Bitcoin México. Educación financiera universitaria',
     tags: ['Ruta Universitaria', 'Estudiantes', 'Educación Bitcoin', 'Jóvenes', 'Zacatlán'],
     readTime: 7,
     featured: false,

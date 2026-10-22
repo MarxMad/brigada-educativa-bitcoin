@@ -1,7 +1,108 @@
-import { ArrowUpRight, KeyRound, Smartphone, UserPlus } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowUpRight, ChevronLeft, ChevronRight, KeyRound, Smartphone, UserPlus } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 import { LIBRO_BITCOIN_COACH, WALLET_BULLBITCOIN } from '@/config/enlaces';
+
+function CarruselLibro() {
+  const t = useT();
+  const fotos = t.wallet.libroFotos;
+  const pista = useRef<HTMLDivElement>(null);
+  const [indice, setIndice] = useState(0);
+
+  const paso = () => {
+    const el = pista.current;
+    const slide = el?.querySelector<HTMLElement>('[data-slide]');
+    if (!el || !slide) return 0;
+    return slide.offsetWidth + 12;
+  };
+
+  const mover = (direccion: -1 | 1) => {
+    const el = pista.current;
+    const ancho = paso();
+    if (!el || !ancho) return;
+    el.scrollBy({ left: direccion * ancho, behavior: 'auto' });
+  };
+
+  const irA = (i: number) => {
+    const el = pista.current;
+    const ancho = paso();
+    if (!el || !ancho) return;
+    el.scrollTo({ left: i * ancho, behavior: 'auto' });
+  };
+
+  const alDeslizar = () => {
+    const el = pista.current;
+    const ancho = paso();
+    if (!el || !ancho) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const alFinal = el.scrollLeft >= max - 2;
+    const i = alFinal ? fotos.length - 1 : Math.round(el.scrollLeft / ancho);
+    setIndice(Math.min(fotos.length - 1, Math.max(0, i)));
+  };
+
+  return (
+    <div className="mb-6 w-full min-w-0 max-w-full">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <p className="text-[12px] font-[450] uppercase leading-none tracking-[0.16em] text-[#F7931A]">
+          {t.wallet.libroFotosTitulo}
+        </p>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => mover(-1)}
+            disabled={indice === 0}
+            aria-label={t.wallet.libroAnterior}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-white transition-opacity disabled:opacity-30"
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => mover(1)}
+            disabled={indice === fotos.length - 1}
+            aria-label={t.wallet.libroSiguiente}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-white transition-opacity disabled:opacity-30"
+          >
+            <ChevronRight className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+      <div
+        ref={pista}
+        onScroll={alDeslizar}
+        className="flex w-full min-w-0 snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {fotos.map((foto) => (
+          <img
+            key={foto.src}
+            data-slide
+            src={foto.src}
+            alt={foto.alt}
+            width={720}
+            height={960}
+            loading="lazy"
+            decoding="async"
+            draggable={false}
+            className="h-[200px] w-[142px] shrink-0 snap-start rounded-[14px] border border-white/[0.08] object-cover object-[center_28%] sm:h-[228px] sm:w-[162px]"
+          />
+        ))}
+      </div>
+      <div className="mt-3 flex justify-center gap-1.5">
+        {fotos.map((foto, i) => (
+          <button
+            key={foto.src}
+            type="button"
+            aria-label={`${i + 1} / ${fotos.length}`}
+            aria-current={i === indice ? 'true' : undefined}
+            onClick={() => irA(i)}
+            className={`h-1.5 rounded-full transition-all ${i === indice ? 'w-4 bg-[#F7931A]' : 'w-1.5 bg-white/30'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Wallet() {
   const t = useT();
@@ -21,7 +122,7 @@ export default function Wallet() {
             />
 
             <div className="relative grid items-start gap-12 lg:grid-cols-2 lg:gap-0">
-              <div className="flex flex-col items-center text-center lg:items-start lg:border-r lg:border-white/10 lg:pr-12 lg:text-left">
+              <div className="flex min-w-0 flex-col items-center text-center lg:items-start lg:border-r lg:border-white/10 lg:pr-12 lg:text-left">
                 <a
                   href={LIBRO_BITCOIN_COACH}
                   target="_blank"
@@ -37,20 +138,7 @@ export default function Wallet() {
                   />
                 </a>
 
-                <a
-                  href={LIBRO_BITCOIN_COACH}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mb-6 block w-full max-w-[480px] overflow-hidden rounded-[18px] border border-[#F7931A]/25 shadow-[0_24px_50px_-28px_rgba(247,147,26,0.55)]"
-                >
-                  <img
-                    src="/img/bitcoin-coach-vistas.jpg?v=2"
-                    alt={t.wallet.libroVistasAlt}
-                    width={960}
-                    height={506}
-                    className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </a>
+                <CarruselLibro />
 
                 <div className="flex w-full max-w-[480px] flex-col items-center gap-6 lg:max-w-none lg:flex-row lg:items-start">
                   <a
@@ -111,7 +199,7 @@ export default function Wallet() {
                 >
                   <img
                     src="/img/logo-bullbitcoin.png?v=4"
-                    alt="Bull Bitcoin - Wallet oficial de la Brigada Educativa Bitcoin en Zacatlán"
+                    alt="Bull Bitcoin. Wallet oficial de la Brigada Educativa Bitcoin en Zacatlán"
                     width={1600}
                     height={1298}
                     className="h-[104px] sm:h-[112px] w-auto max-w-[240px] aspect-[1600/1298] object-contain"
@@ -128,18 +216,13 @@ export default function Wallet() {
                       return (
                         <li
                           key={paso.titulo}
-                          className="flex items-start gap-4 border-b border-white/10 px-5 py-4 last:border-b-0"
+                          className="flex items-center gap-4 border-b border-white/10 px-5 py-4 last:border-b-0"
                         >
-                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F7931A]/15 text-[#F7931A]">
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F7931A]/15 text-[#F7931A]">
                             <Icono className="h-[18px] w-[18px]" aria-hidden="true" />
                           </span>
-                          <span>
-                            <span className="block text-[16px] font-[450] leading-tight text-white">
-                              {paso.titulo}
-                            </span>
-                            <span className="mt-1 block text-[14px] font-[450] leading-[1.4] text-white/60">
-                              {paso.texto}
-                            </span>
+                          <span className="text-[16px] font-[450] leading-tight text-white">
+                            {paso.titulo}
                           </span>
                         </li>
                       );
@@ -151,14 +234,10 @@ export default function Wallet() {
                   {t.wallet.eyebrow}
                 </p>
 
-                <h2 className="text-white text-[32px] sm:text-[44px] lg:text-[52px] font-normal leading-[0.95] mb-6 max-w-[520px]">
+                <h2 className="text-white text-[32px] sm:text-[44px] lg:text-[52px] font-normal leading-[0.95] mb-8 max-w-[520px]">
                   {t.wallet.tituloA}{' '}
                   <span className="texto-oro">{t.wallet.tituloDestacado}</span>
                 </h2>
-
-                <p className="text-white/75 text-[16px] sm:text-[18px] font-[450] leading-[1.5] max-w-[460px] mb-8">
-                  {t.wallet.bajada}
-                </p>
 
                 <a
                   href={WALLET_BULLBITCOIN}

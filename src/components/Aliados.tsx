@@ -6,7 +6,6 @@ const TARJETA =
 
 /** El archivo trae mucho margen transparente. Se escala el dibujo, no la tarjeta. */
 const ESCALA_LOGO: Record<string, string> = {
-  '/img/logo-escuela-bitcoin.png': 'scale-125',
   '/img/logo-investor-house.png': 'scale-150',
 };
 
@@ -38,7 +37,7 @@ export default function Aliados() {
                     <span className={`${TARJETA} ${aliado.relleno}`}>
                   <img
                     src={aliado.img}
-                    alt={copy === 0 ? `${aliado.nombre} - Aliado del proyecto Economía Circular Bitcoin Zacatlán` : ''}
+                    alt={copy === 0 ? `${aliado.nombre}. Aliado del proyecto Economía Circular Bitcoin Zacatlán` : ''}
                     loading="lazy"
                     className={`h-full w-full max-h-full max-w-full object-contain object-center ${ESCALA_LOGO[aliado.img] ?? ''}`}
                   />

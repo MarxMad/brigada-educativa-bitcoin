@@ -35,11 +35,11 @@ export const en: Diccionario = {
   },
 
   hero: {
-    tituloA: 'Bitcoin Circular Economy',
+    tituloA: 'Pueblos Bitcoin México:',
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'A circular-economy project in Zacatlán de las Manzanas. The plan moves in phases: the University Route, UNLOCK Summit and the Education Brigade with merchants and artisans.',
+      'This circular economy project, Pueblos Bitcoin México, started with the Pueblo Mágico of Zacatlán de las Manzanas.',
     ctaPrimario: 'See the plan',
     ctaSecundario: 'Become a sponsor',
     arrancaEn: 'Starts in',
@@ -79,7 +79,7 @@ export const en: Diccionario = {
     pausar: 'Pause video',
     ctaSitio: 'Official municipal website',
     mosaicoAlt: 'Mosaic of an apple with the Bitcoin symbol',
-    mosaicoPie: 'Zacatlán’s apple and Bitcoin: the fruit of an economy taught in person.',
+    mosaicoPie: 'The fruit of a circular economy taught in person.',
     datos: [
       { titulo: 'Pueblo Mágico', texto: 'Seat of the Sierra Norte de Puebla, with the floral clock, the arch and the apple orchards.' },
       { titulo: 'Great Apple Fair', texto: 'The festival that puts Zacatlán on Mexico’s tourism map every year.' },
@@ -94,11 +94,11 @@ export const en: Diccionario = {
     tabsLabel: 'Mission, objective and vision',
     tabs: { mision: 'Mission', objetivo: 'Objective', vision: 'Vision' },
     mision:
-      'To drive a Circular Economy by running an intensive Bitcoin financial education program in Zacatlán de las Manzanas that, over four weeks, trains merchants, artisans, students and families in the use of Bitcoin and the Lightning Network, switching on the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla and laying the groundwork for it to become a Bitcoin-friendly destination.',
+      'To drive a Circular Economy by running an intensive Bitcoin financial education program in Zacatlán de las Manzanas that, over four weeks, trains merchants, artisans, students and families in the use of Bitcoin and the Lightning Network, switching on the first Bitcoin economic circuit in this Pueblo Mágico of the Sierra Norte de Puebla and laying the groundwork for it to become a Bitcoin friendly destination.',
     objetivo:
       'To empower the community of Zacatlán de las Manzanas through Bitcoin education, providing practical and accessible tools so that merchants, artisans, students and families can take an active part in the global digital economy, protecting their savings from inflation, cutting transaction costs and removing financial barriers, all without giving up the cultural identity and traditions that make this Pueblo Mágico what it is.',
     vision:
-      'That Zacatlán de las Manzanas becomes recognized worldwide as Mexico’s first Bitcoin Pueblo Mágico and a model of social innovation, where blockchain technology and the circular economy converge to build collective well-being; where every merchant, artisan, student and family holds sovereign control over their own money; and where an organized, educated community inspires other towns across Mexico to follow its example of autonomous, inclusive and sustainable development.',
+      'That Zacatlán de las Manzanas becomes recognized worldwide as Mexico’s first Bitcoin Pueblo Mágico and a model of social innovation, where blockchain technology and the circular economy converge to build collective wellbeing; where every merchant, artisan, student and family holds sovereign control over their own money; and where an organized, educated community inspires other towns across Mexico to follow its example of autonomous, inclusive and sustainable development.',
     valoresEyebrow: 'Our values',
     valoresTitulo: 'Seven principles that hold the brigade together',
     valores: [
@@ -164,7 +164,7 @@ export const en: Diccionario = {
         nombre: 'University Route',
         fechas: 'September 7 to 9',
         resumen:
-          'A tour of four campuses in Zacatlán and the Sierra Norte — BUAP, ITSSNP, UniPuebla and UGM — to talk with students about Bitcoin, self-custody and money.',
+          'A tour of four campuses in Zacatlán and the Sierra Norte — BUAP, ITSSNP, UniPuebla and UGM — to talk with students about Bitcoin, self custody and money.',
         fotos: [
           {
             src: '/img/ruta/buap-panel.webp',
@@ -192,12 +192,12 @@ export const en: Diccionario = {
             puntos: [
               'BUAP Zacatlán, ITSSNP, UniPuebla and UGM.',
               'Two activations a day, morning and afternoon.',
-              'Talks on the history of money, blockchain and self-custody.',
+              'Talks on the history of money, blockchain and self custody.',
             ],
           },
           {
             dias: 'In the classroom',
-            titulo: 'Hands-on with students',
+            titulo: 'Hands on with students',
             puntos: [
               'The history of money, up to Bitcoin.',
               'Bitcoin as protection for savings: 21 million units, nobody controls it.',
@@ -215,7 +215,16 @@ export const en: Diccionario = {
         fechas: 'September 11 to 13',
         resumen:
           'The 4th edition of UNLOCK Summit in Zacatlán put mining at the center: a specialized workshop, inside the program, on why mining is what keeps Bitcoin running.',
-        fotos: [],
+        fotos: [
+          {
+            src: '/img/ruta/taller-mineria.webp',
+            alt: 'Attendees of the Bitcoin mining workshop, laptops open, during UNLOCK Summit.',
+          },
+          {
+            src: '/img/ruta/unlock-grupo.webp',
+            alt: 'Group photo from UNLOCK Summit in front of the Zacatlán municipal government banner.',
+          },
+        ],
         reporteUrl: '',
         reporteCta: '',
         bloques: [
@@ -232,7 +241,7 @@ export const en: Diccionario = {
             dias: 'September 11 to 13',
             titulo: 'The gathering in Zacatlán',
             puntos: [
-              'Welcome dinner and the inauguration of the circular-economy project.',
+              'Welcome dinner and the inauguration of the circular economy project.',
               'Talks, panels and the Consciousness Brunch.',
               'A project stand, with wallet downloads and key backups.',
             ],
@@ -248,7 +257,20 @@ export const en: Diccionario = {
         fechas: 'Merchants and artisans',
         resumen:
           'The brigade goes to the counter and the workshop. Merchants and artisans in Zacatlán learn Bitcoin in person, with circular economies across LATAM as the reference.',
-        fotos: [],
+        fotos: [
+          {
+            src: '/img/ruta/white-paper-house.webp',
+            alt: 'Logo of White Paper House, a circular economy community.',
+          },
+          {
+            src: '/img/ruta/mi-tierra-digital.webp',
+            alt: 'Logo of Mi Tierra Digital, a circular economy community.',
+          },
+          {
+            src: '/img/ruta/mision-21.webp',
+            alt: 'Logo of Misión 21, a circular economy community.',
+          },
+        ],
         reporteUrl: '',
         reporteCta: '',
         bloques: [
@@ -257,6 +279,7 @@ export const en: Diccionario = {
             titulo: 'Circular economies in LATAM',
             puntos: [
               'Bitcoin Beach in El Salvador and Bitcoin Jungle in Costa Rica, circuits that already work on the street.',
+              'White Paper House, Mi Tierra Digital and Misión 21, other communities where Bitcoin already circulates.',
               'What they teach comes to Zacatlán’s counter, with the identity of this Pueblo Mágico.',
               'La Cabaña de Satoshi as the home base for explaining money and practicing a payment.',
             ],
@@ -266,7 +289,7 @@ export const en: Diccionario = {
             titulo: 'Merchants and artisans',
             puntos: [
               'Visits to shops in the center: Reloj Floral, Calle del Arco and the municipal market.',
-              'One-to-one: what Bitcoin is, no bank fees, and how it protects income from inflation.',
+              'One to one: what Bitcoin is, no bank fees, and how it protects income from inflation.',
               '“Bitcoin accepted here” signage, and a pin on the public map.',
             ],
           },
@@ -294,7 +317,7 @@ export const en: Diccionario = {
     contadorMeta: 'goal at close',
     vacioTitulo: 'Zacatlán is not on the local map yet',
     vacioTexto:
-      'The orange pins are BTC Map merchants in the Sierra Norte. The brigade will add the town-center shops from September.',
+      'The orange pins are BTC Map merchants in the Sierra Norte. The brigade will add the town center shops from September.',
     rutaTitulo: 'Brigade route',
     rutaTexto: 'The three points where the brigade walks the town center with merchants and artisans.',
     leyendaActivo: 'Registered by the brigade',
@@ -331,7 +354,7 @@ export const en: Diccionario = {
       { valor: 50, label: 'Women with their own wallet', nota: 'Consciousness Brunch · UNLOCK Summit' },
       { valor: 40, label: 'Students with a wallet', nota: 'University route · week 1' },
       { valor: 15, label: 'Merchants and artisans', nota: 'First assembly · week 2' },
-      { valor: 10, label: 'Families trained', nota: 'Door-to-door brigade · week 3' },
+      { valor: 10, label: 'Families trained', nota: 'Door to door brigade · week 3' },
       { valor: 21, label: 'Hotels and tourism services', nota: 'Ready for Bitcoin travelers' },
     ],
     equipoTitulo: 'People and responsibility',
@@ -355,10 +378,10 @@ export const en: Diccionario = {
     ],
     enMedios: 'In the media',
     medio: 'Crypto India Magazine',
-    articulo: 'The Women-Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
+    articulo: 'The Women Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
     nota: 'Narrative Vol. 1 · Issue 2. A feature on UNLOCK Universe and Zacatlán de las Manzanas.',
     cita:
-      'How a women-led project set out to build Mexico’s first Bitcoin Pueblo Mágico.',
+      'How a women led project set out to build Mexico’s first Bitcoin Pueblo Mágico.',
     revistaUrl: 'https://cryptoindiamagazine.aflip.in/narrative-v1-i2.html',
     revistaCta: 'Read the magazine',
     pdfCta: 'Download PDF',
@@ -387,7 +410,7 @@ export const en: Diccionario = {
   aliados: {
     titulo: 'Project partners',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', relleno: 'p-1.5 sm:p-2' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png?v=2', relleno: 'p-1.5 sm:p-2' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', relleno: 'p-1 sm:p-1.5' },
       { nombre: 'UNLOCK Summit 4th Edition', img: '/img/logo-unlock-summit.png', relleno: 'px-5 py-6 sm:px-6 sm:py-7' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', relleno: 'p-4 sm:p-5' },
@@ -404,14 +427,12 @@ export const en: Diccionario = {
     eyebrow: 'Create your wallet',
     tituloA: 'Open your account on',
     tituloDestacado: 'Bull Bitcoin',
-    bajada:
-      'The same wallet we install on the brigade. Create your account with Steph Serrano’s referral link.',
     cta: 'Create account',
     panelTitulo: 'How it opens',
     pasos: [
-      { titulo: 'Create your account', texto: 'Sign up with Steph Serrano’s link.' },
-      { titulo: 'Put it on your phone', texto: 'The same wallet we install on the brigade.' },
-      { titulo: 'Back up your keys', texto: 'The backup stays with you, right then.' },
+      { titulo: 'Create your account' },
+      { titulo: 'Put it on your phone' },
+      { titulo: 'Back up your keys' },
     ],
     qrLabel: 'Scan to sign up',
     qrTexto: 'You can also scan the code with your phone camera.',
@@ -429,9 +450,36 @@ export const en: Diccionario = {
     ],
     libroAlt:
       'Cover of Bitcoin Coach, Investor House’s illustrated manual for understanding, buying and using Bitcoin.',
-    libroVistasAlt:
-      'Back and front covers of Bitcoin Coach, Investor House’s illustrated manual.',
     libroCta: 'Buy the book',
+    libroFotosTitulo: 'The book, in person',
+    libroAnterior: 'Previous photo',
+    libroSiguiente: 'Next photo',
+    libroFotos: [
+      {
+        src: '/img/coach/01-ventana.webp',
+        alt: 'Four people holding Bitcoin Coach in front of a window.',
+      },
+      {
+        src: '/img/coach/02-patio.webp',
+        alt: 'Four people with Bitcoin Coach in a courtyard, under painted spheres.',
+      },
+      {
+        src: '/img/coach/03-mesa.webp',
+        alt: 'Three copies of Bitcoin Coach on a table, in front of the Avalanche Team1 banner.',
+      },
+      {
+        src: '/img/coach/04-salon.webp',
+        alt: 'Three people with Bitcoin Coach in a classroom, in front of a whiteboard.',
+      },
+      {
+        src: '/img/coach/05-detalle.webp',
+        alt: 'Two people holding a copy of Bitcoin Coach.',
+      },
+      {
+        src: '/img/coach/06-escenario.webp',
+        alt: 'University Route group in Zacatlán with Bitcoin Coach, in front of the UNLOCK banner.',
+      },
+    ],
   },
 
   donar: {
@@ -443,7 +491,7 @@ export const en: Diccionario = {
     redes: {
       liquid: 'Lightning',
       lightning: 'Lightning',
-      onchain: 'Bitcoin on-chain',
+      onchain: 'Bitcoin on chain',
     },
     cta: 'Donate via Lightning',
     ayudaEscaneo:

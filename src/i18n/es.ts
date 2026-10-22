@@ -34,11 +34,11 @@ export const es = {
   },
 
   hero: {
-    tituloA: 'Economía Circular Bitcoin',
+    tituloA: 'Pueblos Bitcoin México:',
     tituloDestacado: 'Zacatlán',
     tituloB: '',
     bajada:
-      'Proyecto de economía circular en Zacatlán de las Manzanas. El plan va por fases: Ruta Universitaria, UNLOCK Summit y la Brigada Educativa con comerciantes y artesanos.',
+      'Este proyecto de economía circular Pueblos Bitcoin México arrancó con el Pueblo Mágico de Zacatlán de las Manzanas.',
     ctaPrimario: 'Ver la ruta',
     ctaSecundario: 'Suma tu marca',
     arrancaEn: 'Arranca en',
@@ -78,7 +78,7 @@ export const es = {
     pausar: 'Pausar video',
     ctaSitio: 'Sitio oficial del municipio',
     mosaicoAlt: 'Mosaico de una manzana con el símbolo de Bitcoin',
-    mosaicoPie: 'La manzana de Zacatlán y Bitcoin: el fruto de una economía que se enseña en persona.',
+    mosaicoPie: 'El fruto de una economía circular que se enseña en persona.',
     datos: [
       { titulo: 'Pueblo Mágico', texto: 'Cabecera de la Sierra Norte de Puebla, con reloj floral, arco y huertos de manzana.' },
       { titulo: 'Gran Feria de la Manzana', texto: 'La fiesta que pone a Zacatlán en el mapa turístico de México cada año.' },
@@ -93,7 +93,7 @@ export const es = {
     tabsLabel: 'Misión, objetivo y visión',
     tabs: { mision: 'Misión', objetivo: 'Objetivo', vision: 'Visión' },
     mision:
-      'Impulsar una Economía Circular implementando un programa intensivo de educación financiera Bitcoin en Zacatlán de las Manzanas que, en un período de 4 semanas, capacite a comerciantes, artesanos, estudiantes y familias en el uso de Bitcoin y Lightning Network, activando el primer circuito económico Bitcoin del Pueblo Mágico de la Sierra Norte de Puebla y sentando las bases para su consolidación como destino Bitcoin-friendly.',
+      'Impulsar una Economía Circular implementando un programa intensivo de educación financiera Bitcoin en Zacatlán de las Manzanas que, en un período de 4 semanas, capacite a comerciantes, artesanos, estudiantes y familias en el uso de Bitcoin y Lightning Network, activando el primer circuito económico Bitcoin del Pueblo Mágico de la Sierra Norte de Puebla y sentando las bases para su consolidación como destino Bitcoin friendly.',
     objetivo:
       'Empoderar a la comunidad de Zacatlán de las Manzanas a través de la educación Bitcoin, brindando herramientas prácticas y accesibles que permitan a comerciantes, artesanos, estudiantes y familias participar activamente en la economía digital global, protegiendo su patrimonio de la inflación, reduciendo costos de transacción y eliminando barreras financieras, todo ello sin renunciar a la identidad cultural y las tradiciones que distinguen a este Pueblo Mágico.',
     vision:
@@ -214,7 +214,16 @@ export const es = {
         fechas: '11 al 13 de septiembre',
         resumen:
           'La 4ta edición del UNLOCK Summit en Zacatlán puso la minería en el centro: un taller especializado, dentro del programa del encuentro, para entender por qué la minería sostiene a Bitcoin.',
-        fotos: [],
+        fotos: [
+          {
+            src: '/img/ruta/taller-mineria.webp',
+            alt: 'Asistentes del taller de minería de Bitcoin, con sus computadoras, durante el UNLOCK Summit.',
+          },
+          {
+            src: '/img/ruta/unlock-grupo.webp',
+            alt: 'Foto de grupo del UNLOCK Summit frente al Gobierno Municipal de Zacatlán.',
+          },
+        ],
         reporteUrl: '',
         reporteCta: '',
         bloques: [
@@ -247,7 +256,20 @@ export const es = {
         fechas: 'Comerciantes y artesanos',
         resumen:
           'La brigada sale al mostrador y al taller. Comerciantes y artesanos de Zacatlán aprenden Bitcoin en persona, con las economías circulares de LATAM como referencia.',
-        fotos: [],
+        fotos: [
+          {
+            src: '/img/ruta/white-paper-house.webp',
+            alt: 'Logo de White Paper House, comunidad de economía circular.',
+          },
+          {
+            src: '/img/ruta/mi-tierra-digital.webp',
+            alt: 'Logo de Mi Tierra Digital, comunidad de economía circular.',
+          },
+          {
+            src: '/img/ruta/mision-21.webp',
+            alt: 'Logo de Misión 21, comunidad de economía circular.',
+          },
+        ],
         reporteUrl: '',
         reporteCta: '',
         bloques: [
@@ -256,6 +278,7 @@ export const es = {
             titulo: 'Economías circulares de LATAM',
             puntos: [
               'Bitcoin Beach en El Salvador y Bitcoin Jungle en Costa Rica, como circuitos que ya funcionan en la calle.',
+              'White Paper House, Mi Tierra Digital y Misión 21, otras comunidades que ya circulan Bitcoin.',
               'Lo que se aprende de ellas se lleva al mostrador de Zacatlán, con la identidad del Pueblo Mágico.',
               'La Cabaña de Satoshi como sede para explicar el dinero y practicar un pago.',
             ],
@@ -354,7 +377,7 @@ export const es = {
     ],
     enMedios: 'En medios',
     medio: 'Crypto India Magazine',
-    articulo: 'The Women-Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
+    articulo: 'The Women Led Bid to Build Mexico’s First Bitcoin Pueblo Mágico',
     nota: 'Narrative Vol. 1 · Issue 2. Nota sobre UNLOCK Universe y Zacatlán de las Manzanas.',
     cita:
       'Cómo un proyecto liderado por mujeres busca construir el primer Pueblo Mágico Bitcoin de México.',
@@ -386,7 +409,7 @@ export const es = {
   aliados: {
     titulo: 'Aliados del proyecto',
     lista: [
-      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png', relleno: 'p-1.5 sm:p-2' },
+      { nombre: 'Escuela Bitcoin México', img: '/img/logo-escuela-bitcoin.png?v=2', relleno: 'p-1.5 sm:p-2' },
       { nombre: 'Investor House', img: '/img/logo-investor-house.png', relleno: 'p-1 sm:p-1.5' },
       { nombre: 'UNLOCK Summit 4ta Edición', img: '/img/logo-unlock-summit.png', relleno: 'px-5 py-6 sm:px-6 sm:py-7' },
       { nombre: 'CriptoUNAM', img: '/img/logo-criptounam-negro.png', relleno: 'p-4 sm:p-5' },
@@ -403,14 +426,12 @@ export const es = {
     eyebrow: 'Crea tu wallet',
     tituloA: 'Abre tu cuenta en',
     tituloDestacado: 'Bull Bitcoin',
-    bajada:
-      'La misma wallet que instalamos en la brigada. Crea tu cuenta con el enlace de Steph Serrano.',
     cta: 'Crear cuenta',
     panelTitulo: 'Así se abre',
     pasos: [
-      { titulo: 'Crea tu cuenta', texto: 'Entra con el enlace de Steph Serrano.' },
-      { titulo: 'Bájala a tu teléfono', texto: 'La misma wallet que instalamos en la brigada.' },
-      { titulo: 'Respalda tus llaves', texto: 'El respaldo queda contigo, ahí mismo.' },
+      { titulo: 'Crea tu cuenta' },
+      { titulo: 'Bájala a tu teléfono' },
+      { titulo: 'Respalda tus llaves' },
     ],
     qrLabel: 'Escanea para registrarte',
     qrTexto: 'También puedes escanear el código con la cámara de tu teléfono.',
@@ -428,9 +449,36 @@ export const es = {
     ],
     libroAlt:
       'Portada de Bitcoin Coach, el manual ilustrado de Investor House para entender, comprar y usar Bitcoin.',
-    libroVistasAlt:
-      'Contraportada y portada de Bitcoin Coach, el manual ilustrado de Investor House.',
     libroCta: 'Comprar el libro',
+    libroFotosTitulo: 'El libro, en persona',
+    libroAnterior: 'Foto anterior',
+    libroSiguiente: 'Foto siguiente',
+    libroFotos: [
+      {
+        src: '/img/coach/01-ventana.webp',
+        alt: 'Cuatro personas muestran el libro Bitcoin Coach frente a una ventana.',
+      },
+      {
+        src: '/img/coach/02-patio.webp',
+        alt: 'Cuatro personas con Bitcoin Coach en un patio, bajo esferas pintadas.',
+      },
+      {
+        src: '/img/coach/03-mesa.webp',
+        alt: 'Tres ejemplares de Bitcoin Coach sobre una mesa, frente al banner de Avalanche Team1.',
+      },
+      {
+        src: '/img/coach/04-salon.webp',
+        alt: 'Tres personas con Bitcoin Coach en un salón, frente a un pizarrón.',
+      },
+      {
+        src: '/img/coach/05-detalle.webp',
+        alt: 'Dos personas muestran un ejemplar de Bitcoin Coach.',
+      },
+      {
+        src: '/img/coach/06-escenario.webp',
+        alt: 'Grupo de la Ruta Universitaria en Zacatlán con Bitcoin Coach, frente al banner de UNLOCK.',
+      },
+    ],
   },
 
   donar: {
@@ -442,7 +490,7 @@ export const es = {
     redes: {
       liquid: 'Lightning',
       lightning: 'Lightning',
-      onchain: 'Bitcoin on-chain',
+      onchain: 'Bitcoin on chain',
     },
     cta: 'Donar por Lightning',
     ayudaEscaneo:

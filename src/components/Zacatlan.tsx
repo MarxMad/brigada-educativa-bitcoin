@@ -1,29 +1,10 @@
-import { useRef, useState } from 'react';
-import { Play, Pause, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
 import { SITIO_ZACATLAN } from '@/config/enlaces';
 
-/**
- * Intro UNLOCK+Bitcoin US26 (H.264, 1920×1080, 15 s). El drone de Zacatlán
- * sigue en el hero (`/video/hero.mp4`); aquí va el intro de UNLOCK.
- */
 export default function Zacatlan() {
   const t = useT();
-  const video = useRef<HTMLVideoElement>(null);
-  const [reproduciendo, setReproduciendo] = useState(true);
-
-  const alternar = () => {
-    const v = video.current;
-    if (!v) return;
-    if (v.paused) {
-      void v.play().catch(() => {});
-      setReproduciendo(true);
-    } else {
-      v.pause();
-      setReproduciendo(false);
-    }
-  };
 
   return (
     <section id="zacatlan" className="relative bg-[#0A0806]">
@@ -77,7 +58,7 @@ export default function Zacatlan() {
           <figure className="relative mb-8 sm:mb-10 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#F7931A]/25 bg-[#11100F] shadow-[0_24px_80px_-32px_rgba(247,147,26,0.45)]">
             <img
               src="/img/manzana-bitcoin.jpg"
-              alt="Mosaico de manzana con símbolo Bitcoin - Arte que representa la economía circular Bitcoin en Zacatlán Pueblo Mágico"
+              alt="Mosaico de manzana con símbolo Bitcoin. Arte que representa la economía circular Bitcoin en Zacatlán Pueblo Mágico"
               width={1024}
               height={558}
               loading="lazy"
@@ -89,35 +70,6 @@ export default function Zacatlan() {
                 {t.zacatlan.mosaicoPie}
               </p>
             </figcaption>
-          </figure>
-        </Reveal>
-
-        <Reveal delay={100} dir="scale">
-          <figure className="group relative rounded-[20px] sm:rounded-[28px] overflow-hidden border border-white/[0.08] bg-black">
-            <video
-              ref={video}
-              className="w-full h-auto block"
-              src="/video/intro-unlock-bitcoin-us26.mp4"
-              poster="/video/intro-unlock-bitcoin-us26-poster.jpg"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            />
-
-            <button
-              type="button"
-              onClick={alternar}
-              aria-label={reproduciendo ? t.zacatlan.pausar : t.zacatlan.reproducir}
-              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 w-[44px] h-[44px] rounded-full bg-[#0A0806]/70 backdrop-blur-[12px] border border-white/15 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-300"
-            >
-              {reproduciendo ? (
-                <Pause className="w-[16px] h-[16px]" />
-              ) : (
-                <Play className="w-[16px] h-[16px] ml-[2px]" />
-              )}
-            </button>
           </figure>
         </Reveal>
       </div>

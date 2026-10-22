@@ -145,7 +145,7 @@ export default function Prensa() {
             >
               <img
                 src="/img/cim-x-unlock-portada.jpg"
-                alt="Crypto India Magazine - Artículo sobre el Primer Pueblo Mágico Bitcoin de México en Zacatlán"
+                alt="Crypto India Magazine. Artículo sobre el Primer Pueblo Mágico Bitcoin de México en Zacatlán"
                 loading="lazy"
                 className="w-full h-auto"
               />

@@ -47,11 +47,10 @@ function Animate({ children, delay = 0, className = '', direction = 'up' }: Anim
  */
 function TarjetaBrigada() {
   const t = useT();
-  const { estado, semanaActual, dias, horas, minutos, segundos, mismaFechaInicio } =
-    useCuentaRegresiva();
+  const { estado, dias, horas, minutos, segundos, mismaFechaInicio } = useCuentaRegresiva();
 
   const semanas = t.ruta.semanas;
-  const inicioPreview = estado === 'antes' ? 0 : Math.min(semanaActual, semanas.length) - 1;
+  const inicioPreview = 0;
   const [preview, setPreview] = useState(inicioPreview);
   const semanaFoco = semanas[preview] ?? semanas[0];
   const pista = useRef<HTMLDivElement>(null);
@@ -132,11 +131,13 @@ function TarjetaBrigada() {
 
   return (
     <Animate delay={900} direction="scale" className="w-full max-w-[420px] mx-auto lg:mx-0">
-      <div className="borde-oro w-full rounded-[24px] sm:rounded-[33px] bg-[rgba(10,8,6,0.62)] backdrop-blur-[24px] p-5 sm:p-7">
+      <div className="borde-oro w-full rounded-[24px] sm:rounded-[33px] bg-[rgba(10,8,6,0.92)] p-5 sm:p-7 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.9)]">
         <p className="flex items-center justify-between gap-3 mb-5">
           <span className="flex items-center gap-2.5">
             <span className="relative flex w-[7px] h-[7px]">
-              <span className="absolute inline-flex w-full h-full rounded-full bg-[#F7931A] opacity-70 animate-ping" />
+              {estado === 'enCurso' && (
+                <span className="absolute inline-flex w-full h-full rounded-full bg-[#F7931A] opacity-70 animate-ping" />
+              )}
               <span className="relative inline-flex w-[7px] h-[7px] rounded-full bg-[#F7931A]" />
             </span>
             <span className="text-white/70 text-[12px] sm:text-[13px] font-[450] leading-none uppercase tracking-[0.16em]">
@@ -169,7 +170,7 @@ function TarjetaBrigada() {
         ) : (
           <p className="mb-5">
             <span className="texto-oro text-[36px] sm:text-[48px] font-normal leading-[0.85] tnum">
-              {t.hero.semanaCorta} {semanaActual}
+              {t.hero.semanaCorta} {preview + 1}
             </span>
             <span className="text-white/25 text-[22px] sm:text-[28px] font-[450] leading-none"> / {semanas.length}</span>
           </p>
@@ -319,8 +320,8 @@ export default function Hero() {
         <Nav />
 
         <div className="flex-1 flex items-center py-8">
-          <div className="w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-12">
-            <div className="max-w-[593px]">
+          <div className="w-full max-w-[1800px] mx-auto px-5 sm:px-8 md:px-[82px] grid gap-10 lg:min-h-[560px] lg:grid-cols-[minmax(0,593px)_minmax(280px,420px)] lg:grid-rows-[1fr_auto] lg:items-center lg:justify-between lg:gap-x-16">
+            <div className="max-w-[593px] lg:row-span-2 lg:self-center">
               <Animate delay={300} direction="up">
                 <h1 className="text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-normal leading-[0.95] mb-5 sm:mb-8">
                   {t.hero.tituloA}{' '}
@@ -353,7 +354,9 @@ export default function Hero() {
               </Animate>
             </div>
 
-            <TarjetaBrigada />
+            <div className="lg:col-start-2 lg:row-start-2 lg:self-end">
+              <TarjetaBrigada />
+            </div>
           </div>
         </div>
       </div>
@@ -393,7 +396,7 @@ function Nav() {
             <a href="#inicio" className="flex items-center gap-2.5 min-w-0">
               <img
                 src="/img/logo-manzana-bitcoin.png"
-                alt="Logo Economía Circular Bitcoin Zacatlán - Primer Pueblo Mágico Bitcoin de México"
+                alt="Logo Economía Circular Bitcoin Zacatlán. Primer Pueblo Mágico Bitcoin de México"
                 aria-hidden="true"
                 width={34}
                 height={34}

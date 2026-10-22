@@ -1,8 +1,50 @@
-import { useEffect, useState } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Target } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Pause, Play, Target } from 'lucide-react';
 import VideoFondo from '@/components/VideoFondo';
 import Reveal from '@/components/Reveal';
 import { useT } from '@/i18n';
+
+function VideoUnlock() {
+  const t = useT();
+  const video = useRef<HTMLVideoElement>(null);
+  const [reproduciendo, setReproduciendo] = useState(true);
+
+  const alternar = () => {
+    const v = video.current;
+    if (!v) return;
+    if (v.paused) {
+      void v.play().catch(() => {});
+      setReproduciendo(true);
+    } else {
+      v.pause();
+      setReproduciendo(false);
+    }
+  };
+
+  return (
+    <figure className="group relative mb-4 overflow-hidden rounded-[16px] border border-white/[0.08] bg-black">
+      <video
+        ref={video}
+        className="block h-auto w-full"
+        src="/video/intro-unlock-bitcoin-us26.mp4"
+        poster="/video/intro-unlock-bitcoin-us26-poster.jpg"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+      />
+      <button
+        type="button"
+        onClick={alternar}
+        aria-label={reproduciendo ? t.zacatlan.pausar : t.zacatlan.reproducir}
+        className="absolute bottom-4 right-4 flex h-[44px] w-[44px] items-center justify-center rounded-full border border-white/15 bg-[#0A0806]/70 text-white opacity-0 backdrop-blur-[12px] transition-opacity duration-300 group-hover:opacity-100 focus-visible:opacity-100"
+      >
+        {reproduciendo ? <Pause className="h-[16px] w-[16px]" /> : <Play className="ml-[2px] h-[16px] w-[16px]" />}
+      </button>
+    </figure>
+  );
+}
 
 export default function Ruta() {
   const t = useT();
@@ -172,20 +214,31 @@ export default function Ruta() {
               <p className="text-white/65 text-[15px] sm:text-[16px] font-[450] leading-[1.5] max-w-[720px]">
                 {semana.resumen}
               </p>
-              {(semana.fotos.length > 0 || semana.reporteUrl) && (
+              {(semana.fotos.length > 0 || semana.reporteUrl || semana.id === 'f2') && (
                 <div className="mt-5">
+                  {semana.id === 'f2' && <VideoUnlock />}
                   {semana.fotos.length > 0 && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    <div
+                      className={`mb-4 grid grid-cols-1 items-start gap-3 ${
+                        semana.id === 'f3' ? 'sm:grid-cols-3' : 'sm:grid-cols-2'
+                      }`}
+                    >
                       {semana.fotos.map((foto) => (
                         <img
                           key={foto.src}
                           src={foto.src}
                           alt={foto.alt}
-                          width={1600}
-                          height={1067}
+                          width={800}
+                          height={800}
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-[220px] sm:h-[280px] object-cover rounded-[16px] border border-white/[0.08]"
+                          className={
+                            semana.id === 'f3'
+                              ? 'aspect-square w-full rounded-[16px] border border-white/[0.08] bg-[#120e0a] object-contain p-3'
+                              : semana.id === 'f2'
+                                ? 'h-auto max-h-[520px] w-full rounded-[16px] border border-white/[0.08]'
+                                : 'h-[220px] w-full rounded-[16px] border border-white/[0.08] object-cover sm:h-[280px]'
+                          }
                         />
                       ))}
                     </div>
